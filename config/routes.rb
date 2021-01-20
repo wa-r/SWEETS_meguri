@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'homes#top'
+  devise_for :members
   devise_for :admins
-  devise_for :customers
   resources :members, only: [:show, :edit, :update]
   get '/unsubscribe' => 'members#unsubscribe'
   patch '/withdrawal' => 'members#withdrawal'
