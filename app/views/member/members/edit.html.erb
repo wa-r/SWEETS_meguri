@@ -1,0 +1,9 @@
+<h2>編集画面</h2>
+<%= form_with model: @member, member_path(@member), method: :patch, local: true do |f| %>
+  <%= f.label :"名前" %>
+  <%= f.text_field :name %>
+  <%= f.label :"紹介文" %>
+  <%= f.text_area :introduction %>
+<% end %>
+<%= link_to "退会", unsubscribe_path %>
+  
