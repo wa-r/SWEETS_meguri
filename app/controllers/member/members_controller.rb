@@ -1,5 +1,5 @@
-class MembersController < ApplicationController
-  
+class Member::MembersController < ApplicationController
+
   def show
     @member = Member.find(params[:id])
   end
@@ -7,7 +7,7 @@ class MembersController < ApplicationController
   def edit
     @member = Member.find(params[:id])
   end
-  
+
   def update
     @member = Member.find(params[:id])
     @member.update(member_params)
@@ -16,7 +16,7 @@ class MembersController < ApplicationController
   def unsubscribe
     @member = Member.find(params[:id])
   end
-  
+
   def withdrawal
     @member = Member.find(params[:id])
     # is_deletedカラムをtrueに変更することにより削除フラグを立てる
@@ -24,13 +24,13 @@ class MembersController < ApplicationController
     reset_session
     flash[:notice] = "退会処理を実行いたしました"
     redirect_to root_path
-    
+
   end
-  
+
   private
-  
+
   def member_params
     params.require(:member).permit(:name, :introduction)
   end
-  
+
 end
