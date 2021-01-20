@@ -11,10 +11,7 @@ class Member::MembersController < ApplicationController
   def update
     @member = Member.find(params[:id])
     @member.update(member_params)
-  end
-
-  def unsubscribe
-    @member = Member.find(params[:id])
+    redirect_to member_path(@member)
   end
 
   def withdrawal
