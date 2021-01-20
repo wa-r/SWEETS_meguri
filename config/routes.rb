@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_for :members
   scope module: :member do
     resources :members, only: [:show, :edit, :update]
-    get '/unsubscribe' => 'members#unsubscribe'
-    patch '/withdrawal' => 'members#withdrawal'
+    get '/members/:id/unsubscribe' => 'members#unsubscribe', as: 'unsubscribe'
+    patch '/members/:id/withdrawal' => 'members#withdrawal', as: 'withdrawal'
   end
 end
