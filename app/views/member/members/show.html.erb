@@ -1,3 +1,16 @@
 <h2>会員ページ</h2>
-<%= @member.name %>
-<%= @member.introduction %>
+<table>
+  <tr>
+    <td><%= attachment_image_tag @member, :image, fallback: "no_image.jpeg", size: '20x20', format: 'jpeg' %></td>
+  <tr>
+    <td>名前</td>
+    <td><%= @member.name %></td>
+  </tr>
+　<tr>
+　  <td>紹介文</td>
+　  <td><%= @member.introduction %></td>
+　</tr>
+　<tr>
+　  <td><%= link_to "編集", edit_member_path %></td>
+　</tr>
+</table>
