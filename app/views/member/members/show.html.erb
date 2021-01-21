@@ -1,23 +1,23 @@
 <h2>会員ページ</h2>
-<table>
-  <tr>
-    <td><%= attachment_image_tag @member, :profile_image, fallback: "no_image.jpeg", size: '20x20', format: 'jpeg' %></td>
-  <tr>
-    <td>名前</td>
-    <td><%= @member.name %></td>
-  </tr>
-　<tr>
-　  <td>紹介文</td>
-　  <td><%= @member.introduction %></td>
-　</tr>
-　<tr>
-　  <td><%= link_to "編集", edit_member_path %></td>
-　</tr>
-  <tr>
-    <td>
-      <% if current_member %>
-        <%= link_to "つぶやき投稿へ", new_tweet_path %>
-      <% end %>
-    </td>
-  </tr>
-</table>
+<%= attachment_image_tag @member, :profile_image, fallback: "no_image.jpeg", size: '50x50', format: 'jpeg' %>
+<%= @member.name %>
+<% if @member == current_member %>
+　<!-- 編集リンク・アイコン付き -->
+　<%= link_to edit_member_path(@member) do %>
+    <i class="fas fa-wrench"></i>
+　<% end %>
+　<!-- つぶやきリンク・アイコン付き -->
+  <%= link_to new_tweet_path do %>
+    <i class="far fa-comment-dots"></i>
+　<% end %>
+<% end %>
+<%= link_to "フォロー", follows_member_path(@member) %>&emsp;
+<%= link_to "フォロワー", followers_member_path(@member) %>
+<% unless @member == current_member %>
+  <% if @member.followed_by?(current_member) %>
+    <%= link_to "フォロー済み", member_relationships_path(@member), method: :delete %>
+  <% else %>
+    <%= link_to "フォローする", member_relationships_path(@member), method: :post %>
+  <% end %>
+<% end %>
+<p><%= @member.introduction %></p>
