@@ -1,7 +1,7 @@
 <h2>編集画面</h2>
 <%= form_with model: @member, url: member_path(@member), method: :patch, local: true do |f| %>
   <p><%= f.label :"プロフィール画像" %></p>
-  <p><%= f.attachment_field :image %></p>
+  <p><%= f.attachment_field :profile_image %></p>
   <p><%= f.label :"名前" %></p>
   <p><%= f.text_field :name %></p>
   <p><%= f.label :"紹介文" %></p>
