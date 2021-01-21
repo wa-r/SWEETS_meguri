@@ -20,7 +20,18 @@ class Member::MembersController < ApplicationController
     reset_session
     flash[:notice] = "退会処理を実行いたしました"
     redirect_to root_path
+  end
 
+  # フォロー画面表示用
+  def follows
+    member = Member.find(params[:id])
+    @members = member.followings
+  end
+
+  # フォロワー画面表示用
+  def followers
+    member = Member.find(params[:id])
+    @members = member.followers
   end
 
   private
