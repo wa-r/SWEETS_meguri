@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     end
     get '/members/:id/unsubscribe' => 'members#unsubscribe', as: 'unsubscribe'
     patch '/members/:id/withdrawal' => 'members#withdrawal', as: 'withdrawal'
-    resources :tweets, except: [:show]
+    resources :tweets, except: [:show] do
+      resource :tweet_likes, only: [:create, :destroy]
+    end
   end
 end
