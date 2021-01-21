@@ -13,4 +13,11 @@
 　<tr>
 　  <td><%= link_to "編集", edit_member_path %></td>
 　</tr>
+  <tr>
+    <td>
+      <% if current_member %>
+        <%= link_to "つぶやき投稿へ", new_tweet_path %>
+      <% end %>
+    </td>
+  </tr>
 </table>
