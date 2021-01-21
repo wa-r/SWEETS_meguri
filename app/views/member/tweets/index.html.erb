@@ -6,13 +6,7 @@
         <%= attachment_image_tag tweet.member, :profile_image, fallback: "no_image.jpeg", size: '20x20', format: 'jpeg' %>
         <%= link_to "#{tweet.member.name}", member_path(tweet.member) %>
       </td>
-      <td>
-        <% if current_member.id == tweet.member_id %>
-          <i class="fas fa-pencil-alt"></i>
-          <%= link_to "編集", edit_tweet_path(tweet) %>
-          <%= link_to "削除", tweet_path(tweet), method: :delete, data: { confirm: "本当に削除してよろしいですか？" } %>
-        <% end %>
-      </td>
+
     </tr>
     <tr>
       <td>タイトル</td>
@@ -24,6 +18,23 @@
     </tr>
     <tr>
       <td><%= attachment_image_tag tweet, :image, size: '100x100', format: 'jpeg' %></td>
+    </tr>
+    <tr>
+      <td>
+        <% if member_signed_in? %>
+          <% if tweet.tweet_liked_by?(current_member) %>
+            <%= link_to tweet_tweet_likes_path(tweet), method: :delete do %>
+              <i class="fas fa-apple-alt" style="color: #ea5550;"></i>
+              <%= tweet.tweet_likes.count %>
+            <% end %>
+          <% else %>
+            <%= link_to tweet_tweet_likes_path(tweet), method: :post do %>
+              <i class="fas fa-apple-alt" style="color: #4e454a;"></i>
+          <%= tweet.tweet_likes.count %>
+            <% end %>
+          <% end %>
+        <% end %>
+      </td>
     </tr>
   </table>
 <% end %>
