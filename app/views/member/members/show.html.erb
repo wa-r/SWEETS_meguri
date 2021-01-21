@@ -1,7 +1,7 @@
 <h2>会員ページ</h2>
 <table>
   <tr>
-    <td><%= attachment_image_tag @member, :image, fallback: "no_image.jpeg", size: '20x20', format: 'jpeg' %></td>
+    <td><%= attachment_image_tag @member, :profile_image, fallback: "no_image.jpeg", size: '20x20', format: 'jpeg' %></td>
   <tr>
     <td>名前</td>
     <td><%= @member.name %></td>

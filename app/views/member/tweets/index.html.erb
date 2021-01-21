@@ -3,7 +3,7 @@
   <table>
     <tr>
       <td>
-        <%= attachment_image_tag tweet.member, :image, fallback: "no_image.jpeg", size: '20x20', format: 'jpeg' %>
+        <%= attachment_image_tag tweet.member, :profile_image, fallback: "no_image.jpeg", size: '20x20', format: 'jpeg' %>
         <%= link_to "#{tweet.member.name}", member_path(tweet.member) %>
       </td>
       <td>
