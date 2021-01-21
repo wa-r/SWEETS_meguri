@@ -1,5 +1,4 @@
 class Member::MembersController < ApplicationController
-
   def show
     @member = Member.find(params[:id])
   end
@@ -29,5 +28,4 @@ class Member::MembersController < ApplicationController
   def member_params
     params.require(:member).permit(:name, :introduction)
   end
-
 end

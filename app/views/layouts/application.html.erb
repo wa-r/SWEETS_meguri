@@ -7,6 +7,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/ff199016f3.js" crossorigin="anonymous"></script>
   </head>
 
   <header>
@@ -16,7 +17,7 @@
           <%= link_to "マイページ", member_path(current_member) %>
         </li>
         <li>
-          <%= link_to "つぶやき",  member_path(current_member) %>
+          <%= link_to "タイムライン", tweets_path %>
         </li>
         <li>
           <%= link_to "ログアウト", destroy_member_session_path, method: :delete %>

@@ -1,0 +1,20 @@
+<h2>つぶやき</h2>
+<%= form_with model: @tweet, local: true do |f| %>
+  <table>
+    <tr>
+      <td><%= f.label :"画像" %></td>
+      <td><%= f.attachment_field :image %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :"タイトル" %></td>
+      <td><%= f.text_field :title, placeholder: "タイトルやお店の名前" %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :"つぶやき" %></td>
+      <td><%= f.text_field :content %></td>
+    </tr>
+    <tr>
+      <td><%= f.submit '投稿' %></td>
+    </tr>
+  </table>
+<% end %>
