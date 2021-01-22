@@ -1,0 +1,13 @@
+<% if member_signed_in? %>
+  <% if tweet.tweet_liked_by?(current_member) %>
+    <%= link_to tweet_tweet_likes_path(tweet), method: :delete, remote: true do %>
+      <i class="fas fa-apple-alt" aria-hidden="true" style="color: #ea5550;"></i>
+      <%= tweet.tweet_likes.count %>
+    <% end %>
+  <% else %>
+    <%= link_to tweet_tweet_likes_path(tweet), method: :post, remote: true do %>
+      <i class="fas fa-apple-alt" aria-hidden="true" style="color: #4e454a;"></i>
+      <%= tweet.tweet_likes.count %>
+    <% end %>
+  <% end %>
+<% end %>
