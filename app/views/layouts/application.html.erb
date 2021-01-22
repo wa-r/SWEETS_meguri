@@ -7,9 +7,35 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/ff199016f3.js" crossorigin="anonymous"></script>
   </head>
+
+  <header>
+    <ul>
+      <% if member_signed_in? %>
+        <li>
+          <%= link_to "マイページ", member_path(current_member) %>
+        </li>
+        <li>
+          <%= link_to "タイムライン", tweets_path %>
+        </li>
+        <li>
+          <%= link_to "ログアウト", destroy_member_session_path, method: :delete %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to "新規登録", new_member_registration_path %>
+        </li>
+        <li>
+          <%= link_to "ログイン", new_member_session_path %>
+        </li>
+      <% end %>
+    </ul>
+  </header>
 
   <body>
     <%= yield %>
   </body>
+
+  <footer></footer>
 </html>

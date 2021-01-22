@@ -33,8 +33,6 @@ class DeviseCreateMembers < ActiveRecord::Migration[5.2]
       # t.datetime :locked_at
 
       t.string :name, null: false
-      t.text :introduction, null: false
-      t.boolean :is_deleted, default: false
       t.timestamps null: false
     end
 

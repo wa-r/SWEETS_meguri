@@ -1,0 +1,1 @@
+$("#likes_btn_<%= @tweet.id %>").html("<%= j(render partial: 'member/tweet_likes/tweet_like', locals: {tweet: @tweet}) %>");
