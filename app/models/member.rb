@@ -4,7 +4,7 @@ class Member < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   attachment :profile_image
-  
+
   # 自分がフォローしているユーザーとの関係
   has_many :active_relationships, class_name: "Relationship", foreign_key: :following_id
   has_many :followings, through: :active_relationships, source: :follower
@@ -13,6 +13,7 @@ class Member < ApplicationRecord
   has_many :followers, through: :passive_relationships, source: :following
   has_many :tweets, dependent: :destroy
   has_many :tweet_likes, dependent: :destroy
+  has_many :tweet_comments, dependent: :destroy
 
   validates :name, presence: true, length: { in: 2..20 }
 
