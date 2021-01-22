@@ -7,21 +7,28 @@
         <%= link_to "#{tweet.member.name}", member_path(tweet.member) %>
       </td>
     <tr>
-      <td>タイトル</td>
+      <!--<td>タイトル</td>-->
       <td><%= tweet.title %></td>
     </tr>
     <tr>
-      <td>内容</td>
+    <!--  <td>内容</td>-->
       <td><%= tweet.content %></td>
     </tr>
     <tr>
       <td><%= attachment_image_tag tweet, :image, size: '100x100', format: 'jpeg' %></td>
     </tr>
     <tr>
+      <td><%= tweet.created_at.strftime('%F') %>&nbsp;<%= tweet.created_at.strftime('%H:%M') %></td>
+    </tr>
+    <tr>
       <td>
-        <div id="likes_btn_<%= tweet.id %>">
+        <span id="likes_btn_<%= tweet.id %>">
           <%= render partial: 'member/tweet_likes/tweet_like', locals: {tweet: tweet} %>
-        </div>
+        </span>
+        <%= link_to tweet_path(tweet) do %>
+          <i class="far fa-comment"></i>
+        <% end %>
+        <%= tweet.tweet_comments.count %>
       </td>
     </tr>
   </table>

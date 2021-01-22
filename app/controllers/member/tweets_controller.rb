@@ -1,6 +1,12 @@
 class Member::TweetsController < ApplicationController
+
   def index
     @tweets = Tweet.all.page(params[:page]).per(5)
+  end
+
+  def show
+    @tweet = Tweet.find(params[:id])
+    @tweet_comment = TweetComment.new
   end
 
   def new
@@ -10,8 +16,11 @@ class Member::TweetsController < ApplicationController
   def create
     @tweet = Tweet.new(tweet_params)
     @tweet.member_id = current_member.id
-    @tweet.save
-    redirect_to tweets_path
+    if @tweet.save
+      redirect_to tweets_path
+    else
+      render :new
+    end
   end
 
   def edit
@@ -31,7 +40,9 @@ class Member::TweetsController < ApplicationController
   end
 
   private
+
   def tweet_params
     params.require(:tweet).permit(:title, :content, :image)
   end
+
 end
