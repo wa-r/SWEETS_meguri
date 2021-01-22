@@ -16,7 +16,7 @@ class Member < ApplicationRecord
   has_many :tweet_comments, dependent: :destroy
 
   validates :name, presence: true, length: { in: 2..20 }
-
+  
   # 退会済み(is_deleted == true)のユーザーを弾くためのメソッド
   # is_deletedがfalseならtrueを返すようにしている
   def active_for_authentication?
