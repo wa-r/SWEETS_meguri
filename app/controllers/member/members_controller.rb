@@ -9,8 +9,12 @@ class Member::MembersController < ApplicationController
 
   def update
     @member = Member.find(params[:id])
-    @member.update(member_params)
-    redirect_to member_path(@member)
+    if @member.update(member_params)
+      redirect_to member_path(@member)
+    else
+      render :edit
+      flash[:notice] = "更新に失敗しました"
+    end
   end
 
   def withdrawal
