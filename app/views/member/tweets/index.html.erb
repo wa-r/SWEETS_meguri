@@ -6,8 +6,6 @@
         <%= attachment_image_tag tweet.member, :profile_image, fallback: "no_image.jpeg", size: '20x20', format: 'jpeg' %>
         <%= link_to "#{tweet.member.name}", member_path(tweet.member) %>
       </td>
-
-    </tr>
     <tr>
       <td>タイトル</td>
       <td><%= tweet.title %></td>
@@ -21,19 +19,9 @@
     </tr>
     <tr>
       <td>
-        <% if member_signed_in? %>
-          <% if tweet.tweet_liked_by?(current_member) %>
-            <%= link_to tweet_tweet_likes_path(tweet), method: :delete do %>
-              <i class="fas fa-apple-alt" style="color: #ea5550;"></i>
-              <%= tweet.tweet_likes.count %>
-            <% end %>
-          <% else %>
-            <%= link_to tweet_tweet_likes_path(tweet), method: :post do %>
-              <i class="fas fa-apple-alt" style="color: #4e454a;"></i>
-          <%= tweet.tweet_likes.count %>
-            <% end %>
-          <% end %>
-        <% end %>
+        <div id="likes_btn_<%= tweet.id %>">
+          <%= render partial: 'member/tweet_likes/tweet_like', locals: {tweet: tweet} %>
+        </div>
       </td>
     </tr>
   </table>
