@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   end
   root 'homes#top'
   devise_for :admins
+  namespace :admin do
+    resources :genres, only: [:index, :create, :edit, :update, :destroy]
+  end
+  
   devise_for :members
   scope module: :member do
     resources :members, only: [:show, :edit, :update] do
