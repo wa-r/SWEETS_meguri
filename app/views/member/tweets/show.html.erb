@@ -7,11 +7,9 @@
     </td>
   </tr>
   <tr>
-    <!--<td>タイトル</td>-->
     <td><%= @tweet.title %></td>
   </tr>
   <tr>
-    <!--<td>内容</td>-->
     <td><%= @tweet.content %></td>
   </tr>
   <tr>
@@ -51,9 +49,10 @@
     <td><%= tweet_comment.created_at.strftime('%F') %>&nbsp;<%= tweet_comment.created_at.strftime('%H:%M') %></td>
     <td>
       <% if tweet_comment.member == current_member %>
-        <%= link_to "削除", tweet_tweet_comment_path(tweet_comment.tweet, tweet_comment), method: :delete, data: { confilm: "本当に削除しますか？" } %>
+        <%= link_to "削除", tweet_tweet_comment_path(tweet_comment.tweet, tweet_comment), method: :delete, data: { confirm: '本当に削除しますか？' } %>
       <% end %>
     </td>
   </tr>
   <% end %>
 </table>
+

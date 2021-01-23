@@ -2,7 +2,7 @@
 <%= form_with model: @tweet, local: true do |f| %>
 <%= render 'layouts/error_messages', model: @tweet %>
 
-  <table>
+  <table class="table">
     <tr>
       <td><%= f.label :"画像" %></td>
       <td><%= f.attachment_field :image %></td>
@@ -12,7 +12,7 @@
     </tr>
     <tr>
       <td><%= f.label :"つぶやき" %></td>
-      <td><%= f.text_field :content %></td>
+      <td><%= f.text_field :content, size: "60" %></td>
     </tr>
     <tr>
       <td><%= f.submit '投稿' %></td>
