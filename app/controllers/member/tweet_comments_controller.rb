@@ -6,7 +6,7 @@ class Member::TweetCommentsController < ApplicationController
     comment.member_id = current_member.id
     comment.tweet_id = tweet.id
     comment.save
-    redirect_to request.referer
+    redirect_to tweet_path(tweet.id)
   end
 
   def destroy
