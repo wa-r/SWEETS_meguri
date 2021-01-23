@@ -3,10 +3,12 @@ Rails.application.routes.draw do
     get 'relationships/create'
     get 'relationships/destroy'
   end
+  
   root 'homes#top'
   devise_for :admins
   namespace :admin do
     resources :genres, only: [:index, :create, :edit, :update, :destroy]
+    resources :shops
   end
   
   devise_for :members
