@@ -14,6 +14,7 @@ class Admin::ShopsController < ApplicationController
   end
 
   def create
+    @genres = Genre.all
     @shop = Shop.new(shop_params)
     if @shop.save
       redirect_to admin_shop_path(@shop), noice: "店舗情報登録に成功しました"
@@ -44,7 +45,7 @@ class Admin::ShopsController < ApplicationController
 
   private
   def shop_params
-    params.require(:shop).permit(:genre_id, :name, :phone_number, :address, :latitude, :longitude, :nearest_station, :business_hours, :regular_holiday, :shop_image, :caption)
+    params.require(:shop).permit(:genre_id, :name, :phone_number, :address, :latitude, :longitude, :nearest_station, :business_hours, :regular_holiday, :shop_image, :caption, shop_images_images: [])
   end
 
 end

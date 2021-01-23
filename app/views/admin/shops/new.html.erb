@@ -11,10 +11,10 @@
     </tr>
     <tr>
       <td><%= f.label :"店舗写真" %></td>
-      <td><%= f.attachment_field :shop_image %></td>
+      <td><%= f.attachment_field :shop_images_images, multiple: true %></td>
     </tr>
     <tr>
-      <td resize="none"><%= f.label :"紹介・説明" %></td>
+      <td><%= f.label :"紹介・説明" %></td>
       <td><%= f.text_area :caption, size: "50" %></td>
     </tr>
     <tr>

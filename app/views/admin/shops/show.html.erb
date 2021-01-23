@@ -1,2 +1,48 @@
-<h1>Admin::Shops#show</h1>
-<p>Find me in app/views/admin/shops/show.html.erb</p>
+<h2>店舗情報詳細</h2>
+<table class="table">
+  <tr>
+    <td>店舗名</td>
+    <td><%= @shop.name %></td>
+  </tr>
+  <tr>
+    <td>ジャンル</td>
+    <td><%= @shop.genre.name %></td>
+  </tr>
+  <tr>
+    <td>店舗写真</td>
+    <td>
+      <!-- (変数).present? 値が存在するかどうかにより後続の処理を変更したい場合に使用する -->
+      <% if @shop.shop_images.present? %>
+      　<% @shop.shop_images.each do |shop_image| %>
+      　  <%= attachment_image_tag shop_image, :image, size: "150x150", class: "default_image" %>
+        <% end %>
+      <% else %>
+        <p>画像は登録されておりません。</p>
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+    <td>店舗紹介文</td>
+    <td><%= @shop.caption %></td>
+  </tr>
+  <tr>
+    <td>住所</td>
+    <td><%= @shop.address %></td>
+  </tr>
+  <tr>
+    <td>最寄り駅</td>
+    <td><%= @shop.nearest_station %></td>
+  </tr>
+  <tr>
+    <td>電話番号</td>
+    <td><%= @shop.phone_number %></td>
+  </tr>
+  <tr>
+    <td>営業時間</td>
+    <td><%= @shop.business_hours %></td>
+  </tr>
+  <tr>
+    <td>定休日</td>
+    <td><%= @shop.regular_holiday %></td>
+  </tr>
+</table>
