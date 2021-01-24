@@ -47,9 +47,10 @@
 
   <body>
     <div class="wrapper">
-      <%= flash.now[:alert] %>
-      <%= flash[:notice] %>
+      <%= flash.now[:alert] %>      <%= flash[:notice] %>
+      
       <%= yield %>
+
     </div>
   </body>
 
