@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 2021_01_23_153329) do
     t.string "nearest_station", null: false
     t.string "business_hours", null: false
     t.string "regular_holiday", null: false
-    t.string "shop_image_id"
+    t.string "main_image_id"
     t.text "caption", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
