@@ -9,29 +9,12 @@
     <td><%= @shop.genre.name %></td>
   </tr>
   <tr>
-    <td>店舗写真</td>
-    <td>
-      <!-- (変数).present? 値が存在するかどうかにより後続の処理を変更したい場合に使用する -->
-      <% if @shop.shop_images.present? %>
-      　<% @shop.shop_images.each do |shop_image| %>
-      　  <%= attachment_image_tag shop_image, :image, size: "150x150", class: "default_image" %>
-        <% end %>
-      <% else %>
-        <p>画像は登録されておりません。</p>
-      <% end %>
-    </td>
-  </tr>
-  <tr>
     <td>店舗紹介文</td>
     <td><%= @shop.caption %></td>
   </tr>
   <tr>
     <td>住所</td>
     <td><%= @shop.address %></td>
-  </tr>
-  <tr>
-    <td>最寄り駅</td>
-    <td><%= @shop.nearest_station %></td>
   </tr>
   <tr>
     <td>電話番号</td>
@@ -44,5 +27,22 @@
   <tr>
     <td>定休日</td>
     <td><%= @shop.regular_holiday %></td>
+  </tr>
+  <tr>
+    <td>アクセス</td>
+    <td><%= @shop.nearest_station %></td>
+  </tr>
+  <tr>
+    <td>店舗写真</td>
+    <td>
+      <!-- (変数).present? 値が存在するかどうかにより後続の処理を変更したい場合に使用する -->
+      <% if @shop.shop_images.present? %>
+      　<% @shop.shop_images.each do |shop_image| %>
+      　  <%= attachment_image_tag shop_image, :image, size: "150x150", class: "default_image" %>
+        <% end %>
+      <% else %>
+        <p>画像は登録されておりません。</p>
+      <% end %>
+    </td>
   </tr>
 </table>
