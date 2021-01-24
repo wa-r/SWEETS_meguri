@@ -26,11 +26,12 @@ class Admin::ShopsController < ApplicationController
 
   def edit
     @shop = Shop.find(params[:id])
+    @genres = Genre.all
   end
 
   def update
     @shop = Shop.find(params[:id])
-    if @shop.save
+    if @shop.update(shop_params)
       redirect_to admin_shop_path(@shop), noice: "店舗情報更新に成功しました"
     else
       flash.now[:alert] = "店舗情報更新に失敗しました"
@@ -41,11 +42,12 @@ class Admin::ShopsController < ApplicationController
   def destroy
     @shop = Shop.find(params[:id])
     @shop.destroy
+    redirect_to request.referer, notice: "店舗情報の削除に成功"
   end
 
   private
   def shop_params
-    params.require(:shop).permit(:genre_id, :name, :phone_number, :address, :latitude, :longitude, :nearest_station, :business_hours, :regular_holiday, :shop_image, :caption, shop_images_images: [])
+    params.require(:shop).permit(:genre_id, :name, :phone_number, :address, :latitude, :longitude, :nearest_station, :business_hours, :regular_holiday, :main_image, :caption, shop_images_images: [])
   end
 
 end

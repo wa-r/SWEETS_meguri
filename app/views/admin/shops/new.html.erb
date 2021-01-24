@@ -10,7 +10,11 @@
       <td><%= f.collection_select :genre_id, @genres, :id, :name, {prompt: "--選択してください--"} %></td>
     </tr>
     <tr>
-      <td><%= f.label :"店舗写真" %></td>
+      <td><%= f.label :"メイン写真" %></td>
+      <td><%= f.attachment_field :main_image %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :"写真" %></td>
       <td><%= f.attachment_field :shop_images_images, multiple: true %></td>
     </tr>
     <tr>
@@ -27,7 +31,7 @@
     </tr>
     <tr>
       <td><%= f.label :"電話番号" %></td>
-      <td><%= f.telephone_field :phone_number, placeholder: "例）03-1234-5678" %></td>
+      <td><%= f.telephone_field :phone_number, placeholder: "例）0312345678" %></td>
     </tr>
     <tr>
       <td><%= f.label :"営業時間" %></td>

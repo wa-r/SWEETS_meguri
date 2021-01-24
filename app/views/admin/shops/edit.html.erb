@@ -1,2 +1,49 @@
-<h1>Admin::Shops#edit</h1>
-<p>Find me in app/views/admin/shops/edit.html.erb</p>
+<%= form_with model: @shop, url: admin_shop_path(@shop), method: :patch, local: true do |f| %>
+<%= render 'layouts/error_messages', model: @shop %>
+  <table class="table">
+    <tr>
+      <td><%= f.label :"店舗名"%></td>
+      <td><%= f.text_field :name, size: "50", placeholder: "例）ブラウンカフェ" %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :"ジャンル" %></td>
+      <td><%= f.collection_select :genre_id, @genres, :id, :name, {prompt: "--選択してください--"} %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :"メイン写真" %></td>
+      <td><%= f.attachment_field :main_image %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :"写真" %></td>
+      <td><%= f.attachment_field :shop_images_images, multiple: true %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :"紹介・説明" %></td>
+      <td><%= f.text_area :caption, size: "50" %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :"住所" %></td>
+      <td><%= f.text_field :address, size: "50", placeholder: "例）東京都品川区1-1-1 品川ハイツ3階" %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :"最寄り駅" %></td>
+      <td><%= f.text_field :nearest_station, size: "50", placeholder: "例）JR品川駅 徒歩5分" %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :"電話番号" %></td>
+      <td><%= f.telephone_field :phone_number, placeholder: "例）0312345678" %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :"営業時間" %></td>
+      <td><%= f.text_field :business_hours, placeholder: "例）11:00〜20:00" %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :"定休日" %></td>
+      <td><%= f.text_field :regular_holiday, placeholder: "例）毎週木曜日" %></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td style="text-align: left;"><%= f.submit '変更'%></td>
+    </tr>
+  </table>
+<% end %>

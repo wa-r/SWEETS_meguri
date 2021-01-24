@@ -34,15 +34,14 @@
   </tr>
   <tr>
     <td>店舗写真</td>
+    <td><%= attachment_image_tag @shop, :main_image, size: '300x300' %></td>
+  </tr>
+  <tr>
+    <td></td>
     <td>
-      <!-- (変数).present? 値が存在するかどうかにより後続の処理を変更したい場合に使用する -->
-      <% if @shop.shop_images.present? %>
-      　<% @shop.shop_images.each do |shop_image| %>
-      　  <%= attachment_image_tag shop_image, :image, size: "150x150", class: "default_image" %>
-        <% end %>
-      <% else %>
-        <p>画像は登録されておりません。</p>
-      <% end %>
+　　　<% @shop.shop_images.each do |shop_image| %>
+　　　　<%= attachment_image_tag shop_image, :image, size: "120x120" %>
+  　　<% end %>
     </td>
   </tr>
 </table>

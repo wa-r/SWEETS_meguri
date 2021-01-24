@@ -1,8 +1,8 @@
 class Shop < ApplicationRecord
   belongs_to :genre
-  has_many :shop_images
+  has_many :shop_images, dependent: :destroy
 
-  attachment :shop_image
+  attachment :main_image
   accepts_attachments_for :shop_images, attachment: :image
 
   validates :name, presence: true, length: { in: 2..30 }

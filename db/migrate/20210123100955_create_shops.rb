@@ -10,7 +10,7 @@ class CreateShops < ActiveRecord::Migration[5.2]
       t.string :nearest_station, null: false
       t.string :business_hours, null: false
       t.string :regular_holiday, null: false
-      t.string :shop_image_id
+      t.string :main_image_id
       t.text :caption, null: false
 
       t.timestamps
