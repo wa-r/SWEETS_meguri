@@ -11,33 +11,49 @@
   </head>
 
   <header>
-    <ul>
-      <% if member_signed_in? %>
-        <li>
-          <%= link_to "マイページ", member_path(current_member) %>
-        </li>
-        <li>
-          <%= link_to "タイムライン", tweets_path %>
-        </li>
-        <li>
-          <%= link_to "ログアウト", destroy_member_session_path, method: :delete %>
-        </li>
-      <% else %>
-        <li>
-          <%= link_to "新規登録", new_member_registration_path %>
-        </li>
-        <li>
-          <%= link_to "ログイン", new_member_session_path %>
-        </li>
-      <% end %>
-    </ul>
+    <nav class="navbar navbar-expand p-3">
+      <ul class="navbar-nav ml-auto">
+        <% if member_signed_in? %>
+          <li>
+            <%= link_to "マイページ", member_path(current_member), class: "btn btn-outline-light btn-sm ml-3"  %>
+          </li>
+          <li>
+            <%= link_to "タイムライン", tweets_path, class: "btn btn-outline-light btn-sm ml-3" %>
+          </li>
+          <li>
+            <%= link_to "ログアウト", destroy_member_session_path, method: :delete, class: "btn btn-outline-light btn-sm ml-3" %>
+          </li>
+        <% elsif %>
+          <li>
+            <%= link_to "店舗登録", new_admin_shop_path, class: "btn btn-outline-light btn-sm ml-5" %>
+          </li>
+          <li>
+            <%= link_to "店舗一覧", admin_shops_path, class: "btn btn-outline-light btn-sm ml-5" %>
+          </li>
+          <li>
+            <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-outline-light btn-sm ml-5" %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to "新規登録", new_member_registration_path, class: "btn btn-outline-light btn-sm ml-5" %>
+          </li>
+          <li>
+            <%= link_to "ログイン", new_member_session_path, class: "btn btn-outline-light btn-sm ml-5" %>
+          </li>
+        <% end %>
+      </ul>
+    </nav>
   </header>
 
   <body>
-    <%= flash.now[:alert] %>
-    <%= flash[:notice] %>
-    <%= yield %>
+    <div class="wrapper">
+      <%= flash.now[:alert] %>
+      <%= flash[:notice] %>
+      <%= yield %>
+    </div>
   </body>
 
-  <footer></footer>
+  <footer>
+    <p>© SWEETS -meguri-</p>
+  </footer>
 </html>
