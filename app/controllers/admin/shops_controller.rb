@@ -17,6 +17,7 @@ class Admin::ShopsController < ApplicationController
     @genres = Genre.all
     @shop = Shop.new(shop_params)
     if @shop.save
+      byebug
       redirect_to admin_shop_path(@shop), noice: "店舗情報登録に成功しました"
     else
       flash.now[:alert] = "店舗情報登録に失敗しました"

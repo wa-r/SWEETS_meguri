@@ -1,0 +1,47 @@
+<h2>店舗情報詳細</h2>
+<table class="table">
+  <tr>
+    <td>店舗名</td>
+    <td><%= @shop.name %></td>
+  </tr>
+  <tr>
+    <td>ジャンル</td>
+    <td><%= @shop.genre.name %></td>
+  </tr>
+  <tr>
+    <td>店舗紹介文</td>
+    <td><%= @shop.caption %></td>
+  </tr>
+  <tr>
+    <td>住所</td>
+    <td><%= @shop.address %></td>
+  </tr>
+  <tr>
+    <td>電話番号</td>
+    <td><%= @shop.phone_number %></td>
+  </tr>
+  <tr>
+    <td>営業時間</td>
+    <td><%= @shop.business_hours %></td>
+  </tr>
+  <tr>
+    <td>定休日</td>
+    <td><%= @shop.regular_holiday %></td>
+  </tr>
+  <tr>
+    <td>アクセス</td>
+    <td><%= @shop.nearest_station %></td>
+  </tr>
+  <tr>
+    <td>店舗写真</td>
+    <td><%= attachment_image_tag @shop, :main_image, size: '300x300' %></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+　　　<% @shop.shop_images.each do |shop_image| %>
+　　　　<%= attachment_image_tag shop_image, :image, size: "120x120" %>
+  　　<% end %>
+    </td>
+  </tr>
+</table>

@@ -5,6 +5,9 @@ class Shop < ApplicationRecord
   attachment :main_image
   accepts_attachments_for :shop_images, attachment: :image
 
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
+
   validates :name, presence: true, length: { in: 2..30 }
   validates :address, presence: true
   validates :nearest_station, presence: true

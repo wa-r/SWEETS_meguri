@@ -21,9 +21,12 @@
             <%= link_to "タイムライン", tweets_path, class: "btn btn-outline-light btn-sm ml-3" %>
           </li>
           <li>
+            <%= link_to "店舗一覧", shops_path, class: "btn btn-outline-light btn-sm ml-3" %>
+          </li>
+          <li>
             <%= link_to "ログアウト", destroy_member_session_path, method: :delete, class: "btn btn-outline-light btn-sm ml-3" %>
           </li>
-        <% elsif %>
+        <% elsif admin_signed_in? %>
           <li>
             <%= link_to "店舗登録", new_admin_shop_path, class: "btn btn-outline-light btn-sm ml-5" %>
           </li>

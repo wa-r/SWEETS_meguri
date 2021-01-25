@@ -1,0 +1,21 @@
+<h2>登録店舗一覧</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>店舗名</th>
+      <th>ジャンル</th>
+      <th>住所</th>
+      <th>電話番号</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @shops.each do |shop| %>
+    <tr>
+      <td><%= link_to shop.name, shop_path(shop) %></td>
+      <td><%= shop.genre.name %></td>
+      <td><%= shop.address %></td>
+      <td><%= shop.phone_number %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
