@@ -15,4 +15,5 @@ class Shop < ApplicationRecord
   validates :business_hours, presence: true
   validates :regular_holiday, presence: true
   validates :caption, presence: true, length: { maximum: 300 }
+  validates :phone_number, presence: true
 end
