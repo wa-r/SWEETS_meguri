@@ -1,7 +1,8 @@
 class Shop < ApplicationRecord
   belongs_to :genre
   has_many :shop_images, dependent: :destroy
-
+  has_many :reviews, dependent: :destroy
+  
   attachment :main_image
   accepts_attachments_for :shop_images, attachment: :image
 

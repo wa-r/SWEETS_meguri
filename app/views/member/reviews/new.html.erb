@@ -1,0 +1,27 @@
+<h2>口コミ入力画面</h2>
+<!-- urlを指定しないと、エラーになる -->
+<%= form_with(model:[@shop, @review], url: shop_reviews_path, local: true) do |f| %>
+<%= render 'layouts/error_messages', model: @review %>
+  <p><%= f.label :"タイトル" %></p>
+  <p><%= f.text_field :title %></p>
+  <p><%= f.label :"評価" %></p>
+  <!-- JavaScriptでidの値"star"の記述を使用するため-->
+  <p><%= f.hidden_field :rate, id: :review_star %></p>
+  <p><%= f.label :"口コミ内容" %></p>
+  <p><%= f.text_area :content %></p>
+  <%= f.submit '送信' %>
+
+   <!--評価の星用JavaScript -->
+  <script>
+  $('#star').raty({
+    size: 36,
+    starOff: '<%= asset_path('star-off.png') %>',
+    starOn: '<%= asset_path('star-on.png') %>',
+    starHalf: '<%= asset_path('star-half.png') %>',
+    // Reviewモデルのrateカラムに保存する
+    scoreName: 'review[rate]',
+    half: true,
+  });
+  </script>
+
+<% end %>

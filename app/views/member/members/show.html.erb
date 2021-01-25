@@ -1,5 +1,5 @@
 <h2>会員ページ</h2>
-<%= attachment_image_tag @member, :profile_image, fallback: "no_image.jpeg", size: '50x50', format: 'jpeg' %>
+<%= attachment_image_tag @member, :profile_image, fallback: "no_image.jpeg", size: '50x50' %>
 <%= @member.name %>
 <% if @member == current_member %>
 　<!-- 編集リンク・アイコン付き -->

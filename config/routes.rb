@@ -26,6 +26,8 @@ Rails.application.routes.draw do
       resource :tweet_likes, only: [:create, :destroy]
       resources :tweet_comments, only: [:create, :destroy]
     end
-    resources :shops, only: [:index, :show]
+    resources :shops, only: [:index, :show] do
+      resources :reviews, only: [:index, :new, :create, :edit, :update, :destroy]
+    end
   end
 end
