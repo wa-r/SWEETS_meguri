@@ -38,14 +38,19 @@
     <td><%= attachment_image_tag @shop, :main_image, size: '300x300' %></td>
   </tr>
   <tr>
-    <td></td>
+    <td>サブ写真</td>
     <td>
 　　　<% @shop.shop_images.each do |shop_image| %>
 　　　　<%= attachment_image_tag shop_image, :image, size: "120x120" %>
   　　<% end %>
     </td>
   </tr>
+  <tr>
+    <td>地図</td>
+    <td>
+      <%= render 'layouts/map' %>
+      <!--mapの表示-->
+      <div id="map"></div>
+    </td>
+  </tr>
 </table>
-<%= render 'layouts/map' %>
-<!--mapの表示-->
-<div id="map"></div>

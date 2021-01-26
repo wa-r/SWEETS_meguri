@@ -1,2 +1,34 @@
 <h2>口コミ一覧</h2>
 <%= link_to "口コミを投稿する", new_shop_review_path %>
+<% unless @reviews.blank? %>
+  <% @reviews.each do |review| %>
+    <p>
+      <%= attachment_image_tag review.member, :profile_image, fallback: "no_image.jpeg", size: '40x40'%>
+      <%= review.member.name %>
+      <% if review.member_id == current_member.id %>
+        <%= link_to "編集", edit_shop_review_path(review, shop_id: review.shop_id) %>
+        <%= link_to "削除", shop_review_path(review, shop_id: review.shop_id), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+      <% end %>
+    </p>
+    <!-- 繰り返し処理を実行してもidを一意に保てるようにreview.idを埋め込む -->
+    <div id="star-rate-<%= review.id %>"><%= review.rate %></div>
+    <script>
+      $('#star-rate-<%= review.id %>').raty({
+        size: 36,
+        starOff:  '<%= asset_path('star-off.png') %>',
+        starOn: '<%= asset_path('star-on.png') %>',
+        starHalf: '<%= asset_path('star-half.png') %>',
+        half: true,
+        // 読み取り専用（入力できない）
+        readOnly: true,
+        // 星の入力値を読み込む
+        score: <%= review.rate %>,
+      });
+    </script>
+    <p><%= review.title %></p>
+    <p><%= review.content %></p>
+    <p><%= review.created_at.strftime('%F') %>&nbsp;<%= review.created_at.strftime('%H:%M') %></p>
+  <% end %>
+<% else %>
+  <p>まだ口コミ投稿はありません。</p>
+<% end %>
