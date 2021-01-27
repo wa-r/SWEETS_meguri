@@ -15,6 +15,7 @@ class Member < ApplicationRecord
   has_many :tweet_likes, dependent: :destroy
   has_many :tweet_comments, dependent: :destroy
   has_many :reviews, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
 
   validates :name, presence: true, length: { in: 2..20 }
 
