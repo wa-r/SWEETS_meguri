@@ -26,6 +26,11 @@ class Member::MembersController < ApplicationController
     redirect_to root_path
   end
 
+  # ブックマーク一覧表示用
+  def bookmarks
+    @bookmarks = current_member.bookmarks
+  end
+
   # フォロー画面表示用
   def follows
     member = Member.find(params[:id])

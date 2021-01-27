@@ -16,6 +16,8 @@ class Member < ApplicationRecord
   has_many :tweet_comments, dependent: :destroy
   has_many :reviews, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
+  has_many :shop_bookmarks, through: :bookmarks, source: :shop
+
 
   validates :name, presence: true, length: { in: 2..20 }
 
