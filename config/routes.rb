@@ -27,6 +27,7 @@ Rails.application.routes.draw do
       resources :tweet_comments, only: [:create, :destroy]
     end
     resources :shops do
+      resource :bookmarks, only: [:create, :destroy]
       resources :reviews
     end
   end

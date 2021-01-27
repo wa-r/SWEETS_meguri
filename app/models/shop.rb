@@ -2,7 +2,8 @@ class Shop < ApplicationRecord
   belongs_to :genre
   has_many :shop_images, dependent: :destroy
   has_many :reviews, dependent: :destroy
-  
+  has_many :bookmarks, dependent: :destroy
+
   attachment :main_image
   accepts_attachments_for :shop_images, attachment: :image
 
@@ -16,4 +17,10 @@ class Shop < ApplicationRecord
   validates :regular_holiday, presence: true
   validates :caption, presence: true, length: { maximum: 300 }
   validates :phone_number, presence: true
+
+  # ユーザーがお店をブックマークしているかどうかの判定メソッド
+  def bookmarked_by?(member)
+    bookmarks.where(member_id: member.id).exists?
+  end
+
 end

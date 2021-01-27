@@ -3,7 +3,12 @@
 <table class="table">
   <tr>
     <td>店舗名</td>
-    <td><%= @shop.name %></td>
+    <td>
+      <%= @shop.name %>
+      <span id="bookmarks_btn_<%= @shop.id %>">
+        <%= render partial: 'member/bookmarks/bookmark', locals: {shop: @shop} %>
+      </span>
+    </td>
   </tr>
   <tr>
     <td>ジャンル</td>
