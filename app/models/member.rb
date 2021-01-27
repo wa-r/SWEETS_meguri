@@ -13,6 +13,7 @@ class Member < ApplicationRecord
   has_many :followers, through: :passive_relationships, source: :following
   has_many :tweets, dependent: :destroy
   has_many :tweet_likes, dependent: :destroy
+  has_many :likes, through: :tweet_likes, source: :tweet
   has_many :tweet_comments, dependent: :destroy
   has_many :reviews, dependent: :destroy
   has_many :bookmarks, dependent: :destroy

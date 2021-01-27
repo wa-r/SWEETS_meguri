@@ -26,11 +26,16 @@ class Member::MembersController < ApplicationController
     redirect_to root_path
   end
 
-  # ブックマーク一覧表示用
+  # ブックマークの一覧表示用
   def bookmarks
     @bookmarks = current_member.bookmarks
   end
-
+  
+  # いいねをしたつぶやきの一覧表示用
+  def tweet_likes
+    @tweet_likes = current_member.tweet_likes
+  end
+  
   # フォロー画面表示用
   def follows
     member = Member.find(params[:id])

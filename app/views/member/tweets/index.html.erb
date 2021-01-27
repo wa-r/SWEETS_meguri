@@ -16,10 +16,13 @@
       <td><%= tweet.content %></td>
     </tr>
     <tr>
-      <td><%= attachment_image_tag tweet, :image, size: '100x100', format: 'jpeg' %></td>
+      <td><%= attachment_image_tag tweet, :image, size: '100x100' %></td>
     </tr>
     <tr>
-      <td><%= tweet.created_at.strftime('%F') %>&nbsp;<%= tweet.created_at.strftime('%H:%M') %></td>
+      <td>
+        <%= tweet.created_at.strftime('%F') %>&nbsp;
+        <%= tweet.created_at.strftime('%H:%M') %>
+      </td>
     </tr>
     <tr>
       <td>
