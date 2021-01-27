@@ -1,0 +1,40 @@
+<% unless @tweet_likes.blank? %>
+  <% @tweet_likes.each do |like| %>
+  　<table>
+  　   <tr>
+  　     <td>
+      　   <%= attachment_image_tag like.tweet.member, :profile_image, fallback: "no_image.jpeg", size: '40x40' %>
+          <%= like.tweet.member.name %>
+        </td>
+      </tr>
+      <tr>
+        <td><%= like.tweet.title %></td>
+      </tr>
+      <tr>
+        <td><%= like.tweet.content %></td>
+      </tr>
+      <tr>
+        <td><%= attachment_image_tag like.tweet, :image, size: '100x100' %></td>
+      </tr>
+      <tr>
+        <td>
+          <%= like.tweet.created_at.strftime('%F') %>&nbsp;
+          <%= like.tweet.created_at.strftime('%H:%M') %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <span id="likes_btn_<%= like.tweet.id %>">
+            <%= render partial: 'member/tweet_likes/tweet_like', locals: {tweet: like.tweet} %>
+          </span>
+          <%= link_to tweet_path(like.tweet) do %>
+            <i class="far fa-comment"></i>
+          <% end %>
+          <%= like.tweet.tweet_comments.count %>
+        </td>
+      </tr>
+    </table>
+  <% end %>
+<% else %>
+  <p>まだお気に入りはありません</p>
+<% end %>

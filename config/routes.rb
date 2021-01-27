@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
-  namespace :member do
-    get 'relationships/create'
-    get 'relationships/destroy'
-  end
-
+  
   root 'homes#top'
   devise_for :admins
   namespace :admin do
@@ -21,6 +17,7 @@ Rails.application.routes.draw do
       # get 'follower/:id' => 'relationships#follower', as: 'follower'
     end
     get 'members/:id/bookmarks' => 'members#bookmarks', as: 'bookmarks'
+    get 'members/:id/tweet_likes' => 'members#tweet_likes', as: 'tweet_likes'
     get '/members/:id/unsubscribe' => 'members#unsubscribe', as: 'unsubscribe'
     patch '/members/:id/withdrawal' => 'members#withdrawal', as: 'withdrawal'
     resources :tweets do
