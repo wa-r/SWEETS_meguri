@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 2021_01_27_041952) do
     t.string "title"
     t.text "content"
     t.float "rate", default: 0.0, null: false
-    t.datetime "created_at", null: fals 
+    t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 

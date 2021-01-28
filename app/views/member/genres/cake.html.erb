@@ -1,0 +1,26 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>店舗名</th>
+      <th>ジャンル</th>
+      <th>住所</th>
+      <th>電話番号</th>
+    </tr>
+  </thead>
+  <tbody>
+<% @cakes_shops.each do |shop| %>
+    <tr>
+      <td>
+        <span id="bookmarks_btn_<%= shop.id %>">
+          <%= render partial: 'member/bookmarks/bookmark', locals: {shop: shop} %>
+        </span>
+      </td>
+      <td><%= link_to shop.name, shop_path(shop) %></td>
+      <td><%= shop.genre.name %></td>
+      <td><%= shop.address %></td>
+      <td><%= shop.phone_number %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
