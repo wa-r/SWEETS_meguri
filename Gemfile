@@ -68,6 +68,7 @@ gem 'byebug'
 gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'
 gem 'font-awesome-sass', '~> 5.13'
-gem "gmaps4rails"
-gem "geocoder"
-gem "dotenv-rails"
+gem 'gmaps4rails'
+gem 'geocoder'
+gem 'dotenv-rails'
+gem 'ransack'

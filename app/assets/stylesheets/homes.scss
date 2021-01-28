@@ -7,8 +7,26 @@
 }
 
 .concept {
-  font-size: 26px;
+  font-size: 22px;
   color: #6B4B39;
   text-align: center;
   margin: 100px 0;
+}
+
+.genre-search {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.box {
+  margin: 8px;
+}
+
+.box:nth-child(1) {
+  margin-right: 16px;
+}
+
+.genre-name {
+  text-align: center;
 }
