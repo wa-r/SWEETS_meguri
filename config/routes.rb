@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   root 'homes#top'
   devise_for :admins
   namespace :admin do
@@ -16,17 +16,27 @@ Rails.application.routes.draw do
       # get 'follows/:id' => 'relationships#follows', as: 'follows'
       # get 'follower/:id' => 'relationships#follower', as: 'follower'
     end
+
     get 'members/:id/bookmarks' => 'members#bookmarks', as: 'bookmarks'
     get 'members/:id/tweet_likes' => 'members#tweet_likes', as: 'tweet_likes'
     get '/members/:id/unsubscribe' => 'members#unsubscribe', as: 'unsubscribe'
     patch '/members/:id/withdrawal' => 'members#withdrawal', as: 'withdrawal'
+
     resources :tweets do
       resource :tweet_likes, only: [:create, :destroy]
       resources :tweet_comments, only: [:create, :destroy]
     end
+
     resources :shops do
       resource :bookmarks, only: [:create, :destroy]
       resources :reviews
     end
+
+    get 'genres/cake' => 'genres#cake'
+    get 'genres/macaron' => 'genres#macaron'
+    get 'genres/chocolate' => 'genres#chocolate'
+    get 'genres/parfait' => 'genres#parfait'
+    get 'genres/cafe' => 'genres#cafe'
+    get 'genres/shaved_ice' => 'genres#shaved_ice'
   end
 end
