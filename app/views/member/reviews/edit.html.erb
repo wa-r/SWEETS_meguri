@@ -1,6 +1,4 @@
-<h2>口コミ入力画面</h2>
-<!-- urlを指定しないと、エラーになる -->
-<%= form_with(model:[@shop, @review], url: shop_reviews_path, local: true) do |f| %>
+<%= form_with(model:[@shop, @review], url: shop_review_path(params[:shop_id], @review), method: :patch, local: true) do |f| %>
 <%= render 'layouts/error_messages', model: @review %>
   <p><%= f.label :"タイトル" %></p>
   <p><%= f.text_field :title %></p>
@@ -8,9 +6,9 @@
     <%= f.label :"評価" %>
     <!-- JavaScriptでidの値"star"の記述を使用するため-->
     <%= f.hidden_field :rate, id: :review_star %>
-    <%= render partial: 'member/reviews/star', locals: { review: @review } %>
+    <%= render partial: 'member/reviews/star_edit', locals: { review: @review } %>
   </div>
   <p><%= f.label :"口コミ内容" %></p>
   <p><%= f.text_area :content %></p>
-  <%= f.submit '変更' %>
+  <%= f.submit '送信' %>
 <% end %>

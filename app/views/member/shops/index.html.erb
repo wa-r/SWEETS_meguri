@@ -17,7 +17,16 @@
           <%= render partial: 'member/bookmarks/bookmark', locals: {shop: shop} %>
         </span>
       </td>
-      <td><%= link_to shop.name, shop_path(shop) %></td>
+      <td>
+        <%= link_to shop.name, shop_path(shop) %>
+      </td>
+      <td>
+        <!-- 繰り返し処理を実行してもidを一意に保てるようにreview.idを埋め込む -->
+        <div id="star-rate-<%= shop.id %>"></div>
+        評価：<%= shop.reviews.average(:rate).to_i.round(1) %>点&emsp;
+        口コミ<%= link_to shop.reviews.count, shop_reviews_path(shop) %>件
+        <%= render partial: 'member/reviews/star_average', locals: { shop: shop } %>
+      </td>
       <td><%= shop.genre.name %></td>
       <td><%= shop.address %></td>
       <td><%= shop.phone_number %></td>

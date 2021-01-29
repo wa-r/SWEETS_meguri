@@ -27,7 +27,7 @@ class Member::ReviewsController < ApplicationController
   def update
     @review = Review.find_by(params[:id])
     if @review.update(review_params)
-      redirect_to shop_reviews_path, notice: "レビューを更新しました"
+      redirect_to shop_reviews_path(shop_id: params[:shop_id]), notice: "レビューを更新しました"
     else
       flash.now[:alert] = "レビューの更新に失敗しました"
       render :edit
