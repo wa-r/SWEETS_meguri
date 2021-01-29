@@ -1,0 +1,14 @@
+<!--評価の星用JavaScript -->
+<script>
+  $('#star-rate-<%= shop.id %>').raty({
+    size: 36,
+    starOff:  '<%= asset_path('star-off.png') %>',
+    starOn: '<%= asset_path('star-on.png') %>',
+    starHalf: '<%= asset_path('star-half.png') %>',
+    half: true,
+    // 読み取り専用（入力できない）
+    readOnly: true,
+    // 平均点を小数点第一までを算出する
+    score: <%= shop.reviews.average(:rate).to_i.round(1) %>,
+  });
+</script>
