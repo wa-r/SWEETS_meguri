@@ -10,13 +10,14 @@ class Shop < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
 
-  validates :name, presence: true, length: { in: 2..30 }
+  validates :name, presence: true, length: { maximum: 30 }
   validates :address, presence: true
   validates :nearest_station, presence: true
   validates :business_hours, presence: true
   validates :regular_holiday, presence: true
   validates :caption, presence: true, length: { maximum: 300 }
   validates :phone_number, presence: true
+  validates :main_image, presence: true
 
   # ユーザーがお店をブックマークしているかどうかの判定メソッド
   def bookmarked_by?(member)

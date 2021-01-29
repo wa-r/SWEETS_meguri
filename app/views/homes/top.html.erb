@@ -9,6 +9,13 @@
   </div>
 </div>
 
+<%= search_form_for @q do |f| %>
+  <% f.label :name_or_address_or_nearest_station %>
+  <%= f.search_field :name_or_address_or_nearest_station_cont, placeholder: "店舗名・住所・駅名" %>
+　<%= f.submit '検索' %>
+ <% end %>
+
+<h4>ジャンル検索</h4>
 <div class="genre-search">
   <div class="box">
     <div class="genre-image">
@@ -59,20 +66,3 @@
     </div>
   </div>
 </div>
-
-
-<!--    <p class="search-title"></p>-->
-<!--  </div>-->
-<!--  <div class="box">-->
-<!--    <p class="search-title">パフェ</p>-->
-<!--  </div>-->
-<!--    <div class="box">-->
-<!--    <p class="search-title">カフェ</p>-->
-<!--  </div>-->
-<!--    <div class="box">-->
-<!--    <p class="search-title">かき氷</p>-->
-<!--  </div>-->
-<!--  <div class="box">-->
-<!--    <p class="search-title">その他</p>-->
-<!--  </div>-->
-<!--</div>-->
