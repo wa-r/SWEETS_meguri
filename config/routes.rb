@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
   root 'homes#top'
+  resource :contacts, only: [:new, :create]
+  get 'contacts/thanks' => 'contacts#thanks'
+  
   devise_for :admins
   namespace :admin do
     resources :genres, only: [:index, :create, :edit, :update, :destroy]
