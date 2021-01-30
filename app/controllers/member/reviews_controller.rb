@@ -20,9 +20,9 @@ class Member::ReviewsController < ApplicationController
       if review_count < 1
         @review.save
         redirect_to shop_reviews_path(@shop), notice: "レビューを保存しました"
+      else
+        redirect_to shop_reviews_path(@shop), notice: "レビューの投稿は一度までです"
       end
-      flash.now[:alert] = "レビューの投稿は一度までです"
-      redirect_to shop_reviews_path(@shop)
     else
       flash.now[:alert] = "レビューの保存に失敗しました"
       render :new
