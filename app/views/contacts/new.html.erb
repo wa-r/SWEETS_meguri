@@ -1,0 +1,21 @@
+<h3>お問い合わせフォーム</h3>
+<%= form_with model: @contact, url: contacts_path, local: true do |f| %>
+<%= render 'layouts/error_messages', model: @contact %>
+  <table class="table">
+    <tr>
+      <th><%= f.label :"お名前" %></th>
+      <td><%= f.text_field :name %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :"タイトル" %></th>
+      <td><%= f.text_field :title %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :"お問い合わせ内容" %></th>
+      <td><%= f.text_area :message %></td>
+    </tr>
+    <tr>
+      <td><%= f.submit '確認画面へ' %></td>
+    </tr>
+  </table>
+<% end %>
