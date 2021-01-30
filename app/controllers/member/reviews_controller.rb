@@ -11,12 +11,21 @@ class Member::ReviewsController < ApplicationController
 
   def create
     @shop = Shop.find(params[:shop_id])
-    review = current_member.reviews.new(review_params)
-    review.shop_id = @shop.id
-    if review.save
-      redirect_to shop_reviews_path(@shop), notice: "レビューを保存しました"
+    @review = current_member.reviews.new(review_params)
+    @review.shop_id = @shop.id
+    review_count = Review.where(shop_id: params[:shop_id]).where(member_id: current_member.id).count
+    # バリデーションによるエラーがあるか判定
+    if @review.valid?
+      # バリデーションエラーが無い、且つレビューを一度もしたことない場合
+      if review_count < 1
+        @review.save
+        redirect_to shop_reviews_path(@shop), notice: "レビューを保存しました"
+      end
+      flash.now[:alert] = "レビューの投稿は一度までです"
+      redirect_to shop_reviews_path(@shop)
     else
       flash.now[:alert] = "レビューの保存に失敗しました"
+      render :new
     end
   end
 
