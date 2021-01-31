@@ -88,6 +88,11 @@ footer {
   color: #fff;
 }
 
+.footer-form > textarea {
+	resize: none;
+	width: 600px;
+	height: 400px;
+}
 
 a {
   text-decoration: none;
@@ -97,3 +102,4 @@ a {
 a:hover {
   text-decoration: none;
 }
+
