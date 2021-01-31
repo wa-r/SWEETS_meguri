@@ -9,6 +9,11 @@ class Member::ShopsController < ApplicationController
     @reviews = @shop.reviews
   end
   
+  def search
+    @q = Shop.ransack(params[:q])
+    @shops = @q.result(distinct: true)
+  end
+  
   private
   
   def shops_params
