@@ -44,32 +44,37 @@ span {
   background-color: rgba(115, 78, 48, 0.3);
 }
 
-.search-form {
+.search-content {
   position: absolute;
-  justify-content: center;
+  text-align: center;
   width: 100%;
   bottom: 80px;
-  display: inline-block;
 }
 
-.form-control {
-  width: 60%;
+.search-form {
+  width: 560px;
+  height: 42px;
+  padding: 0 10px 0 10px;
+  border-radius: 0.25rem;
+  border-color: #fff;
 }
+
 
 .search-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 37px;
-  height: 37px;
-  background: #fff;
-  border-color: #fff;
+  position: relative;
+  width: 36px;
+  height: 36px;
+  background-color: #fff;
   border-radius: 0.25rem;
+  border-color: #fff;
   color: #996633;
 }
 
-.search {
-  margin: 30px 0 20px;
+.fa-search {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  
 }
 
 .genre-search {
