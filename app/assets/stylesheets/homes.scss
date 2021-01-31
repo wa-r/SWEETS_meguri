@@ -52,10 +52,6 @@ span {
   background-color: rgba(115, 78, 48, 0.3);
 }
 
-// .form {
-//   float:left;
-// }
-
 .form-inline {
   position: absolute;
   justify-content: center;
@@ -64,8 +60,11 @@ span {
 }
 
 .search-btn {
-  width: 56px;
-  height: 38px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 37px;
+  height: 37px;
   background: #fff;
   border-color: #fff;
   border-radius: 0.25rem;

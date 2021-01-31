@@ -19,7 +19,9 @@
       <%= search_form_for @q do |f| %>
         <% f.label :name_or_address_or_nearest_station %>
         <%= f.search_field :name_or_address_or_nearest_station_cont, placeholder: "店舗名・住所・駅名", class: "form-control", size: "80" %>
-      　<%= f.submit '検索', class: 'search-btn' %>
+      　<%= f.button :type => "submit", class: "search-btn" do %>
+      　   <i class="fas fa-search"></i>
+      　<% end %>
       <% end %>
     </form>
   </div>

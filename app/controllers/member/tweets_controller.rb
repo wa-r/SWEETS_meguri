@@ -2,11 +2,13 @@ class Member::TweetsController < ApplicationController
 
   def index
     @tweets = Tweet.all.page(params[:page]).per(5)
+    @member = current_member
   end
 
   def show
     @tweet = Tweet.find(params[:id])
     @tweet_comment = TweetComment.new
+    @member = current_member
   end
 
   def new
