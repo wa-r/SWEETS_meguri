@@ -15,11 +15,13 @@
       スイーツ好きな人同士の素敵な巡り合いがあるように
     </p>
     <!--<form class="form-inline">-->
-    <div class="search-form">
+    <div class="search-content">
       <%= search_form_for @q, url: search_shops_path do |f| %>
         <% f.label :name_or_address_or_nearest_station %>
-        <%= f.search_field :name_or_address_or_nearest_station_cont, placeholder: "店舗名・住所・駅名", class: "form-control col-md-8" %>
-      　<%= f.submit '検索', class: 'search-btn' %>
+        <%= f.search_field :name_or_address_or_nearest_station_cont, placeholder: "店舗名・住所・駅名", class: "search-form" %>
+      　<%= f.button :type => "submit", class: 'search-btn' do %>
+      　   <i class="fas fa-search"></i>
+      　<% end %>
       <% end %>
     </div>
     <!--</form>-->

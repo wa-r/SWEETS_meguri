@@ -1,3 +1,40 @@
 // Place all the styles related to the member::tweets controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// indexページ
+.tweet-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+}
+
+.tweet-container > .sidebar {
+  width: 250px;
+  justify-content: left;
+  margin-right: 10px;
+  background-color: #fdede4;
+}
+
+.tweet-container > .main-content {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 30px 0 90px 0;
+}
+
+.tweet-box {
+  width: 250px;
+  height: 250px;
+  padding: 10px;
+  margin: 0 30px 30px 0;
+  border: solid 1px;
+  border-radius: 0.25rem;
+  border-color: #d2b48c;
+  
+}
+
+// showページ
+.tweet-container > .show-content {
+  flex: 1;
+}
