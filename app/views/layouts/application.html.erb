@@ -58,7 +58,11 @@
   </body>
 
   <footer>
-    <span class="footer-text">© SWEETS -meguri-</span>
-    <span class="footer-form"><%= link_to "お問い合わせ", new_contacts_path %></span>
+    <span class="footer-text">© SWEETS -meguri-</span>&nbsp;
+    <span class="footer-form">
+      <%= link_to new_contacts_path do %>
+        <i class="fas fa-envelope">お問い合わせ</i>
+      <% end %>
+    </span>
   </footer>
 </html>

@@ -88,12 +88,6 @@ footer {
   color: #fff;
 }
 
-.footer-form > textarea {
-	resize: none;
-	width: 600px;
-	height: 400px;
-}
-
 a {
   text-decoration: none;
   color: #000;
@@ -103,14 +97,7 @@ a:hover {
   text-decoration: none;
 }
 
-// 新規登録・ログイン画面共通
-
-
-// 新規登録画面（会員・管理者共通）
-
-
-
-// ログイン画面（会員・管理者共通）
+// ログイン・新規登録画面（会員・管理者共通）
 .bg-image {
   width: 100%;
   height: 600px;
@@ -127,7 +114,7 @@ a:hover {
   width: 370px;
   height: 470px;
   margin: 0 auto;
-  border-radius: 5px;
+  border-radius: 3px;
   border: 1px #d2b48c solid;
   background-color: #fff;
 }
