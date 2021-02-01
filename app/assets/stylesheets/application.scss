@@ -103,12 +103,6 @@ a:hover {
   text-decoration: none;
 }
 
-// 新規登録・ログイン画面共通
-
-
-// 新規登録画面（会員・管理者共通）
-
-
 
 // ログイン画面（会員・管理者共通）
 .bg-image {
@@ -126,13 +120,13 @@ a:hover {
 .sign-in-container {
   width: 370px;
   height: 470px;
-  margin: 0 auto;
+  margin: 50px auto;
   border-radius: 5px;
   border: 1px #d2b48c solid;
   background-color: #fff;
 }
 
-.bg-image-cover, .sign-in-container {
+.bg-image-cover, .sign-in-container  {
   display: flex;
   justify-content: center;
   align-items: center;
