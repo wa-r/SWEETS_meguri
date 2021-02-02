@@ -19,7 +19,10 @@
             <%= link_to "トップ", root_path, class: "btn btn-outline-light btn-sm ml-3" %>
           </li>
           <li>
-            <%= link_to "マイページ", tweets_path, class: "btn btn-outline-light btn-sm ml-3"  %>
+            <%= link_to "マイページ", member_path(current_member), class: "btn btn-outline-light btn-sm ml-3"  %>
+          </li>
+          <li>
+            <%= link_to "つぶやき", tweets_path, class: "btn btn-outline-light btn-sm ml-3"  %>
           </li>
           <li>
             <%= link_to "店舗一覧", shops_path, class: "btn btn-outline-light btn-sm ml-3" %>
