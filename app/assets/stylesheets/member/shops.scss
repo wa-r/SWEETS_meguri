@@ -1,3 +1,98 @@
 // Place all the styles related to the member::shops controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+//index, search画面 (会員側）
+.shop-container {
+  width: 70%;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+
+.shop-name {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.shop-text {
+  display: inline-block;
+  font-size: 14px;
+}
+
+.shop-box {
+  display: flex;
+}
+
+.shop-image-box {
+  flex: 25%;
+  margin: 0 auto;
+}
+
+.shop-image {
+  padding: 4px;
+  border: 1px solid;
+}
+
+.shop-main {
+  flex: 65%;
+  text-overflow: ellipsis;
+  font-size: 14px;
+}
+
+.review-list > li {
+  display: inline-block;
+}
+
+.review-list > .review-list-item {
+  font-size: 18px;
+  color: #e8383d;
+}
+
+.new-review {
+  display: flex;
+  width: 95%;
+  height: 70px;
+  padding: 5px;
+  text-overflow: ellipsis;
+  border-radius: 3px;
+  background-color: #fdede4;
+}
+
+.new-review-left {
+  flex: 10%;
+  text-align: center;
+}
+
+.profile-image {
+  border-radius: 50%;
+  margin-left: 14px;
+  margin-bottom: 5px;
+}
+
+.new-review-right {
+  flex: 80%;
+  display: inline-block;
+}
+
+.review-title {
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.review-content, .no-review {
+  font-size: 13px;
+  color: #898989;
+}
+
+.border {
+  width: 75%;
+  margin: 0 auto;
+	border: solid 2px #e8c59c;
+}
+
+//search画面
+.search-heading {
+  font-size: 28px;
+  text-align: center;
+  margin-top: 25px;
+}

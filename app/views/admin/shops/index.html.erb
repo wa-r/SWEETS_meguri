@@ -13,6 +13,7 @@
   <tbody>
   <% @shops.each do |shop| %>
     <tr>
+      <td></td>
       <td><%= link_to shop.name, admin_shop_path(shop) %></td>
       <td><%= shop.genre.name %></td>
       <td><%= shop.address %></td>

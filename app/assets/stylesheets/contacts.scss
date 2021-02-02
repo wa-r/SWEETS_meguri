@@ -2,11 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-//new、thanks画面兼用部分
+//new、thanks画面
 .contact-bg-image {
   background-image: image-url("cafe-table");
   background-size: cover;
   background-position: bottom 30px right 100px;
+  // background-image: image-url("tiramisu");
+  // background-size: contain;
 }
 
 .contact-image-cover {
@@ -56,7 +58,7 @@
   background-color: #fff;
 }
 
-//thanks画面専用
+//thanks画面
 .contact-image-cover {
   position: relative;
 }
