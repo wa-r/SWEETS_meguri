@@ -6,3 +6,87 @@
 .star-size {
   width: 20px;
 }
+
+//index画面
+.review-btn-box {
+  width: 70%;
+  height: 60px;
+  display: flex;
+}
+
+.review-btn {
+  justify-content: center;
+  margin: 10px auto;
+  padding: 10px 20px;
+  border-radius: 3px;
+  border: solid 1px #595960;
+  font-size: 13px;
+  background-color: #fce4d6;
+}
+
+.review-btn:hover {
+  color: #000;
+  background-color: #f5b2ac;
+}
+
+.review-box {
+  width: 70%;
+  padding: 20px;
+  border-radius: 3px;
+  border: solid 1px #e8c59c;
+  margin: 15px 0;
+}
+
+.review-text {
+  font-size: 13px;
+  color: #595960;
+}
+
+.review-box-top{
+  height: 30px;
+  padding-bottom: 35px;
+  margin-bottom: 10px;
+  border-bottom: solid 1px #dee2e6;
+}
+
+.review-box-right {
+  display: inline-block;
+  float: right;
+}
+
+.review-edit-btn, .review-destroy-btn {
+  padding: 4px 8px;
+  border-radius: 3px;
+  border: solid 1px #595960;
+  font-size: 12px;
+}
+
+.review-edit-btn {
+  background-color: #a3d6cc;
+}
+
+.review-destroy-btn {
+  background-color: #ef857d;
+}
+
+.review-edit-btn:hover, .review-destroy-btn:hover {
+  color: #000;
+}
+
+.review-edit-btn:hover {
+  color: #fff;
+  background-color: #2cb4ad;
+}
+
+.review-destroy-btn:hover {
+  color: #fff;
+  background-color: #ea5550;
+}
+
+.review-body-title {
+  margin-bottom: 10px;
+  border-bottom: solid 1px #dee2e6;
+  display: inline-block;
+  font-weight: bold;
+  font-size: 16px;
+}
