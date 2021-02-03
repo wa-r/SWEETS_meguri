@@ -1,7 +1,7 @@
 <h1 class="search-heading">検索結果一覧</h1>
 <% @shops.each do |shop| %>
 <div class="shop-container">
-  <div class="shop-name">
+  <div class="shop-top">
     <span id="bookmarks_btn_<%= shop.id %>">
       <%= render partial: 'member/bookmarks/bookmark', locals: {shop: shop} %>
     </span>

@@ -1,6 +1,6 @@
 <% @shops.each do |shop| %>
 <div class="shop-container">
-  <div class="shop-name">
+  <div class="shop-top">
     <span id="bookmarks_btn_<%= shop.id %>">
       <%= render partial: 'member/bookmarks/bookmark', locals: {shop: shop} %>
     </span>
@@ -28,17 +28,15 @@
       <!-- レビュー最新の１件のみ表示 -->
       <div class="new-review">
         <% unless shop.reviews.blank? %>
-          <% last_reviews = Review.where(shop_id: shop.id).order(created_at: :desc).limit(1) %>
-          <% last_reviews.each do |review| %>
-            <div class="new-review-left">
-              <%= attachment_image_tag review.member, :profile_image, fallback: "no_image.jpeg", size: "30x30", class: "profile-image" %><br>
-            　<%= link_to review.member.name, member_path(review.member), class: "review-name" %>
-            </div>
-            <div class="new-review-right">
-              <span class="review-title"><%= review.title %><br></span>
-              <span class="review-content"><%= review.content %><br></span>
-            </div>
-          <% end %>
+          <% review = Review.where(shop_id: shop.id).order(created_at: :desc).last %>
+          <div class="new-review-left">
+            <%= attachment_image_tag review.member, :profile_image, fallback: "no_image.jpeg", size: "30x30", class: "profile-image" %><br>
+          　<%= link_to review.member.name, member_path(review.member), class: "review-name" %>
+          </div>
+          <div class="new-review-right">
+            <span class="review-title"><%= review.title %><br></span>
+            <span class="review-content"><%= review.content %><br></span>
+          </div>
         <% else %>
           <p class="no-review">まだ口コミ投稿はありません。</p>
         <% end %>
