@@ -1,61 +1,88 @@
-<h2>店舗情報詳細</h2>
-<%= link_to "口コミ一覧", shop_reviews_path(shop_id: params[:id]) %>
-<table class="table">
-  <tr>
-    <td>店舗名</td>
-    <td>
-      <%= @shop.name %>
-      <span id="bookmarks_btn_<%= @shop.id %>">
+<!--<% link_to "口コミ一覧", shop_reviews_path(shop_id: params[:id]) %>-->
+<div class="show-shop-container">
+  <div class="show-shop-top">
+    <span class="show-shop-name"><%= @shop.name %><p class="shop-text">&emsp;/&emsp;<%= @shop.genre.name %></p></span>
+    <ul class="review-list">
+      <li><div id="star-rate-<%= @shop.id %>"></div></li>
+      <li class="review-list-item"><%= @shop.reviews.average(:rate).to_i.round(1) %>&emsp;</li>
+      <li>
+        <%= link_to shop_reviews_path(@shop) do %>
+          <i class="far fa-comment-dots"></i>&nbsp;<%= @shop.reviews.count %>件
+      　<% end %>
+      </li>
+      <%= render partial: 'member/reviews/star_average', locals: { shop: @shop } %>
+      <li>
+        <div id="bookmarks_btn_<%= @shop.id %>">
         <%= render partial: 'member/bookmarks/bookmark', locals: {shop: @shop} %>
-      </span>
-    </td>
-  </tr>
-  <tr>
-    <td>ジャンル</td>
-    <td><%= @shop.genre.name %></td>
-  </tr>
-  <tr>
-    <td>店舗紹介文</td>
-    <td><%= @shop.caption %></td>
-  </tr>
-  <tr>
-    <td>住所</td>
-    <td><%= @shop.address %></td>
-  </tr>
-  <tr>
-    <td>電話番号</td>
-    <td><%= @shop.phone_number %></td>
-  </tr>
-  <tr>
-    <td>営業時間</td>
-    <td><%= @shop.business_hours %></td>
-  </tr>
-  <tr>
-    <td>定休日</td>
-    <td><%= @shop.regular_holiday %></td>
-  </tr>
-  <tr>
-    <td>アクセス</td>
-    <td><%= @shop.nearest_station %></td>
-  </tr>
-  <tr>
-    <td>店舗写真</td>
-    <td><%= attachment_image_tag @shop, :main_image, size: '300x300' %></td>
-  </tr>
-  <tr>
-    <td>サブ写真</td>
-    <td>
-　　　<% @shop.shop_images.each do |shop_image| %>
-　　　　<%= attachment_image_tag shop_image, :image, size: "120x120" %>
-  　　<% end %>
-    </td>
-  </tr>
-  <tr>
-    <td>地図</td>
-    <td>
-      <%= render 'layouts/map' %>
-      <!--mapの表示-->
-      <div id="map"></div>
-    </td>
-  </tr>
-</table>
+
+      </li>
+    </ul>
+  </div>
+  <hr class="border">
+  <div class="link-box">
+    <div class="link-item1">
+      <%= link_to shop_path(@shop) do %><p>トップ</p><% end %>
+    </div>
+    <div class="link-item2">
+      <%= link_to shop_reviews_path(@shop) do %><p>口コミ</p><% end %>
+    </div>
+    <div class="link-item3">
+      <!-- url直す -->
+      <a href="#map">地図</a>
+    </div>
+  </div>
+  <hr class="border">
+  <!--<div class="show-shop-box">-->
+    <!--<div class="show-shop-left">-->
+  <div class="show-main-image">
+    <%= attachment_image_tag @shop, :main_image, size: '670x400' %>
+  </div>
+  <!--</div>-->
+  <div class="show-sub-image">
+    <% @shop.shop_images.each do |shop_image| %>
+　　　　<%= attachment_image_tag shop_image, :image, size: "130x130", class: "sub-image" %>
+  　<% end %>
+  </div>
+  <hr class="border-sm">
+  <div class="shop-caption">
+    <h5>店鋪紹介</h5>
+    <%= simple_format(@shop.caption) %>
+  </div>
+  <hr class="border-sm">
+  <div class="shop-info">
+    <h5>店鋪情報</h5>
+    <table class="table shop-table">
+      <tbody>
+        <tr>
+          <th width="100" style="background: #fefae6;">住所</th>
+          <td><%= @shop.address %></td>
+        </tr>
+        <tr>
+          <th width="100" style="background: #fefae6;">電話番号</th>
+          <td><%= @shop.phone_number %></td>
+        </tr>
+        <tr>
+          <th width="100" style="background: #fefae6;">営業時間</th>
+          <td><%= @shop.business_hours %></td>
+        </tr>
+        <tr>
+          <th width="100" style="background: #fefae6;">定休日</th>
+          <td><%= @shop.regular_holiday %></td>
+        </tr>
+        <tr>
+          <th width="100" style="background: #fefae6;">アクセス</th>
+          <td><%= @shop.nearest_station %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <hr class="border-sm">
+  
+  <div class="map-area">
+    <h5>アクセス</h5>
+    <%= render 'layouts/map' %>
+    <!--mapの表示-->
+    <div id="map"></div>
+  </div>
+</div>

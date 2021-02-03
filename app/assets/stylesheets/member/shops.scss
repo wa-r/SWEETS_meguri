@@ -9,7 +9,7 @@
   padding: 30px 20px;
 }
 
-.shop-name {
+.shop-top {
   margin-bottom: 10px;
   font-size: 18px;
 }
@@ -37,6 +37,10 @@
   flex: 65%;
   text-overflow: ellipsis;
   font-size: 14px;
+}
+
+.review-list > ul, li {
+  list-style: none;
 }
 
 .review-list > li {
@@ -95,4 +99,137 @@
   font-size: 28px;
   text-align: center;
   margin-top: 25px;
+}
+
+//show画面
+.show-shop-container {
+  width: 70%;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+
+// .show-shop-box {
+//   display: flex;
+// }
+
+.show-shop-left {
+  // flex: 45%;
+}
+
+.show-shop-right {
+  // flex: 55%;
+}
+
+.show-shop-top {
+  margin-bottom: 10px;
+}
+
+.show-shop-name {
+  font-size: 28px;
+  padding-bottom: 20px;
+}
+
+.show-shop-container > .border, {
+  width: 100%;
+  margin: 10px auto;
+	border: solid 2px #e8c59c;
+}
+
+.show-shop-top > .review-list {
+  margin: 10px 0 20px 0;
+  font-size: 15px;
+}
+
+.link-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.link-item1, .link-item2, .link-item3 {
+  width: 33%;
+  height: 45px;
+  padding: 10px;
+  border: solid 1px #e8c59c;
+  box-sizing: border-box;
+  text-align: center;
+  text-decoration: none;
+  background-color: #f8f4e6;
+}
+
+.link-item1:hover, .link-item2:hover, .link-item3:hover {
+  // text-decoration: none;
+  background-color: #fff3b8;
+  color: #000;
+}
+
+.show-main-image{
+  margin-top: 20px;
+  text-align: left;
+  width: 100%;
+}
+
+.show-sub-image {
+  width: 75%;
+  // display: flex;
+  padding: 10px 0;
+  text-align: left;
+}
+
+.sub-image {
+  // padding: 1px 0;
+  // margin: 0 auto;
+  // text-align: center;
+  align-self: flex-start;
+}
+
+.shop-caption {
+  width: 70%;
+  font-size: 15px;
+  color: #595960;
+}
+
+.shop-caption h5, .map-area h5, .shop-info h5 {
+  color: #000;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.shop-caption h5, .map-area h5 {
+  padding-top: 15px;
+}
+
+.border-sm {
+  width: 75%;
+  float: left;
+  margin: 10px 0;
+	border: solid px #dee2e6 ;
+}
+
+.shop-info {
+  width: 70%;
+  float: left;
+}
+
+// .shop-info h5 {
+  
+//   font-weight: bold;
+//   margin: 15px 0;
+// }
+
+.shop-table th {
+  font-size: 13px;
+}
+
+.shop-table td {
+  font-size: 13px;
+  color: #595960;
+}
+
+.shop-table tr {
+  border-bottom: 1px solid #dfe2e7;
+}
+
+.map-area {
+  width: 70%;
 }
