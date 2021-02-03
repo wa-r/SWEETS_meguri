@@ -17,13 +17,13 @@
       <ul class="review-list">
         <!-- 繰り返し処理を実行してもidを一意に保てるようにreview.idを埋め込む -->
         <li><div id="star-rate-<%= shop.id %>"></div></li>
-        <li class="review-list-item"><%= shop.reviews.average(:rate).to_i.round(1) %>&emsp;</li>
+        <li class="review-list-item"><%= shop.reviews.average(:rate).to_f.round(1) %>&emsp;</li>
+        <%= render partial: 'member/reviews/star_average', locals: { shop: shop } %>
         <li>
           <%= link_to shop_reviews_path(shop) do %>
           <i class="far fa-comment-dots">&nbsp;<%= shop.reviews.count %>件</i>
         　<% end %>
         </li>
-        <%= render partial: 'member/reviews/star_average', locals: { shop: shop } %>
       </ul>
       <!-- レビュー最新の１件のみ表示 -->
       <div class="new-review">

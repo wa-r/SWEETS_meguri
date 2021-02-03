@@ -1,22 +1,66 @@
-<h2>口コミ一覧</h2>
-<%= link_to "口コミを投稿する", new_shop_review_path %>
-<% unless @reviews.blank? %>
-  <% @reviews.each do |review| %>
-    <p>
-      <%= attachment_image_tag review.member, :profile_image, fallback: "no_image.jpeg", size: '40x40'%>
-      <%= review.member.name %>
-      <% if review.member_id == current_member.id %>
-        <%= link_to "編集", edit_shop_review_path(review, shop_id: review.shop_id) %>
-        <%= link_to "削除", shop_review_path(review, shop_id: review.shop_id), method: :delete, data: { confirm: '本当に削除しますか？' } %>
-      <% end %>
-    </p>
-      <!-- 繰り返し処理を実行してもidを一意に保てるようにreview.idを埋め込む -->
-      <div id="star-rate-<%= review.id %>"><%= review.rate %></div>
-      <%= render partial: 'member/reviews/star_rate', locals: { review: review } %>
-    <p><%= review.title %></p>
-    <p><%= review.content %></p>
-    <p><%= review.created_at.strftime('%F') %>&nbsp;<%= review.created_at.strftime('%H:%M') %></p>
+<!-- shops.scssに共通記述複数有り -->
+<div class="show-shop-container">
+  <div class="show-shop-top">
+    <span class="show-shop-name"><%= @shop.name %><p class="shop-text">&emsp;/&emsp;<%= @shop.genre.name %></p></span>
+    <ul class="review-list">
+      <li><div id="star-rate-<%= @shop.id %>"></div></li>
+      <li class="review-list-item"><%= @shop.reviews.average(:rate).to_f.round(1) %>&emsp;</li>
+      <li>
+        <%= link_to shop_reviews_path(@shop) do %>
+          <i class="far fa-comment-dots"></i>&nbsp;<%= @shop.reviews.count %>件
+      　<% end %>
+      </li>
+      <%= render partial: 'member/reviews/star_average', locals: { shop: @shop } %>
+      <li>
+        <div id="bookmarks_btn_<%= @shop.id %>">
+        <%= render partial: 'member/bookmarks/bookmark', locals: {shop: @shop} %>
+      </li>
+    </ul>
+  </div>
+  <hr class="border">
+  <div class="link-box">
+    <div class="link-item1">
+      <%= link_to shop_path(@shop), class: "link-item-btn" do %><p>トップ</p><% end %>
+    </div>
+    <div class="link-item2">
+      <%= link_to shop_reviews_path(@shop), class: "link-item-btn" do %><p>口コミ</p><% end %>
+    </div>
+    <div class="link-item3">
+      <a href="#map"  class="link-item-btn">地図</a>
+    </div>
+  </div>
+  <hr class="border">
+  <div class="review-btn-box">
+    <%= link_to "口コミを投稿する", new_shop_review_path, class: "review-btn" %>
+  </div>
+  <% unless @reviews.blank? %>
+    <% @reviews.each do |review| %>
+      <div class="review-box">
+        <div class="review-box-top">
+          <%= attachment_image_tag review.member, :profile_image, fallback: "no_image.jpeg", size: '30x30'%>
+          <%= link_to review.member.name, member_path(review.member) %>&nbsp;
+          <span class="review-text">さんの口コミ</span>
+          <div class="review-box-right">
+            <% if review.member_id == current_member.id %>
+              <%= link_to "編集", edit_shop_review_path(review, shop_id: review.shop_id), class: "review-edit-btn" %>
+              <%= link_to "削除", shop_review_path(review, shop_id: review.shop_id), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "review-destroy-btn" %>
+            <% end %>
+          </div>
+        </div>
+        <ul class="review-list">
+          <!-- 繰り返し処理を実行してもidを一意に保てるようにreview.idを埋め込む -->
+          <li><div id="star-rate-<%= review.id %>"></div></li>
+          <li><%= review.rate %></li>
+          <%= render partial: 'member/reviews/star_rate', locals: { review: review } %>
+        </ul>
+        <div class="review-body">
+          <div class="review-body-title"><%= review.title %></div>
+          <div class="review-text"><%= simple_format(review.content) %></div>
+          <span class="review-text"><%= review.created_at.strftime('%F') %>&nbsp;投稿</span>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <p>まだ口コミ投稿はありません。</p>
   <% end %>
-<% else %>
-  <p>まだ口コミ投稿はありません。</p>
-<% end %>
+</div>

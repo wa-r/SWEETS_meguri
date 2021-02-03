@@ -4,7 +4,7 @@
     <span class="show-shop-name"><%= @shop.name %><p class="shop-text">&emsp;/&emsp;<%= @shop.genre.name %></p></span>
     <ul class="review-list">
       <li><div id="star-rate-<%= @shop.id %>"></div></li>
-      <li class="review-list-item"><%= @shop.reviews.average(:rate).to_i.round(1) %>&emsp;</li>
+      <li class="review-list-item"><%= @shop.reviews.average(:rate).to_f.round(1) %>&emsp;</li>
       <li>
         <%= link_to shop_reviews_path(@shop) do %>
           <i class="far fa-comment-dots"></i>&nbsp;<%= @shop.reviews.count %>件
@@ -14,21 +14,19 @@
       <li>
         <div id="bookmarks_btn_<%= @shop.id %>">
         <%= render partial: 'member/bookmarks/bookmark', locals: {shop: @shop} %>
-
       </li>
     </ul>
   </div>
   <hr class="border">
   <div class="link-box">
     <div class="link-item1">
-      <%= link_to shop_path(@shop) do %><p>トップ</p><% end %>
+      <%= link_to shop_path(@shop), class: "link-item-btn" do %><p>トップ</p><% end %>
     </div>
     <div class="link-item2">
-      <%= link_to shop_reviews_path(@shop) do %><p>口コミ</p><% end %>
+      <%= link_to shop_reviews_path(@shop), class: "link-item-btn" do %><p>口コミ</p><% end %>
     </div>
     <div class="link-item3">
-      <!-- url直す -->
-      <a href="#map">地図</a>
+      <a href="#map" class="link-item-btn">地図</a>
     </div>
   </div>
   <hr class="border">
