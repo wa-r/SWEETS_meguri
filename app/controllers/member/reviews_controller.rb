@@ -6,6 +6,7 @@ class Member::ReviewsController < ApplicationController
   end
 
   def new
+    @shop = Shop.find(params[:shop_id])
     @review = Review.new
   end
 
@@ -30,11 +31,14 @@ class Member::ReviewsController < ApplicationController
   end
 
   def edit
+    @shop = Shop.find(params[:shop_id])
     @review = Review.find_by(id: params[:id], shop_id: params[:shop_id])
   end
 
   def update
-    @review = Review.find_by(params[:id])
+    # @review = Review.find_by(params[:id])
+    @review = Review.find_by(id: params[:id], shop_id: params[:shop_id])
+    @review.member_id = current_member.id
     if @review.update(review_params)
       redirect_to shop_reviews_path(shop_id: params[:shop_id]), notice: "レビューを更新しました"
     else
