@@ -1,3 +1,2 @@
-<% @cafe_shops.each do |shop| %>
-  <%= render  partial: 'member/shops/index', locals: { shop: shop } %>
-<% end %>
+<h3 class="page-heading">Cafe Shop</h3>
+<%= render  partial: 'member/shops/index', locals: { shops: @cafe_shops } %>
