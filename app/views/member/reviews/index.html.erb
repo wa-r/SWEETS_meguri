@@ -37,7 +37,7 @@
     <% @reviews.each do |review| %>
       <div class="review-box">
         <div class="review-box-top">
-          <%= attachment_image_tag review.member, :profile_image, fallback: "no_image.jpeg", size: '30x30'%>
+          <%= attachment_image_tag review.member, :profile_image, fallback: "no_image.jpeg", size: '30x30', class: "profile-image" %>
           <%= link_to review.member.name, member_path(review.member) %>&nbsp;
           <span class="review-text">さんの口コミ</span>
           <div class="review-box-right">
