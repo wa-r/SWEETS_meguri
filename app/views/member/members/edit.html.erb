@@ -12,7 +12,7 @@
       <%= f.submit '変更', class: "edit-profile-btn" %>
     <% end %>
     <span class="next-withdrawal">
-      <%= link_to "※退会をご希望の方はこちらへ", unsubscribe_path(@member), class: "next-withdrawal-btn" %>
+      <%= link_to "※退会をご希望の方はこちらへ", unsubscribe_path(@member), data: { confilm: "本当に退会しますか？" }, class: "next-withdrawal-btn" %>
     </span>
   </div>
 </div>
