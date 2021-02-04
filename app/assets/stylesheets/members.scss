@@ -6,7 +6,7 @@
 .my-page {
   width: 70%;
   display: flex;
-  margin: 30px auto 20px;
+  margin: 30px auto 30px;
   padding: 20px;
   border: solid 2px #d2b48c;
   border-radius: 3px;
@@ -60,7 +60,17 @@
 }
 
 // edit画面
+.my-page-edit {
+  width: 70%;
+  display: flex;
+  margin: 30px auto 80px;
+  padding: 20px;
+  border: solid 2px #d2b48c;
+  border-radius: 3px;
+}
+
 .edit-profile {
+  margin: 0 auto;
   width: 70%;
 }
 
@@ -95,7 +105,7 @@
   background-color: #ef857d;
 }
 
-// unsubscribe
+// unsubscribe画面
 .withdrawal-page {
   width: 70%;
   margin: 30px auto 10px;
@@ -150,9 +160,6 @@
 .follow-page {
   width: 70%;
   margin: 30px auto 10px;
-  // padding: 20px;
-  // border-bottom: solid 2px #d2b48c;
-  // border-radius: 3px;
 }
 
 .follow-list {
@@ -168,8 +175,6 @@
 
 .follow-center {
   width: 70%;
-  // display: flex;
-  // align-items: center;
 }
 
 .profile-text-name {

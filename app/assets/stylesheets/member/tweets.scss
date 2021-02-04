@@ -48,7 +48,7 @@
   width: 300px;
   height: 300px;
   padding: 8px;
-  margin: 40px 25px 0;
+  margin: 30px 25px 0;
   border: solid 2px #d2b48c;
   border-radius: 3px;
   box-shadow: 3px 3px 3px 3px #faebd7;
@@ -85,10 +85,4 @@
 // show画面
 .tweet-container > .show-content {
   flex: 1;
-}
-
-// new画面
-.tweet-create {
-  width: 70%;
-  line-height: 1.5;
 }

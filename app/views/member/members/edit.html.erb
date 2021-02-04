@@ -1,7 +1,6 @@
-<!-- 会員詳細・編集画面のクラス共有 -->
+<!-- members/edit・contacts/newのクラスを引用 -->
 <h3 class="page-heading">Profile</h3>
-<!-- 会員詳細画面のクラスを引用 -->
-<div class="my-page">
+<div class="my-page-edit">
   <div class="edit-profile">
     <%= form_with model: @member, url: member_path(@member), method: :patch, local: true do |f| %>
     <%= render 'layouts/error_messages', model: @member %>

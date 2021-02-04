@@ -1,7 +1,7 @@
+<!-- members/edit・contacts/newのクラスを引用 -->
 <h3 class="page-heading">Tweet</h3>
-<!-- 会員詳細画面のクラスを引用 -->
-<div class="my-page">
-  <div class="tweet-create">
+<div class="my-page-edit ">
+  <div class="edit-profile">
     <%= form_with model: @tweet, local: true do |f| %>
     <%= render 'layouts/error_messages', model: @tweet %>
       <%= f.label :"画像" %><br>
