@@ -1,7 +1,7 @@
 class Member::MembersController < ApplicationController
   def show
     @member = Member.find(params[:id])
-    @tweets = @member.tweets.page(params[:page]).per(6)
+    @tweets = @member.tweets.page(params[:page]).per(9)
 
   end
 
@@ -41,13 +41,13 @@ class Member::MembersController < ApplicationController
   # フォロー画面表示用
   def follows
     member = Member.find(params[:id])
-    @members = member.followings
+    @members = member.followings.page(params[:page]).per(10)
   end
 
   # フォロワー画面表示用
   def followers
     member = Member.find(params[:id])
-    @members = member.followers
+    @members = member.followers.page(params[:page]).per(10)
   end
 
   private
