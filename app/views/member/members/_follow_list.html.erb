@@ -1,0 +1,22 @@
+<div class="follow-page">
+  <% @members.each do |member| %>
+  <div class="follow-list">
+    <div class="follow-left">
+      <%= attachment_image_tag member, :profile_image, fallback: "no_image.jpeg", size: '50x50', class: "profile-image" %>
+    </div>
+    <div class="follow-center">
+      <%= link_to member.name, member_path(member), class: "profile-text-name" %>
+      <p class="profile-text"><%= member.introduction %></p>
+    </div>
+    <div class="follow-right">
+      <% unless member == current_member %>
+        <% if member.followed_by?(current_member) %>
+          <%= link_to "削除", member_relationships_path(member), method: :delete, class: "follows-btn" %>
+        <% else %>
+          <%= link_to "フォローする", member_relationships_path(member), method: :post, class: "follows-btn" %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <% end %>
+</div>

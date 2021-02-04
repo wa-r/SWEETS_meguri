@@ -1,18 +1,2 @@
-<h2>フォロー</h2>
-<% @members.each do |member| %>
-  <table>
-    <tr>
-      <td><%= attachment_image_tag member, :profile_image, fallback: "no_image.jpeg", size: '20x20', format: 'jpeg' %></td>
-      <td><%= member.name %></td>
-      <td>
-        <% unless member == current_member %>
-          <% if member.followed_by?(current_member) %>
-            <%= link_to "フォロー済み", member_relationships_path(member), method: :delete %>
-          <% else %>
-            <%= link_to "フォローする", member_relationships_path(member), method: :post %>
-          <% end %>
-        <% end %>
-      </td>
-    </tr>
-  </table>
-<% end %>
+<h3 class="page-heading">Followers</h3>
+<%= render partial: 'member/members/follow_list', locals: { members: @members } %>
