@@ -30,12 +30,13 @@ class Member::MembersController < ApplicationController
 
   # ブックマークの一覧表示用
   def bookmarks
-    @bookmarks = current_member.bookmarks
+    @bookmarks = current_member.bookmarks.page(params[:page]).per(10)
   end
 
   # いいねをしたつぶやきの一覧表示用
   def tweet_likes
-    @tweet_likes = current_member.tweet_likes
+    @member = Member.find(params[:id])
+    @tweet_likes = @member.tweet_likes.page(params[:page]).per(9)
   end
 
   # フォロー画面表示用

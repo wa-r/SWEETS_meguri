@@ -10,7 +10,7 @@
       </div>
       <div class="tweet-bottom">
         <div class="member-info">
-          <%= attachment_image_tag tweet.member, :profile_image, fallback: "no_image.jpeg", size: '25x25', class: "profile-image" %>
+          <%= attachment_image_tag  tweet.member, :profile_image, fallback: "no_image.jpeg", size: '25x25', class: "profile-image" %>
           <%= link_to "#{tweet.member.name}", member_path(tweet.member) %>&nbsp;
         </div>
         <span id="likes_btn_<%= tweet.id %>">

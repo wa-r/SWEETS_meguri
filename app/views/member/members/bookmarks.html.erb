@@ -1,24 +1,50 @@
-<table class="table">
-  <thead>
-    <tr>
-      <th></th>
-      <th>ジャンル</th>
-      <th>店舗名</th>
-      <th>住所</th>
-    </tr>
-  </thead>
-  <% @bookmarks.each do |bookmark| %>
-  <tbody>
-    <tr>
-      <td>
+<h3 class="page-heading">Bookmark</h3>
+<% @bookmarks.each do |bookmark| %>
+  <div class="shop-container">
+    <div class="shop-top">
         <span id="bookmarks_btn_<%= bookmark.shop.id %>">
           <%= render partial: 'member/bookmarks/bookmark', locals: {shop: bookmark.shop} %>
         </span>
-      </td>
-      <td><%= bookmark.shop.genre.name %></td>
-      <td><%= link_to bookmark.shop.name, shop_path(bookmark.shop) %></td>
-      <td><%= bookmark.shop.address %></td>
-    </tr>
-  </tbody>
-  <% end %>
-</table>
+        <%= link_to bookmark.shop.name, shop_path(bookmark.shop) %>
+        <p class="shop-text">/&emsp;<%= bookmark.shop.genre.name %></p>
+      </div>
+      <div class="shop-box">
+        <div class="shop-image-box">
+          <%= attachment_image_tag bookmark.shop, :main_image, size: '240x180', class: "shop-image" %>
+        </div>
+        <div class="shop-main">
+          <p>最寄り駅&emsp;<%= bookmark.shop.nearest_station %></p>
+          <p><%= bookmark.shop.caption %></p>
+        <ul class="review-list">
+          <!-- 繰り返し処理を実行してもidを一意に保てるようにreview.idを埋め込む -->
+          <li><div id="star-rate-<%= bookmark.shop.id %>"></div></li>
+          <li class="review-list-item"><%= bookmark.shop.reviews.average(:rate).to_f.round(1) %>&emsp;</li>
+          <%= render partial: 'member/reviews/star_average', locals: { shop: bookmark.shop } %>
+          <li>
+            <%= link_to shop_reviews_path(bookmark.shop) do %>
+            <i class="far fa-comment-dots">&nbsp;<%= bookmark.shop.reviews.count %>件</i>
+          　<% end %>
+          </li>
+        </ul>
+        <!-- レビュー最新の１件のみ表示 -->
+        <div class="new-review">
+          <% unless bookmark.shop.reviews.blank? %>
+            <% review = Review.where(shop_id: bookmark.shop.id).order(created_at: :desc).last %>
+            <div class="new-review-left">
+              <%= attachment_image_tag review.member, :profile_image, fallback: "no_image.jpeg", size: "30x30", class: "profile-image" %><br>
+            　<%= link_to review.member.name, member_path(review.member), class: "review-name" %>
+            </div>
+            <div class="new-review-right">
+              <span class="review-title"><%= review.title %><br></span>
+              <span class="review-content"><%= review.content %><br></span>
+            </div>
+          <% else %>
+            <p class="no-review">まだ口コミ投稿はありません。</p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <%= paginate @bookmarks %>
+  </div>
+  <hr class="border">
+<% end %>
