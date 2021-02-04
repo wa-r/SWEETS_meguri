@@ -1,6 +1,8 @@
 class Member::MembersController < ApplicationController
   def show
     @member = Member.find(params[:id])
+    @tweets = @member.tweets.page(params[:page]).per(6)
+
   end
 
   def edit
@@ -10,7 +12,7 @@ class Member::MembersController < ApplicationController
   def update
     @member = Member.find(params[:id])
     if @member.update(member_params)
-      redirect_to tweets_path, notice: "更新に成功しました"
+      redirect_to members_path(@member), notice: "更新に成功しました"
     else
       render :edit
       flash[:notice] = "更新に失敗しました"
@@ -30,12 +32,12 @@ class Member::MembersController < ApplicationController
   def bookmarks
     @bookmarks = current_member.bookmarks
   end
-  
+
   # いいねをしたつぶやきの一覧表示用
   def tweet_likes
     @tweet_likes = current_member.tweet_likes
   end
-  
+
   # フォロー画面表示用
   def follows
     member = Member.find(params[:id])

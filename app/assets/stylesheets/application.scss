@@ -167,3 +167,16 @@ a:hover {
 img {
   object-fit: cover;
 }
+
+.page-heading {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px 6px 0 80px;
+}
+
+textarea {
+  padding: 3px;
+  resize: none;
+  width: 100%;
+  height: 150px;
+}

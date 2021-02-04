@@ -1,7 +1,93 @@
 // Place all the styles related to the Members controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// show画面
 .my-page {
+  width: 70%;
+  display: flex;
+  margin: 30px auto 10px;
   padding: 20px;
+  border: solid 2px #d2b48c;
+  border-radius: 3px;
 }
 
+.my-page-left {
+  width: 30%;
+  height: 180px;
+}
+
+.profile-heading {
+  padding: 0 6px 10px 35px;
+}
+
+.profile-image {
+  text-align: center;
+  font-size: 14px;
+  color: #898989;
+}
+
+.fa-wrench, .fa-comment, .fa-bookmark, .fa-apple-alt {
+  font-size: 14px;
+  color: #898989;
+}
+
+.fa-wrench:hover, .fa-comment:hover, .fa-bookmark:hover, .fa-apple-alt:hover {
+  color: #de82a7;
+}
+
+.my-page-right {
+  width: 70%;
+  height: 180px;
+  padding: 0 10px;
+}
+
+.profile-title {
+  font-size: 15px;
+}
+
+.profile-text {
+  font-size: 13px;
+  color: #898989;
+}
+
+// edit画面
+.edit-profile {
+  width: 70%;
+}
+
+.edit-profile-form {
+  width: 100%;
+  padding: 3px;
+  border-radius: 3px;
+}
+
+.edit-profile-btn {
+  display: block;
+  width: 150px;
+  height: 30px;
+  margin: 20px auto;
+  border-radius: 3px;
+  border-color: #f6e5cc;
+  background-color: #f6e5cc;
+}
+
+.edit-profile-btn:hover {
+  background-color: #ffe9a9;
+}
+
+.next-withdrawal {
+  display: block;
+  margin: 0 0 0 auto;
+}
+
+.next-withdrawal-btn {
+  margin: 0;
+  padding: 2px 5px;
+  background-color: #fff;
+}
+
+.next-withdrawal-btn:hover {
+  color: #000;
+  background-color: #ef857d;
+}
