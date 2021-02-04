@@ -37,9 +37,14 @@
   <!--</div>-->
   <div class="show-sub-image">
     <% @shop.shop_images.each do |shop_image| %>
-　　　　<%= attachment_image_tag shop_image, :image, size: "130x130", class: "sub-image" %>
+  　　  <%= attachment_image_tag shop_image, :image, size: "130x130", class: "sub-image" %>
   　<% end %>
   </div>
+  <!--<div>-->
+  <!--  <img src="/attachments/d7ab6dc5b394aa9728bfe066c767e40f538dcb4b/store/787c7052ea7026c7a99baa5f546575043eb9d2854d0b7f8e0bb611c5ddbe/image" width="130" height="130">-->
+  <!--  <img src="/attachments/d7ab6dc5b394aa9728bfe066c767e40f538dcb4b/store/787c7052ea7026c7a99baa5f546575043eb9d2854d0b7f8e0bb611c5ddbe/image" width="130" height="130">-->
+  <!--  <img src="/attachments/d7ab6dc5b394aa9728bfe066c767e40f538dcb4b/store/787c7052ea7026c7a99baa5f546575043eb9d2854d0b7f8e0bb611c5ddbe/image" width="130" height="130">-->
+  <!--</div>-->
   <hr class="border-sm">
   <div class="shop-caption">
     <h5>店鋪紹介</h5>
@@ -73,9 +78,9 @@
       </tbody>
     </table>
   </div>
-  
+
   <hr class="border-sm">
-  
+
   <div class="map-area">
     <h5>アクセス</h5>
     <%= render 'layouts/map' %>

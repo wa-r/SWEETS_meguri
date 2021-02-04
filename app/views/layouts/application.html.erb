@@ -53,11 +53,13 @@
   </header>
 
   <body>
+    <div class="main">
     <!--<div class="wrapper">-->
       <%= flash.now[:alert] %>
       <%= flash[:notice] %>
       <%= yield %>
     <!--</div>-->
+    </div>
   </body>
 
   <footer>
