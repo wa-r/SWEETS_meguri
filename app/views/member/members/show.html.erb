@@ -1,1 +1,50 @@
-<%= render 'member/members/show' %>
+<h3 class="page-heading">Profile</h3>
+<div class="my-page">
+  <div class="my-page-left">
+    <div class="profile-image">
+      <%= attachment_image_tag @member, :profile_image, fallback: "no_image.jpeg", size: '130x130', class: "profile-image" %>
+      <div class="follow-link">
+        <%= @member.followings.count %><%= link_to "フォロー", follows_member_path(@member) %>&emsp;
+        <%= @member.followers.count %><%= link_to "フォロワー", followers_member_path(@member) %>
+      </div>
+      <div class="follow-btn">
+        <% unless @member == current_member %>
+          <% if @member.followed_by?(current_member) %>
+            <p><%= link_to "フォロー済み", member_relationships_path(@member), method: :delete %></p>
+          <% else %>
+            <p><%= link_to "フォローする", member_relationships_path(@member), method: :post %></p>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="my-page-right">
+    <p class="profile-title">ニックネーム</p>
+    <p class="profile-text"><%= @member.name %></p>
+    <p class="profile-title">自己紹介</p>
+    <p class="profile-text"><%= @member.introduction %></p>
+    <div class="icon">
+      <% if @member == current_member %>
+      　<!-- 編集リンク・アイコン付き -->
+      　<%= link_to edit_member_path(@member) do %>
+      　   <i class="fas fa-wrench" >編集</i>
+        <% end %>
+      　<!-- つぶやきリンク・アイコン付き -->
+        <%= link_to new_tweet_path do %>
+          <i class="fas fa-comment">つぶやく</i>
+      　<% end %>
+      <% end %>
+      <!-- ブックマーク一覧・アイコン付き -->
+      <%= link_to bookmarks_path(@member) do %>
+        <i class="fas fa-bookmark">ブックマーク</i>&emsp;
+      <% end %>
+      <!-- お気に入り一覧・アイコン付き -->
+      <%= link_to tweet_likes_path(@member) do %>
+        <i class="fas fa-apple-alt">お気に入り</i>
+      <% end %>
+    </div>
+  </div>
+</div>
+<!-- マイページの会員のつぶやき一覧 -->
+<h3 class="page-heading">Tweet</h3>
+<%= render partial: 'member/tweets/index', locals: { tweets: @tweets} %>

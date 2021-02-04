@@ -31,45 +31,32 @@
 // indexページ
 .tweet-container {
   width: 80%;
-  // // min-height: 100vh;
   display: flex;
   margin: 0 auto;
 }
-
-// .tweet-container > .sidebar {
-//   width: 250px;
-//   justify-content: left;
-//   margin-right: 10px;
-//   background-color: #fdede4;
-// }
 
 .main-content {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: left;
-  margin: 20px;
-  padding: 30px;
-
+  margin: 0 20px 20px;
+  padding: 0 30px 30px;
 }
 
 .tweet-box {
   width: 300px;
   height: 300px;
   padding: 8px;
-  margin: 20px 40px 20px 0;
+  margin: 40px 25px 0;
   border: solid 2px #d2b48c;
   border-radius: 3px;
-  // box-shadow: 0 10px 25px 0 rgba(251, 236, 216, 0.7);
   box-shadow: 3px 3px 3px 3px #faebd7;
 }
 
-
-// .tweet-image {
-// }
-// .tweet-box:nth-child(3n) {
-//   margin-right: 0;
-// }
+.tweet-box:nth-child(3n) {
+  margin-right: 0;
+}
 
 .tweet-top {
   font-weight: bold;
@@ -94,8 +81,6 @@
   color: #898989;
   text-align: right;
 }
-
-
 
 // showページ
 .tweet-container > .show-content {

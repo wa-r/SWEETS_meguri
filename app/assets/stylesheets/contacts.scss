@@ -10,7 +10,7 @@
 }
 
 .contact-image-cover {
-  height: 600px;
+  height: 630px;
   background-color: rgba(255, 255, 255, 0.2);
 }
 
@@ -20,6 +20,7 @@
 }
 
 .contact-box {
+  height: 100%;
   width: 600px;
   padding-top: 80px;
 }
@@ -36,15 +37,10 @@
 }
 
 .contact-form {
+  padding: 3px;
   width: 400px;
   border-radius: 3px;
   border-color: #fff;
-}
-
-.contact-box > textarea {
-	resize: none;
-	width: 600px;
-	height: 400px;
 }
 
 .contact-btn {
@@ -54,6 +50,10 @@
   border-radius: 3px;
   border-color: #fff;
   background-color: #fff;
+}
+
+.contact-btn:hover {
+  background-color: #efefef;
 }
 
 //thanks画面
