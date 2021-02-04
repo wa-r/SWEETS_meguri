@@ -82,7 +82,13 @@
   text-align: right;
 }
 
-// showページ
+// show画面
 .tweet-container > .show-content {
   flex: 1;
+}
+
+// new画面
+.tweet-create {
+  width: 70%;
+  line-height: 1.5;
 }
