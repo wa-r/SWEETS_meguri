@@ -75,15 +75,21 @@
   left: 8px;
 }
 
+.search {
+  margin: 30px;
+}
+
 .genre-search {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+
   margin-bottom: 50px;
 }
 
 .genre-box {
   position: relative;
+  margin: 8px;
 }
 
 .genre-image {

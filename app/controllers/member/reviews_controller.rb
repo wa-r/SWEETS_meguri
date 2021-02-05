@@ -2,7 +2,7 @@ class Member::ReviewsController < ApplicationController
 
   def index
     @shop = Shop.find(params[:shop_id])
-    @reviews = @shop.reviews
+    @reviews = @shop.reviews.page(params[:page]).per(10)
   end
 
   def new

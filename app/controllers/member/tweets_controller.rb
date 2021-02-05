@@ -1,14 +1,13 @@
 class Member::TweetsController < ApplicationController
 
   def index
-    @tweets = Tweet.all.page(params[:page]).per(6)
-    @member = current_member
+    @tweets = Tweet.all.page(params[:page]).per(9)
   end
 
   def show
     @tweet = Tweet.find(params[:id])
     @tweet_comment = TweetComment.new
-    @member = current_member
+    @member = @tweet.member
   end
 
   def new
@@ -38,7 +37,7 @@ class Member::TweetsController < ApplicationController
   def destroy
     @tweet = Tweet.find(params[:id])
     @tweet.destroy
-    redirect_to tweets_path
+    redirect_to tweet_path(@tweet)
   end
 
   private
