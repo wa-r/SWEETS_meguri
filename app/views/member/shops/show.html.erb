@@ -10,7 +10,7 @@
       　<% end %>
       </li>
       <%= render partial: 'member/reviews/star_average', locals: { shop: @shop } %>
-      <li>
+      <li class="bookmark-size">
         <div id="bookmarks_btn_<%= @shop.id %>">
         <%= render partial: 'member/bookmarks/bookmark', locals: {shop: @shop} %>
       </li>

@@ -11,9 +11,9 @@
       <div class="follow-btn">
         <% unless member == current_member %>
           <% if member.followed_by?(current_member) %>
-            <p><%= link_to "フォロー済み", member_relationships_path(member), method: :delete %></p>
+            <span class="follow-link"><%= link_to "フォロー済み", member_relationships_path(member), method: :delete, class: "follow-link-btn" %></span>
           <% else %>
-            <p><%= link_to "フォローする", member_relationships_path(member), method: :post %></p>
+            </span><%= link_to "フォローする", member_relationships_path(member), method: :post, class: "follow-link-btn" %></span>
           <% end %>
         <% end %>
       </div>

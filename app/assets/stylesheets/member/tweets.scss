@@ -33,7 +33,10 @@
 }
 
 .tweet-top {
+  margin-top: 3px;
   font-weight: bold;
+  font-size: 15px;
+  color: #4e454a;
 }
 
 .tweet-bottom {
@@ -68,7 +71,7 @@
 
 .tweet-date {
   font-size: 13px;
-  color: #898989;
+  color: #736d71;
   text-align: right;
 }
 
@@ -91,7 +94,7 @@
 .show-tweet-left {
   width: 30%;
   font-size: 13px;
-  color: #898989;
+  color: #736d71;
 }
 
 .show-tweet-center {
@@ -146,6 +149,7 @@
   .tweet-top {
   font-weight: bold;
   font-size: 15px;
+  color: #4e454a;
   }
 
   .tweet-bottom {
@@ -163,11 +167,11 @@
     height: 20px;
     border-radius: 50%;
   }
-  
+
   .member-name {
     font-size: 12px;
   }
-  
+
   .member-name:hover {
     color: #6c3524;
   }
@@ -183,7 +187,7 @@
 
   .tweet-date {
     font-size: 13px;
-    color: #898989;
+    color: #736d71;
     text-align: right;
   }
 

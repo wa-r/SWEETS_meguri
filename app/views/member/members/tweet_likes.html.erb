@@ -5,14 +5,14 @@
     <% @tweet_likes.each do |like| %>
     <div class="tweet-box">
       <div class="tweet-image">
-        <%= attachment_image_tag  like.tweet, :image, size: '280x210' %>
+        <%= attachment_image_tag  like.tweet, :image, class: "tweet-image" %>
       </div>
       <div class="tweet-top">
         <%= like.tweet.title %>
       </div>
       <div class="tweet-bottom">
         <div class="member-info">
-          <%= attachment_image_tag like.tweet.member, :profile_image, fallback: "no_image.jpeg", size: '25x25', class: "profile-image" %>
+          <%= attachment_image_tag like.tweet.member, :profile_image, fallback: "no_image.jpeg", class: "tweet-profile-image" %>
           <%= link_to "#{like.tweet.member.name}", member_path(like.tweet.member) %>&nbsp;
         </div>
         <span id="likes_btn_<%= like.tweet.id %>">
