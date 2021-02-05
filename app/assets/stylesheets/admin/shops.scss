@@ -1,25 +1,13 @@
 // Place all the styles related to the admin::shops controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
+// shops/index画面
 .shop-container > table {
   width: 100%;
   border-collapse: collapse;
-  // margin: 0 auto;
-  // padding: 0;
-  // margin-left: auto;
-  // margin-right: auto;
   box-shadow: 0 0 18px -6px #c49a6a;
 }
-
-// .shop-container > table tr {
-//   background-color: #fff;
-// }
 
 .shop-container > table th, table td {
   padding: 14px 0;
@@ -59,4 +47,40 @@
 
 .shop-container > table tr:hover {
   background-color: #fff3b8;
+}
+
+// モバイル版対応
+@media screen and (max-width: 600px) {
+  .shop-container > table th, table td {
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  }
+
+  .shop-container > table th {
+    padding: 6px 0;
+    font-size: 13px;
+    padding: 10px;
+  }
+  .shop-container > table td {
+    padding: 6px 0;
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .shop-container > table tr {
+    padding: 10px 0;
+  }
+
+  .shop-container > table th:nth-child(1){
+    width: 18%;
+  }
+
+  .shop-container > table th:nth-child(2) {
+    width: 14%;
+  }
+
+  .shop-container > table th:nth-child(5) {
+    width: 21%;
+  }
+
 }

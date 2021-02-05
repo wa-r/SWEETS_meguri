@@ -108,3 +108,71 @@
   color: #fff;
   font-family: "Hannari";
 }
+
+// モバイル版対応
+@media screen and (max-width: 600px) {
+  // top画面
+  .top-container {
+    position: relative;
+  }
+
+  .top-image1 {
+    height: 450px;
+    margin: 10px 0;
+    border: 1px solid #664A30;
+  }
+
+  .top-image2, .top-image3  {
+    display: none;
+  }
+
+  .site-name {
+    top: 55px;
+    left: 50px;
+    font-size: 60px;
+  }
+
+  .concept-text {
+    padding: 20px;
+    bottom: 100px;
+    right: 20px;
+    font-size: 14px;
+  }
+
+  .search-content {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    top: 25px;
+  }
+
+  .search-form {
+    width: 85%;
+    height: 40px;
+    border-color: #9F836F;
+  }
+
+  .search-btn {
+    border-color: #9F836F;
+    color: #9F836F;
+  }
+
+  .fa-search {
+    // position: absolute;
+    // top: 8px;
+    // left: 8px;
+  }
+
+  .search {
+    margin: 60px 0 0 0;
+    font-size: 22px;
+  }
+
+  .genre-search {
+    // display: flex;
+    // flex-wrap: wrap;
+    // justify-content: center;
+    margin-bottom: 40px;
+  }
+}
+  // genre-box 続きから
