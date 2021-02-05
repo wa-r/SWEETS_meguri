@@ -48,9 +48,9 @@
       </div>
       <div class="new-review-body">
         <%= f.label :"口コミ内容" %><br>
-        <%= f.text_area :content %>
+        <%= f.text_area :content, placeholder: "星のみの評価でもレビューを投稿できます！" %>
       </div>
-        <%= f.submit '投稿', class: "new-review-btn" %>
+        <%= f.submit '投稿', class: "edit-profile-btn" %>
     <% end %>
   </div>
 </div>

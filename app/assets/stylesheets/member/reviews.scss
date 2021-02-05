@@ -123,22 +123,16 @@
   height: 150px;
 }
 
-.new-review-btn {
-  display: block;
-  margin: 20px auto 20px;
-  padding: 3px 50px;
-}
-
 // モバイル版対応
-// index画面
 @media screen and (max-width: 600px) {
-
+  // index画面
   .show-shop-container > .review-btn-box, .review-box {
     width: 100%;
   }
 
-  .review-btn {
-    margin: 10px auto;
-    padding: 8px 20px 4px;
+  // review/new画面
+  .new-review-content {
+  width: 95%;
+  margin: 20px auto 0;
   }
 }
