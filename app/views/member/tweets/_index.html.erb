@@ -2,16 +2,18 @@
   <div class="main-content">
     <% tweets.each do |tweet| %>
     <div class="tweet-box">
-      <div class="tweet-image">
-        <%= attachment_image_tag tweet, :image, size: '280x210' %>
+      <div class="tweet-image-box">
+        <%= link_to tweet_path(tweet) do %>
+          <%= attachment_image_tag tweet, :image, class: "tweet-image" %>
+        <% end %>
       </div>
       <div class="tweet-top">
         <%= tweet.title %>
       </div>
       <div class="tweet-bottom">
         <div class="member-info">
-          <%= attachment_image_tag  tweet.member, :profile_image, fallback: "no_image.jpeg", size: '25x25', class: "profile-image" %>
-          <%= link_to "#{tweet.member.name}", member_path(tweet.member) %>&nbsp;
+          <%= attachment_image_tag  tweet.member, :profile_image, fallback: "no_image.jpeg", class: "tweet-profile-image" %>
+          <%= link_to "#{tweet.member.name}", member_path(tweet.member), class: "member-name" %>&nbsp;
         </div>
         <span id="likes_btn_<%= tweet.id %>">
           <%= render partial: 'member/tweet_likes/tweet_like', locals: {tweet: tweet} %>
