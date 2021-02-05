@@ -9,7 +9,7 @@
     </div>
     <div class="shop-box">
       <div class="shop-image-box">
-        <%= attachment_image_tag shop, :main_image, size: '240x180', class: "shop-image" %>
+        <%= attachment_image_tag shop, :main_image, class: "shop-image" %>
       </div>
       <div class="shop-main">
         <p>最寄り駅&emsp;<%= shop.nearest_station %></p>
@@ -37,13 +37,13 @@
               <span class="review-title"><%= review.title %><br></span>
               <span class="review-content"><%= review.content %><br></span>
             </div>
+            <%= paginate shops %>
           <% else %>
             <p class="no-review">まだ口コミ投稿はありません。</p>
           <% end %>
         </div>
       </div>
     </div>
-    <%= paginate shops %>
   </div>
   <hr class="border">
 <% end %>

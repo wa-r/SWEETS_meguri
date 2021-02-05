@@ -3,7 +3,7 @@
     <% members.each do |member| %>
       <div class="follow-list">
         <div class="follow-left">
-          <%= attachment_image_tag member, :profile_image, fallback: "no_image.jpeg", size: '50x50', class: "profile-image" %>
+          <%= attachment_image_tag member, :profile_image, fallback: "no_image.jpeg", class: "follow_profile-image" %>
         </div>
         <div class="follow-center">
           <%= link_to member.name, member_path(member), class: "profile-text-name" %>

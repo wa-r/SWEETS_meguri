@@ -50,7 +50,7 @@
 }
 
 .review-list > .review-list-item {
-  font-size: 18px;
+  font-size: 20px;
   color: #e8383d;
 }
 
@@ -92,7 +92,7 @@
 
 .review-content, .no-review {
   font-size: 10px;
-  color: #898989;
+  color: #736d71;
 }
 
 .border {
@@ -146,9 +146,7 @@
 }
 
 .link-item1:hover, .link-item2:hover, .link-item3:hover {
-  // text-decoration: none;
   background-color: #fff3b8;
-  color: #000;
 }
 
 .link-item-btn:hover {
@@ -236,16 +234,16 @@
   margin: 0 auto;
   padding: 30px 20px;
   }
-  
+
   .shop-box {
     display: block;
   }
-  
+
   .shop-top {
     margin-bottom: 0;
     font-size: 18px;
   }
-  
+
   .shop-image-box {
     text-align: center;
   // margin: 0 auto;
@@ -257,7 +255,7 @@
     padding: 4px;
     border: 1px solid;
   }
-  
+
   .shop-main {
     width: 90%;
     // flex: 70%;
@@ -266,13 +264,13 @@
     text-overflow: ellipsis;
     font-size: 14px;
   }
-  
+
   .new-review {
     // width: 100%;
     // height: 70px;
     // padding: 5px;
   }
-  
+
   .new-review-left {
   flex: 20%;
   text-align: center;
@@ -293,13 +291,13 @@
     font-size: 12px;
     font-weight: bold;
   }
-  
+
   .review-content, .no-review {
     font-size: 11px;
-    color: #898989;
+    color: #736d71;
   }
-  
-  
+
+
 
   // show画面
   .show-shop-container {
@@ -343,4 +341,5 @@
     width: 486px;
     height: 280px;
   }
+
 }
