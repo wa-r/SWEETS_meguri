@@ -27,37 +27,36 @@
 header {
   width: 100%;
   height: 70px;
+  margin-top: 0;
   position: relative;
   background-color: #d2b48c;
 }
 
-.logo {
-  text-align: left;
+// .logo {
+//   text-align: left;
   // width: 60px;
   // height: 60px;
   // position: absolute;
   // background-image: image-url("logo.pdf");
   // background-size: cover;
-
-}
+// }
 
 .list ul {
-  height: 80px;
-  text-align: right;
-  margin-right: 30px;
+  // height: 80px;
+  // text-align: right;
+  // margin-right: 30px;
 }
 
 .list ul li {
-  display: inline-block;
-  height-line: center;
-
+  // display: inline-block;
+  // height-line: center;
 }
 
 .header-item {
-  color: #c2894b;
-  width: 100%;
-  height: 60px;
-  background-color: #c2894b;
+  // color: #c2894b;
+  // width: 100%;
+  // height: 60px;
+  // background-color: #c2894b;
 }
 
 body {
@@ -69,12 +68,6 @@ body {
 .main {
   min-height: 85vh;
 	height: 100%;
-}
-.wrapper {
-  // min-height: 100vh;
-  // position: relative; /*相対位置*/
-  // padding-bottom: 100px; /*footerの高さ*/
-  // box-sizing: border-box; /*全て含めてmin-height:100vhに*/
 }
 
 footer {
@@ -104,13 +97,13 @@ a:hover {
 // ログイン・新規登録画面（会員・管理者共通）
 .bg-image {
   width: 100%;
-  height: 600px;
+  height: 630px;
   background-image: image-url("genre-macaron1.jpg");
   background-size: cover;
 }
 
 .bg-image-cover {
-  height: 600px;
+  height: 630px;
   background-color: rgba(255, 255, 255, 0.3);
 }
 
@@ -187,4 +180,14 @@ textarea {
   margin: 50px auto 0;
   font-size: 20px;
   color: #898989;
+}
+
+// モバイル版対応
+@media screen and (max-width: 600px) {
+  
+  .page-heading {
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px 0 0 25px;
+  }
 }

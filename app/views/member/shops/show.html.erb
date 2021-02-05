@@ -29,15 +29,12 @@
     </div>
   </div>
   <hr class="border">
-  <!--<div class="show-shop-box">-->
-    <!--<div class="show-shop-left">-->
   <div class="show-main-image">
-    <%= attachment_image_tag @shop, :main_image, size: '670x400' %>
+    <%= attachment_image_tag @shop, :main_image,  class: "main-image" %>
   </div>
-  <!--</div>-->
   <div class="show-sub-image">
     <% @shop.shop_images.each do |shop_image| %>
-  　　  <%= attachment_image_tag shop_image, :image, size: "130x130", class: "sub-image" %>
+  　　  <%= attachment_image_tag shop_image, :image, class: "sub-image" %>
   　<% end %>
   </div>
   <!--<div>-->

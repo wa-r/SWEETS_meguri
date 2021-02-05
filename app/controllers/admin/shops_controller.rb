@@ -1,7 +1,7 @@
 class Admin::ShopsController < ApplicationController
 
   def index
-    @shops = Shop.all
+    @shops = Shop.all.page(params[:page]).per(10)
   end
 
   def show
@@ -17,9 +17,9 @@ class Admin::ShopsController < ApplicationController
     @genres = Genre.all
     @shop = Shop.new(shop_params)
     if @shop.save
-      redirect_to admin_shop_path(@shop), noice: "店舗情報登録に成功しました"
+      redirect_to admin_shop_path(@shop), noice: "店舗情報を登録しました"
     else
-      flash.now[:alert] = "店舗情報登録に失敗しました"
+      flash.now[:alert] = "店舗情報の登録を失敗しました"
       render :new
     end
   end
@@ -32,9 +32,9 @@ class Admin::ShopsController < ApplicationController
   def update
     @shop = Shop.find(params[:id])
     if @shop.update(shop_params)
-      redirect_to admin_shop_path(@shop), noice: "店舗情報更新に成功しました"
+      redirect_to admin_shop_path(@shop), noice: "店舗情報を更新しました"
     else
-      flash.now[:alert] = "店舗情報更新に失敗しました"
+      flash.now[:alert] = "店舗情報の更新を失敗しました"
       render :edit
     end
   end
@@ -42,7 +42,7 @@ class Admin::ShopsController < ApplicationController
   def destroy
     @shop = Shop.find(params[:id])
     @shop.destroy
-    redirect_to request.referer, notice: "店舗情報の削除に成功"
+    redirect_to request.referer, notice: "店舗情報を削除しました"
   end
 
   private

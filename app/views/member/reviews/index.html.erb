@@ -59,6 +59,7 @@
           <span class="review-text"><%= review.created_at.strftime('%F') %>&nbsp;投稿</span>
         </div>
       </div>
+      <%= paginate @reviews %>
     <% end %>
   <% else %>
     <p>まだ口コミ投稿はありません。</p>

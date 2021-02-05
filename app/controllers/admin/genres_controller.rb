@@ -18,6 +18,7 @@ class Admin::GenresController < ApplicationController
 
   def edit
     @genre = Genre.find(params[:id])
+    @genres = Genre.all
   end
 
   def update
@@ -29,7 +30,7 @@ class Admin::GenresController < ApplicationController
       render :edit
     end
   end
-  
+
   def destroy
     @genre = Genre.find(params[:id])
     @genre.destroy

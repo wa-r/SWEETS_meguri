@@ -1,6 +1,6 @@
 <div class="my-page">
   <div class="profile-image">
-    <%= attachment_image_tag @member, :profile_image, fallback: "no_image.jpeg", size: '70x70' %>
+    <%= attachment_image_tag @member, :profile_image, fallback: "no_image.jpeg", size: '70x70', class: "profile-image" %>
   </div>
   <div class="member-name">
     <%= @member.name %>
