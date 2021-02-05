@@ -3,10 +3,10 @@
 <div class="my-page">
   <div class="my-page-left">
     <div class="profile-image">
-      <%= attachment_image_tag member, :profile_image, fallback: "no_image.jpeg", size: '130x130', class: "profile-image" %>
-      <div class="follow-link">
-        <%= member.followings.count %><%= link_to "フォロー", follows_member_path(member) %>&emsp;
-        <%= member.followers.count %><%= link_to "フォロワー", followers_member_path(member) %>
+      <%= attachment_image_tag member, :profile_image, fallback: "no_image.jpeg", class: "my-profile-image" %>
+      <div class="follow">
+      　<span class="follow-link"><%= member.followings.count %><%= link_to "フォロー", follows_member_path(member), class: "follow-link-btn" %></span>&emsp;
+        <span class="follow-link"><%= member.followers.count %><%= link_to "フォロワー", followers_member_path(member), class: "follow-link-btn" %></span>
       </div>
       <div class="follow-btn">
         <% unless member == current_member %>
@@ -20,10 +20,10 @@
     </div>
   </div>
   <div class="my-page-right">
-    <p class="profile-title">ニックネーム</p>
-    <p class="profile-text"><%= member.name %></p>
-    <p class="profile-title">自己紹介</p>
-    <p class="profile-text"><%= member.introduction %></p>
+    <div class="profile-title">ニックネーム</div>
+    <div class="profile-text"><%= member.name %></div>
+    <div class="profile-title">自己紹介</div>
+    <div class="profile-text"><%= member.introduction %></div>
     <div class="icon">
       <% if @member == current_member %>
       　<!-- 編集リンク・アイコン付き -->

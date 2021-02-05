@@ -18,8 +18,9 @@ class Member::TweetsController < ApplicationController
     @tweet = Tweet.new(tweet_params)
     @tweet.member_id = current_member.id
     if @tweet.save
-      redirect_to tweets_path
+      redirect_to member_path(current_member), notice: "つぶやきを投稿しました"
     else
+      flash.now[:alert] = "つぶやき投稿失敗しました"
       render :new
     end
   end
