@@ -186,10 +186,12 @@ textarea {
 
 // モバイル版対応
 @media screen and (max-width: 600px) {
-
+  // 各画面の見出し
   .page-heading {
     width: 100%;
     margin: 0 auto;
     padding: 25px 0 0 25px;
   }
+  
+  // top画面
 }

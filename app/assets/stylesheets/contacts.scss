@@ -6,7 +6,7 @@
 .contact-bg-image {
   background-image: image-url("cafe-table");
   background-size: cover;
-  background-position: bottom 30px right 100px;
+  background-position: bottom 30px right 50px;
 }
 
 .contact-image-cover {
@@ -73,4 +73,59 @@
   font-size: 18px;
   line-height: 2;
   color: #fff;
+}
+
+// モバイル版対応
+@media screen and (max-width: 600px) {
+  //new、thanks画面
+  .contact-bg-image {
+    width: 600px;
+    background-size: cover;
+    background-position: top 0 left 0;
+    // background-size: cover;
+    // background-position: bottom 30px right 50px;
+  }
+
+  .contact-image-cover {
+    width: 600px;
+  }
+
+  .contact-container {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .contact-box {
+    height: 100%;
+    width: 600px;
+    padding-top: 80px;
+  }
+
+  .contact-heading {
+    font-size: 25px;
+    color: #fff;
+  }
+
+  .contact-label{
+    font-size: 15px;
+  }
+
+  .contact-btn {
+    width: 150px;
+    height: 30px;
+    margin: 20px 0 0 125px;
+    border-radius: 3px;
+    border-color: #fff;
+    background-color: #fff;
+  }
+
+  //thanks画面
+  .thanks-box {
+    right: 60px;
+    background-color: rgba(148, 108, 69, 0.5);
+  }
+  
+  .thanks-text {
+    font-size: 14px;
+  }
 }
