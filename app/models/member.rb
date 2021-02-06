@@ -22,6 +22,13 @@ class Member < ApplicationRecord
 
   validates :name, presence: true, length: { in: 2..20 }
 
+  # ゲストユーザー情報を予め作る手間と、アカウントが削除されて動作しなくなるリスクを防いでいる
+  def self.guest
+    find_or_create_by!(name: "ゲスト", email: "guestt@example.com") do |member|
+      member.password = SecureRandom.urlsafe_base64
+    end
+  end
+
   # 退会済み(is_deleted == true)のユーザーを弾くためのメソッド
   # is_deletedがfalseならtrueを返すようにしている
   def active_for_authentication?

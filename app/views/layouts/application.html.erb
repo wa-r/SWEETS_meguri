@@ -50,6 +50,9 @@
           <li>
             <%= link_to "ログイン", new_member_session_path, class: "btn btn-outline-light btn-sm ml-5" %>
           </li>
+          <li>
+            <%= link_to "ゲストログイン", members_guest_sign_in_path, method: :post, class: "btn btn-outline-light btn-sm ml-5" %>
+          </li>
         <% end %>
       </ul>
     </nav>

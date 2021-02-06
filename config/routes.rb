@@ -9,6 +9,9 @@ Rails.application.routes.draw do
     resources :shops
   end
 
+  devise_scope :member do
+    post 'members/guest_sign_in' => 'members/sessions#new_guest'
+  end
   devise_for :members
   scope module: :member do
     resources :members, only: [:show, :edit, :update] do
