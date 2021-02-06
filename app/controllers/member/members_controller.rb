@@ -30,11 +30,16 @@ class Member::MembersController < ApplicationController
 
   def withdrawal
     @member = Member.find(params[:id])
-    # is_deletedカラムをtrueに変更することにより削除フラグを立てる
-    @member.update(is_deleted: true)
-    reset_session
-    flash[:notice] = "退会処理を実行いたしました"
-    redirect_to root_path
+    # ゲストユーザは削除できないように設定
+    if @member.email == 'guestt@example.com'
+      redirect_to root_path, alert: "ゲストユーザーは削除出来ません"
+    else
+      # is_deletedカラムをtrueに変更することにより削除フラグを立てる
+      @member.update(is_deleted: true)
+      reset_session
+      flash[:notice] = "退会処理を実行いたしました"
+      redirect_to root_path
+    end
   end
 
   # ブックマークの一覧表示用
