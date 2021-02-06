@@ -1,0 +1,85 @@
+// Place all the styles related to the admin::shops controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// shops/index画面
+.shop-container > table {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 0 18px -6px #c49a6a;
+}
+
+.shop-container > table th, table td {
+  padding: 14px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.shop-container > table th {
+  padding: 10px 0;
+  font-size: 14px;
+  padding: 15px;
+  background-color: #e8c59c;
+  color: #fff;
+}
+
+.shop-container > table th:nth-child(1){
+  width: 22%;
+}
+
+.shop-container > table th:nth-child(3) {
+  width: 30%;
+}
+
+.shop-container > table th:nth-child(2),
+.shop-container > table th:nth-child(4),
+.shop-container > table th:nth-child(5) {
+  width: 16%;
+}
+
+
+.shop-container > table tr {
+  text-align: center;
+  width: 20%;
+  padding: 20px 0;
+  background-color: #fff;
+  color: #3a3a3a;
+}
+
+.shop-container > table tr:hover {
+  background-color: #fff3b8;
+}
+
+// モバイル版対応
+@media screen and (max-width: 600px) {
+  .shop-container > table th, table td {
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  }
+
+  .shop-container > table th {
+    padding: 6px 0;
+    font-size: 13px;
+    padding: 10px;
+  }
+  .shop-container > table td {
+    padding: 6px 0;
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .shop-container > table tr {
+    padding: 10px 0;
+  }
+
+  .shop-container > table th:nth-child(1){
+    width: 18%;
+  }
+
+  .shop-container > table th:nth-child(2) {
+    width: 14%;
+  }
+
+  .shop-container > table th:nth-child(5) {
+    width: 21%;
+  }
+}

@@ -1,0 +1,56 @@
+<!-- shops.scss・reviews.scss(new)に共通記述複数有り -->
+<div class="show-shop-container">
+  <div class="show-shop-top">
+    <span class="show-shop-name"><%= @shop.name %><p class="shop-text">&emsp;/&emsp;<%= @shop.genre.name %></p></span>
+    <ul class="review-list">
+      <li><div id="star-rate-<%= @shop.id %>"></div></li>
+      <li class="review-list-item"><%= @shop.reviews.average(:rate).to_f.round(1) %>&emsp;</li>
+      <li>
+        <%= link_to shop_reviews_path(@shop) do %>
+          <i class="far fa-comment-dots"></i>&nbsp;<%= @shop.reviews.count %>件
+      　<% end %>
+      </li>
+      <%= render partial: 'member/reviews/star_average', locals: { shop: @shop } %>
+      <li>
+        <div id="bookmarks_btn_<%= @shop.id %>">
+        <%= render partial: 'member/bookmarks/bookmark', locals: {shop: @shop} %>
+      </li>
+    </ul>
+  </div>
+  <hr class="border">
+  <div class="link-box">
+    <div class="link-item1">
+      <%= link_to shop_path(@shop), class: "link-item-btn" do %><p>トップ</p><% end %>
+    </div>
+    <div class="link-item2">
+      <%= link_to shop_reviews_path(@shop), class: "link-item-btn" do %><p>口コミ</p><% end %>
+    </div>
+    <div class="link-item3">
+      <a href="#map"  class="link-item-btn">地図</a>
+    </div>
+  </div>
+  <hr class="border">
+  <div class="new-review-content">
+
+    <%= form_with(model:[@shop, @review], url: shop_review_path(params[:shop_id], @review), method: :patch, local: true) do |f| %>
+    <%= render 'layouts/error_messages', model: @review %>
+      <div class="new-review-title">
+        <%= f.label :"タイトル" %><br>
+        <%= f.text_field :title, class: "new-review-title-form" %>
+      </div>
+      <div class="new-review-rate">
+        <div class="form-group" id="star">
+          <%= f.label :"評価" %>
+          <!-- JavaScriptでidの値"star"の記述を使用するため-->
+          <%= f.hidden_field :rate, id: :review_star %>
+          <%= render partial: 'member/reviews/star_edit', locals: { review: @review } %>
+        </div>
+      </div>
+      <div class="new-review-body">
+      <%= f.label :"口コミ内容" %><br>
+      <%= f.text_area :content %>
+      </div>
+      <%= f.submit '送信', class: "new-review-btn" %>
+    <% end %>
+  </div>
+</div>

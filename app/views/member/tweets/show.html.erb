@@ -1,59 +1,58 @@
-<h2>つぶやき内容</h2>
-<table>
-  <tr>
-    <td>
-      <%= attachment_image_tag @tweet.member, :profile_image, fallback: "no_image.jpeg", size: '20x20', format: 'jpeg' %>
-      <%= @tweet.member.name %>
-    </td>
-  </tr>
-  <tr>
-    <!--<td>タイトル</td>-->
-    <td><%= @tweet.title %></td>
-  </tr>
-  <tr>
-    <!--<td>内容</td>-->
-    <td><%= @tweet.content %></td>
-  </tr>
-  <tr>
-    <td><%= attachment_image_tag @tweet, :image, size: '100x100', format: 'jpeg' %></td>
-  </tr>
-  <tr>
-    <td><%= @tweet.created_at.strftime('%F') %>&nbsp;<%= @tweet.created_at.strftime('%H:%M') %></td>
-  </tr>
-  <tr>
-    <td>
-      <span id="likes_btn_<%= @tweet.id %>">
-        <%= render partial: 'member/tweet_likes/tweet_like', locals: {tweet: @tweet} %>
-      </span>
-      <%= link_to tweet_path(@tweet) do %>
-        <i class="far fa-comment"></i>
+<%= render partial: 'member/members/profile', locals: { member: @member } %>
+<h3 class="page-heading">Tweet Comment</h3>
+
+  <div class="show-tweet-content">
+    <div class="show-tweet-box">
+      <%= attachment_image_tag @tweet, :image, class: "show-tweet-image" %>
+        <%= @tweet.created_at.strftime('%F') %>&nbsp;<%= @tweet.created_at.strftime('%H:%M') %>&nbsp;
+        <span id="likes_btn_<%= @tweet.id %>">
+        <%= render partial: 'member/tweet_likes/tweet_like', locals: {tweet: @tweet} %>&nbsp;
+        </span>
+        <%= link_to tweet_path(@tweet) do %>
+          <i class="far fa-comment"></i>
+        <% end %>
+        <%= @tweet.tweet_comments.count %>
+
+        <div class="show-tweet">
+          <%= attachment_image_tag @tweet.member, :profile_image, fallback: "no_image.jpeg", class: "tweet-profile-image" %>
+          <%= @tweet.member.name %>
+          <% if @tweet.member == current_member %>
+            <%= link_to "削除", tweet_path(@tweet), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "tweet-destroy-btn" %>
+          <% end %>
+        </div>
+        <div class="show-tweet-title">
+          <%= @tweet.title %>
+        </div>
+        <div class="tweet-text">
+        <%= @tweet.content %>
+        </div>
+    </div>
+    <div class="show-tweet-box">
+      <div class="new-comment">
+        <%= form_with(model:[@tweet, @tweet_comment], local: true) do |f| %>
+        <%= f.text_field :comment, class: "tweet-form" %>
+        <%= f.submit '送信', class: "tweet-btn" %>
+        <% end %>
+      </div>
+      <% @tweet.tweet_comments.each do |tweet_comment| %>
+        <div class="comments">
+          <%= attachment_image_tag tweet_comment.member, :profile_image, fallback: "no_image.jpeg", class: "tweet-profile-image" %>
+          <%= link_to "#{tweet_comment.member.name}", member_path(tweet_comment.member), class: "member-name" %>
+          <span class="tweet-date">
+          　<% if tweet_comment.member == current_member %>
+              <%= link_to "削除", tweet_tweet_comment_path(tweet_comment.tweet, tweet_comment), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "tweet-destroy-btn" %><br>
+            <% end %>
+          </span>
+          <div class="tweet-text">
+            <%= tweet_comment.comment %>
+          </div>
+          <div class="tweet-date">
+        　　<%= tweet_comment.created_at.strftime('%F') %>&nbsp;<%= tweet_comment.created_at.strftime('%H:%M') %>
+        　　<hr class="tweet-border">
+          </div>
+        </div>
       <% end %>
-      <%= @tweet.tweet_comments.count %>
-    </td>
-  </tr>
-  <tr class="new-comment">
-    <%= form_with(model:[@tweet, @tweet_comment], local: true) do |f| %>
-    <td><%= f.text_field :comment, placeholder: "コメント欄" %></td>
-    <td><%= f.submit '送信' %></td>
-    <% end %>
-  </tr>
-  <% @tweet.tweet_comments.each do |tweet_comment| %>
-  <tr class="comments">
-    <td>
-      <%= attachment_image_tag tweet_comment.member, :profile_image, fallback: "no_image.jpeg", size: '20x20', format: 'jpeg' %>
-      <%= tweet_comment.member.name %>
-    </td>
-  </tr>
-  <tr>
-    <td><%= tweet_comment.comment %></td>
-  </tr>
-  <tr>
-    <td><%= tweet_comment.created_at.strftime('%F') %>&nbsp;<%= tweet_comment.created_at.strftime('%H:%M') %></td>
-    <td>
-      <% if tweet_comment.member == current_member %>
-        <%= link_to "削除", tweet_tweet_comment_path(tweet_comment.tweet, tweet_comment), method: :delete, data: { confilm: "本当に削除しますか？" } %>
-      <% end %>
-    </td>
-  </tr>
-  <% end %>
-</table>
+    </div>
+  </div>
+
+

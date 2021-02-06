@@ -1,0 +1,40 @@
+<div class="my-page">
+  <div class="profile-image">
+    <%= attachment_image_tag @member, :profile_image, fallback: "no_image.jpeg", class: "my-profile-image" %>
+  </div>
+  <div class="member-name">
+    <%= @member.name %>
+  </div>
+  <div class="icon">
+    <% if @member == current_member %>
+    　<!-- 編集リンク・アイコン付き -->
+    　<%= link_to edit_member_path(@member) do %>
+        <i class="fas fa-wrench"></i>
+    　<% end %>
+    　<!-- つぶやきリンク・アイコン付き -->
+      <%= link_to new_tweet_path do %>
+        <i class="far fa-comment-dots"></i>
+    　<% end %>
+    <% end %>
+  </div>
+  <div class="follow-btn">
+    <% unless @member == current_member %>
+      <% if @member.followed_by?(current_member) %>
+        <p><%= link_to "フォロー済み", member_relationships_path(@member), method: :delete %></p>
+      <% else %>
+        <p><%= link_to "フォローする", member_relationships_path(@member), method: :post %></p>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="follow-link">
+    <p><%= link_to "フォロー", follows_member_path(@member), class: "follow-link-btn" %>&emsp;</p>
+    <p><%= link_to "フォロワー", followers_member_path(@member), class: "follow-link-btn"  %></p>
+  </div>
+  <div class="like-page">
+      <%= link_to "ブックマーク一覧", bookmarks_path(@member) %>&emsp;<br>
+      <%= link_to "お気に入り一覧", tweet_likes_path(@member) %>
+  </div>
+  <div class="member-introduction">
+    <%= @member.introduction %>
+  </div>
+</div>

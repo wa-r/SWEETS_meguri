@@ -1,2 +1,87 @@
-<h1>Homes#top</h1>
-<p>Find me in app/views/homes/top.html.erb</p>
+<div class="container top-container">
+  <div class="row">
+    <div class="col-md-4 sm-12" style="padding: 0;">
+      <div class="top-image1"></div>
+    </div>
+    <div class="col-md-4" style="padding: 0;">
+      <div class="top-image2"></div>
+    </div>
+    <div class="col-md-4" style="padding: 0;">
+      <div class="top-image3"></div>
+    </div>
+    <p class="site-name">SWEET<span class="site-name-brown">S</span><br>&nbsp;- megu<span class="site-name-brown">ri -</span></p>
+    <p class="concept-text">
+      素敵なスイーツに巡り合えるように<br>
+      スイーツ好きな人同士の素敵な巡り合いがあるように
+    </p>
+    <!--<form class="form-inline">-->
+    <div class="search-content">
+      <%= search_form_for @q, url: search_shops_path do |f| %>
+        <% f.label :name_or_address_or_nearest_station %>
+        <%= f.search_field :name_or_address_or_nearest_station_cont, placeholder: "店舗名・住所・駅名", class: "search-form" %>
+      　<%= f.button :type => "submit", class: 'search-btn' do %>
+      　   <i class="fas fa-search"></i>
+      　<% end %>
+      <% end %>
+    </div>
+    <!--</form>-->
+  </div>
+</div>
+
+<div class="container">
+  <div class="row"></div>
+    <div class="col-md-3 md-offset-1">
+      <h4 class="search">ジャンル検索</h4>
+    </div>
+  </div>
+</div>
+<div class="genre-search">
+  <div class="genre-box">
+    <div class="genre-image">
+      <%= link_to  genres_cake_path, class: "search-title" do %>
+        <%= image_tag "genre-cake.jpg", size: '160x160', class: "genre-img" %>
+      <% end %>
+    </div>
+    <div class="genre-name">ケーキ</div>
+  </div>
+  <div class="genre-box">
+    <div class="genre-image">
+      <%= link_to  genres_macaron_path, class: "search-title" do %>
+      　<%= image_tag "genre-macaron.jpg", size: '160x160' %>
+      <% end %>
+    </div>
+    <div class="genre-name">マカロン</div>
+  </div>
+  <div class="genre-box">
+    <div class="genre-image">
+      <%= link_to  genres_chocolate_path, class: "search-title" do %>
+      　<%= image_tag "genre-chocolate.jpg", size: '160x160' %>
+      <% end %>
+    </div>
+    <div class="genre-name">チョコレート</div>
+  </div>
+  <div class="genre-box">
+    <div class="genre-image">
+      <%= link_to  genres_parfait_path, class: "search-title" do %>
+      　<%= image_tag "genre-parfait.jpg", size: '160x160' %>
+      <% end %>
+    </div>
+    <div class="genre-name">パフェ</div>
+  </div>
+  <div class="genre-box">
+    <div class="genre-image">
+      <%= link_to  genres_cafe_path, class: "search-title" do %>
+      　<%= image_tag "genre-cafe.jpg", size: '160x160' %>
+      <% end %>
+    </div>
+    <div class="genre-name">カフェ</div>
+  </div>
+  <div class="genre-box">
+    <div class="genre-image">
+      <%= link_to  genres_shaved_ice_path, class: "search-title" do %>
+      　<%= image_tag "genre-cake1.jpg", size: '160x160' %>
+      <% end %>
+    </div>
+    <div class="genre-name">かき氷</div>
+  </div>
+</div>

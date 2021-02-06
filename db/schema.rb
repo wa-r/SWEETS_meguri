@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_22_052827) do
+ActiveRecord::Schema.define(version: 2021_01_30_064454) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -25,6 +25,28 @@ ActiveRecord::Schema.define(version: 2021_01_22_052827) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+  create_table "bookmarks", force: :cascade do |t|
+    t.integer "member_id", null: false
+    t.integer "shop_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "title", null: false
+    t.string "email", null: false
+    t.text "message", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "genres", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "members", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -34,7 +56,6 @@ ActiveRecord::Schema.define(version: 2021_01_22_052827) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image_id"
     t.text "introduction"
     t.string "profile_image_id"
     t.boolean "is_deleted", default: false
@@ -45,6 +66,39 @@ ActiveRecord::Schema.define(version: 2021_01_22_052827) do
   create_table "relationships", force: :cascade do |t|
     t.integer "following_id", null: false
     t.integer "follower_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "member_id", null: false
+    t.integer "shop_id", null: false
+    t.string "title"
+    t.text "content"
+    t.float "rate", default: 0.0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "shop_images", force: :cascade do |t|
+    t.integer "shop_id", null: false
+    t.string "image_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "shops", force: :cascade do |t|
+    t.integer "genre_id", null: false
+    t.string "name", null: false
+    t.integer "phone_number", null: false
+    t.string "address", null: false
+    t.float "latitude"
+    t.float "longitude"
+    t.string "nearest_station", null: false
+    t.string "business_hours", null: false
+    t.string "regular_holiday", null: false
+    t.string "main_image_id"
+    t.text "caption", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

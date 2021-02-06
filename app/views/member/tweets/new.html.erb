@@ -1,21 +1,16 @@
-<h2>つぶやき</h2>
-<%= form_with model: @tweet, local: true do |f| %>
-<%= render 'layouts/error_messages', model: @tweet %>
-
-  <table>
-    <tr>
-      <td><%= f.label :"画像" %></td>
-      <td><%= f.attachment_field :image %></td>
-    <tr>
-      <td><%= f.label :"タイトル" %></td>
-      <td><%= f.text_field :title, placeholder: "タイトルやお店の名前" %></td>
-    </tr>
-    <tr>
-      <td><%= f.label :"つぶやき" %></td>
-      <td><%= f.text_field :content %></td>
-    </tr>
-    <tr>
-      <td><%= f.submit '投稿' %></td>
-    </tr>
-  </table>
-<% end %>
+<!-- members/edit・contacts/newのクラスを引用 -->
+<h3 class="page-heading">Tweet</h3>
+<div class="my-page-edit">
+  <div class="edit-profile">
+    <%= form_with model: @tweet, local: true do |f| %>
+    <%= render 'layouts/error_messages', model: @tweet %>
+      <%= f.label :"画像" %><br>
+      <p><%= f.attachment_field :image %></p>
+      <%= f.label :"タイトル" %><br>
+      <p><%= f.text_field :title, placeholder: "タイトルやお店の名前", class: "edit-profile-form" %></p>
+      <%= f.label :"つぶやき", class: "contacts-form"%><br>
+      <p><%= f.text_area :content, class: "edit-profile-form" %></p>
+      <%= f.submit '投稿', class: "edit-profile-btn" %>
+    <% end %>
+  </div>
+</dov>

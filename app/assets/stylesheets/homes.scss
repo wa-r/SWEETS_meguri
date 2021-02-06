@@ -1,3 +1,177 @@
-// Place all the styles related to the homes controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.top-container {
+  position: relative;
+}
+
+.top-image1, .top-image2, .top-image3 {
+  height: 550px;
+  margin: 50px 0;
+  background-size: cover;
+}
+
+.top-image1 {
+  background-image: image-url("pudding.jpg");
+}
+
+.top-image2 {
+  background-image: image-url("milk.jpg");
+}
+
+.top-image3 {
+  background-image: image-url("macarons.jpg");
+}
+
+.site-name {
+  position: absolute;
+  top: 100px;
+  left: 115px;
+  font-size: 75px;
+  color: #fff;
+}
+
+.site-name-brown {
+  color: #d2b48c;
+}
+
+.concept-text {
+  position: absolute;
+  padding: 30px;
+  bottom: 150px;
+  text-align: center;
+  right: 30px;
+  color: #fff;
+  font-family: "Hannari";
+  background-color: rgba(115, 78, 48, 0.3);
+}
+
+.search-content {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  bottom: 80px;
+}
+
+.search-form {
+  width: 560px;
+  height: 42px;
+  padding: 0 10px 0 10px;
+  border-radius: 3px;
+  border-color: #fff;
+}
+
+.search-btn {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  background-color: #fff;
+  border-radius: 3px;
+  border-color: #fff;
+  color: #996633;
+}
+
+.fa-search {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+}
+
+.search {
+  margin: 30px;
+}
+
+.genre-search {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  margin-bottom: 50px;
+}
+
+.genre-box {
+  position: relative;
+  margin: 8px;
+}
+
+.genre-image {
+  width: 100%;
+  height: 100%;
+}
+
+.genre-name {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  line-height: 50px;
+  top: 60px;
+  font-size: 25px;
+  font-weight: bold;
+  color: #fff;
+  font-family: "Hannari";
+}
+
+// モバイル版対応
+@media screen and (max-width: 600px) {
+  // top画面
+  .top-container {
+    position: relative;
+  }
+
+  .top-image1 {
+    height: 450px;
+    margin: 10px 0;
+    border: 1px solid #664A30;
+  }
+
+  .top-image2, .top-image3  {
+    display: none;
+  }
+
+  .site-name {
+    top: 55px;
+    left: 50px;
+    font-size: 60px;
+  }
+
+  .concept-text {
+    padding: 20px;
+    bottom: 100px;
+    right: 20px;
+    font-size: 14px;
+  }
+
+  .search-content {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    top: 25px;
+  }
+
+  .search-form {
+    width: 85%;
+    height: 40px;
+    border-color: #9F836F;
+  }
+
+  .search-btn {
+    border-color: #9F836F;
+    color: #9F836F;
+  }
+
+  .fa-search {
+    // position: absolute;
+    // top: 8px;
+    // left: 8px;
+  }
+
+  .search {
+    margin: 60px 0 0 0;
+    font-size: 22px;
+  }
+
+  .genre-search {
+    // display: flex;
+    // flex-wrap: wrap;
+    // justify-content: center;
+    margin-bottom: 40px;
+  }
+}
+  // genre-box 続きから
