@@ -63,6 +63,7 @@ body {
   min-height: 100vh;
 	height: 100%;
 	line-height: 0;
+	font-family: 'Nanum Myeongjo', serif;
 }
 
 .main {
@@ -87,10 +88,6 @@ body {
     border-color: #f3c0c0;
     color: #3e3a3a;
 }
-
-
-
-
 
 footer {
   display: inline-block;
@@ -186,7 +183,7 @@ img {
 .page-heading {
   width: 80%;
   margin: 0 auto;
-  padding: 20px 6px 0 80px;
+  padding: 20px 6px 0 80px
 }
 
 textarea {
