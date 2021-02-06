@@ -11,6 +11,10 @@
               <td><%= f.text_field :name, class: "contact-form" %></td>
             </tr>
             <tr>
+              <th><%= f.label :"メールアドレス", class: "contact-label" %></th>
+              <td><%= f.email_field :email, class: "contact-form" %></td>
+            </tr>
+            <tr>
               <th><%= f.label :"タイトル", class: "contact-label" %></th>
               <td><%= f.text_field :title, class: "contact-form"  %></td>
             </tr>
