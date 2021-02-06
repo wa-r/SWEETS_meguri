@@ -57,11 +57,8 @@
 
   <body>
     <div class="main">
-    <!--<div class="wrapper">-->
-      <%= flash.now[:alert] %>
-      <%= flash[:notice] %>
+      <%= render 'layouts/flash' %>
       <%= yield %>
-    <!--</div>-->
     </div>
   </body>
 
