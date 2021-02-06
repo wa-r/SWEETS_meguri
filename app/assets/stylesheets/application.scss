@@ -34,11 +34,11 @@ header {
 
 // .logo {
 //   text-align: left;
-  // width: 60px;
-  // height: 60px;
-  // position: absolute;
-  // background-image: image-url("logo.pdf");
-  // background-size: cover;
+//   width: 60px;
+//   height: 60px;
+//   position: absolute;
+//   background-image: image-url("logo.pdf");
+//   background-size: cover;
 // }
 
 .list ul {
@@ -60,7 +60,6 @@ header {
 }
 
 body {
-  // display: flex;
   min-height: 100vh;
 	height: 100%;
 	line-height: 0;
@@ -71,6 +70,27 @@ body {
 	height: 100%;
 	line-height: 1.5;
 }
+
+// フラッシュメッセージ
+.alert {
+	text-align: center;
+}
+.success-info {
+    background-color: #bde9ff;
+    border-color: #bde9ff;
+    color: #4c6977;
+}
+
+.failure-info {
+    margin: 0px;
+    background-color: #f3c0c0;
+    border-color: #f3c0c0;
+    color: #3e3a3a;
+}
+
+
+
+
 
 footer {
   display: inline-block;

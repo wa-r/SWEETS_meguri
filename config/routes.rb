@@ -11,13 +11,10 @@ Rails.application.routes.draw do
 
   devise_for :members
   scope module: :member do
-    get 'search/shops' => 'shops#search'
     resources :members, only: [:show, :edit, :update] do
       resource :relationships, only: [:create, :destroy]
-      get :follows, on: :member # 追加
-      get :followers, on: :member # 追加
-      # get 'follows/:id' => 'relationships#follows', as: 'follows'
-      # get 'follower/:id' => 'relationships#follower', as: 'follower'
+      get :follows, on: :member
+      get :followers, on: :member
     end
 
     get 'members/:id/bookmarks' => 'members#bookmarks', as: 'bookmarks'
@@ -30,7 +27,7 @@ Rails.application.routes.draw do
       resources :tweet_comments, only: [:create, :destroy]
     end
 
-    # get 'search/shops' => 'member/shops#search'
+    get 'search/shops' => 'shops#search'
     resources :shops do
       resource :bookmarks, only: [:create, :destroy]
       resources :reviews
