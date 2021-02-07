@@ -37,7 +37,6 @@
               <span class="review-title"><%= review.title %><br></span>
               <span class="review-content"><%= review.content %><br></span>
             </div>
-            <%= paginate shops %>
           <% else %>
             <p class="no-review">まだ口コミ投稿はありません。</p>
           <% end %>
@@ -46,4 +45,5 @@
     </div>
   </div>
   <hr class="border">
+  <%= paginate shops %>
 <% end %>
