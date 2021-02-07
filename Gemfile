@@ -72,6 +72,7 @@ gem 'gmaps4rails'
 gem 'geocoder'
 gem 'ransack'
 gem 'dotenv-rails'
+gem 'rails-i18n'
 group :production do
   gem 'mysql2'
 end
