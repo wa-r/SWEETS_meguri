@@ -1,0 +1,145 @@
+ja:
+  activerecord:
+    models:
+      admin: 管理者
+      member: 会員
+      contact: お問い合わせ
+      genre: ジャンル
+      review: レビュー
+      shop: 店舗
+      tweet_comment: つぶやきコメント
+      tweet: つぶやき
+    attributes:
+      admin:
+        email: メールアドレス
+        name: 名前
+        password: パスワード
+      member:
+        email: メールアドレス
+        name: 名前
+        password: パスワード
+        introduction: 自己紹介文
+      contact:
+        name: 名前
+        title: タイトル
+        email: メールアドレス
+        message: お問い合わせ内容
+      genre:
+        name: ジャンル名
+      review:
+        title: タイトル
+        rate: 評価
+      shop:
+        name: 名前
+        phone_number: 電話番号
+        address: 住所
+        nearest_station: 最寄り駅
+        business_hours: 営業時間
+        regular_holiday: 定休日
+        caption: 紹介文
+      tweet_comment:
+        comment: コメント
+        tweet: つぶやき
+        title: タイトル
+        content: つぶやき内容
+
+
+    errors:
+      format: "%{attribute}%{message}"
+      messages:
+        accepted: を受諾してください
+        blank: を入力してください
+        confirmation: と%{attribute}の入力が一致しません
+        empty: を入力してください
+        equal_to: は%{count}にしてください
+        even: は偶数にしてください
+        exclusion: は予約されています
+        greater_than: は%{count}より大きい値にしてください
+        greater_than_or_equal_to: は%{count}以上の値にしてください
+        inclusion: は一覧にありません
+        invalid: は不正な値です
+        less_than: は%{count}より小さい値にしてください
+        less_than_or_equal_to: は%{count}以下の値にしてください
+        model_invalid: "バリデーションに失敗しました: %{errors}"
+        not_a_number: は数値で入力してください
+        not_an_integer: は整数で入力してください
+        odd: は奇数にしてください
+        other_than: は%{count}以外の値にしてください
+        present: は入力しないでください
+        required: を入力してください
+        taken: はすでに存在します
+        too_long: は%{count}文字以内で入力してください
+        too_short: は%{count}文字以上で入力してください
+        wrong_length: は%{count}文字で入力してください
+      template:
+        body: 次の項目を確認してください
+        header:
+          one: "%{model}にエラーが発生しました"
+          other: "%{model}に%{count}個のエラーが発生しました"
+    helpers:
+      select:
+        prompt: 選択してください
+      submit:
+        create: 登録する
+        submit: 保存する
+        update: 更新する
+    number:
+      currency:
+        format:
+          delimiter: ","
+          format: "%n%u"
+          precision: 0
+          separator: "."
+          significant: false
+          strip_insignificant_zeros: false
+          unit: 円
+      format:
+        delimiter: ","
+        precision: 3
+        separator: "."
+        significant: false
+        strip_insignificant_zeros: false
+      human:
+        decimal_units:
+          format: "%n %u"
+          units:
+            billion: 十億
+            million: 百万
+            quadrillion: 千兆
+            thousand: 千
+            trillion: 兆
+            unit: ""
+        format:
+          delimiter: ""
+          precision: 3
+          significant: true
+          strip_insignificant_zeros: true
+        storage_units:
+          format: "%n%u"
+          units:
+            byte: バイト
+            eb: EB
+            gb: GB
+            kb: KB
+            mb: MB
+            pb: PB
+            tb: TB
+      percentage:
+        format:
+          delimiter: ""
+          format: "%n%"
+      precision:
+        format:
+          delimiter: ""
+    support:
+      array:
+        last_word_connector: "、"
+        two_words_connector: "、"
+        words_connector: "、"
+    time:
+      am: 午前
+      formats:
+        default: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
+        long: "%Y/%m/%d %H:%M"
+        short: "%m/%d %H:%M"
+      pm: 午後
