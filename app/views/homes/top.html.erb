@@ -83,3 +83,7 @@
     <div class="genre-name">かき氷</div>
   </div>
 </div>
+
+<%  @aves.each do |ave| %>
+  <%= ave.review.shop.name %>
+<% end %>
