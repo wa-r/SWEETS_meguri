@@ -20,7 +20,8 @@ class Member < ApplicationRecord
   has_many :shop_bookmarks, through: :bookmarks, source: :shop
 
 
-  validates :name, presence: true, length: { in: 2..20 }
+  validates :name, presence: true, length: { in: 2..10 }
+  validates :introduction, length: { maximum: 100 }
 
   # ゲストユーザー情報を予め作る手間と、アカウントが削除されて動作しなくなるリスクを防いでいる
   def self.guest
