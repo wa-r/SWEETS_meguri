@@ -62,6 +62,7 @@ RSpec.describe 'Tweetモデルのテスト', type: :model do
       tweet = FactoryBot.build(:tweet, image: "")
       expect(tweet).to_not be_valid
       expect(tweet.errors[:image]).to include("を入力してください")
+    　end
     end
   end
 end
