@@ -1,0 +1,48 @@
+<% @shops_rank.first(10).each do |shop| %>
+  <div class="shop-container">
+    <div class="shop-top">
+      <span id="bookmarks_btn_<%= shop.id %>">
+        <%= render partial: 'member/bookmarks/bookmark', locals: {shop: shop} %>
+      </span>
+      <%= link_to shop.name, shop_path(shop) %>
+      <p class="shop-text">/&emsp;<%= shop.genre.name %></p>
+    </div>
+    <div class="shop-box">
+      <div class="shop-image-box">
+        <%= attachment_image_tag shop, :main_image, class: "shop-image" %>
+      </div>
+      <div class="shop-main">
+        <p>最寄り駅&emsp;<%= shop.nearest_station %></p>
+        <p><%= shop.caption %></p>
+        <ul class="review-list">
+          <!-- 繰り返し処理を実行してもidを一意に保てるようにreview.idを埋め込む -->
+          <li><div id="star-rate-<%= shop.id %>"></div></li>
+          <li class="review-list-item"><%= shop.reviews.average(:rate).to_f.round(1) %>&emsp;</li>
+          <%= render partial: 'member/reviews/star_average', locals: { shop: shop } %>
+          <li>
+            <%= link_to shop_reviews_path(shop) do %>
+            <i class="far fa-comment-dots">&nbsp;<%= shop.reviews.count %>件</i>
+          　<% end %>
+          </li>
+        </ul>
+        <!-- レビュー最新の１件のみ表示 -->
+        <div class="new-review">
+          <% unless shop.reviews.blank? %>
+            <% review = Review.where(shop_id: shop.id).order(created_at: :desc).last %>
+            <div class="new-review-left">
+              <%= attachment_image_tag review.member, :profile_image, fallback: "no_image.jpeg", size: "30x30", class: "profile-image" %><br>
+            　<%= link_to review.member.name, member_path(review.member), class: "review-name" %>
+            </div>
+            <div class="new-review-right">
+              <span class="review-title"><%= review.title %><br></span>
+              <span class="review-content"><%= review.content %><br></span>
+            </div>
+          <% else %>
+            <p class="no-review">まだ口コミ投稿はありません。</p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<hr class="border">
+<% end %>
