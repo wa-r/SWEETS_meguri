@@ -15,7 +15,7 @@
       スイーツ好きな人同士の素敵な巡り合いがあるように
     </p>
     <div class="search-content">
-      <%= search_form_for @q, url: search_shops_path do |f| %>
+      <%= search_form_for @q, url: shops_search_path do |f| %>
         <% f.label :name_or_address_or_nearest_station %>
         <%= f.search_field :name_or_address_or_nearest_station_cont, placeholder: "店舗名・住所・駅名", class: "search-form" %>
       　<%= f.button :type => "submit", class: 'search-btn' do %>
@@ -26,13 +26,8 @@
   </div>
 </div>
 
-<div class="container">
-  <div class="row"></div>
-    <div class="col-md-3 md-offset-1">
-      <h4 class="search">ジャンル検索</h4>
-    </div>
-  </div>
-</div>
+<!-- ジャンルの検索 -->
+<h3 class="search">ジャンル検索</h3>
 <div class="genre-search">
   <div class="genre-box">
     <div class="genre-image">
@@ -83,3 +78,7 @@
     <div class="genre-name">かき氷</div>
   </div>
 </div>
+
+<!-- ショップのランキングトップ3位を表示 -->
+<h3 class="top-page-heading">Ranking</h3>
+<%= render partial: 'member/shops/rank_top3', locals: { shops: @shops_rank } %>
