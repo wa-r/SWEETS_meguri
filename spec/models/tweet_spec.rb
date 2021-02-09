@@ -54,11 +54,14 @@ RSpec.describe 'Tweetモデルのテスト', type: :model do
   end
   context '空白のバリデーションチェック' do
     it 'titleカラムが空欄の場合にバリデーションにより、エラーメッセージが返ってきているか' do
-      # tweet = Tweet.new(title: "", content: "hello")
       tweet = FactoryBot.build(:tweet, title: "")
       expect(tweet).to_not be_valid
-      # tweet.valid?
       expect(tweet.errors[:title]).to include("を入力してください")
+    end
+    it 'imageカラムが空欄の場合にバリデーションにより、エラーメッセージが返ってきているか' do
+      tweet = FactoryBot.build(:tweet, image: "")
+      expect(tweet).to_not be_valid
+      expect(tweet.errors[:image]).to include("を入力してください")
     end
   end
 end
