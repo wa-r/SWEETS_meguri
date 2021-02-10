@@ -5,57 +5,61 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Admin.create!(
-  [
-    {
-      name: "田中",
-      email: "tanaka@tanaka.com",
-      password: "123456"
-    },
-    {
-      name: "佐藤",
-      email: "satou@satou.com",
-      password: "123456"
-    }
-  ]
-)
+if Admin.find_by(email: "tanaka@admin.com").nil?
+  Admin.create!(
+    [
+      {
+        name: "田中",
+        email: "tanaka@admin.com",
+        password: "123456"
+      },
+      {
+        name: "佐藤",
+        email: "satou@admin.com",
+        password: "123456"
+      }
+    ]
+  )
+end
 
-Member.create!(
-  [
-    {
-      name: "あゆみ",
-      email: "ayumi@ayumi.com",
-      password: "123456",
-      prpfile_image: File.open('./app/assets/images/prpfile1.jpg'),
-      introduction: "スイーツ大好きです！よろしくお願いします！",
-      is_deleted: "false"
-    },
-    {
-      name: "さき",
-      email: "saki@saki.com",
-      password: "123456",
-      prpfile_image: File.open('./app/assets/images/prpfile2.jpg'),
-      introduction: "毎週ケーキ屋巡りしています！",
-      is_deleted: "false"
-    },
-    {
-      name: "まいこ",
-      email: "maiko@maiko.com",
-      password: "123456",
-      prpfile_image: File.open('./app/assets/images/prpfile3.jpg'),
-      introduction: "カフェのでのんびりすることが趣味です。",
-      is_deleted: "false"
-    },
-    {
-      name: "はな",
-      email: "hana@hana.com",
-      password: "123456",
-      prpfile_image: File.open('./app/assets/images/prpfile4.jpg'),
-      introduction: "美味しいお店の情報が知りたいです！",
-      is_deleted: "false"
-    },
-  ]
-)
+if Member.find_by(email: "anna@anna.com").nil?
+  Member.create!(
+    [
+      {
+        name: "あんな",
+        email: "anna@anna.com",
+        password: "123456",
+        profile_image: File.open('./app/assets/images/profile1.jpg'),
+        introduction: "スイーツ大好きです！よろしくお願いします！",
+        is_deleted: "false"
+      },
+      {
+        name: "さき",
+        email: "saki@saki.com",
+        password: "123456",
+        profile_image: File.open('./app/assets/images/profile2.jpg'),
+        introduction: "毎週ケーキ屋巡りしています！",
+        is_deleted: "false"
+      },
+      {
+        name: "まいこ",
+        email: "maiko@maiko.com",
+        password: "123456",
+        profile_image: File.open('./app/assets/images/profile3.jpg'),
+        introduction: "カフェのでのんびりすることが趣味です。",
+        is_deleted: "false"
+      },
+      {
+        name: "はな",
+        email: "hana@hana.com",
+        password: "123456",
+        profile_image: File.open('./app/assets/images/profile4.jpg'),
+        introduction: "美味しいお店の情報が知りたいです！",
+        is_deleted: "false"
+      },
+    ]
+  )
+end
 
 Tweet.create!(
   [
@@ -157,7 +161,7 @@ Tweet.create!(
     },
   ]
 )
-  
+
 Genre.create!(
   [
     {
@@ -195,7 +199,7 @@ Shop.create!(
       "昨年オープンしたばかりのお店です。
       常時生菓子が30種類、焼き菓子が20種類ほどご用意しております。
       喫茶コーナーも併設されていますので、ケーキとコーヒーを召し上がりながら、ごゆっくりしていただけます。",
-      main_image_id: File.open('./app/assets/images/showcase.jpg'),
+      main_image: File.open('./app/assets/images/showcase.jpg'),
     },
     {
       genre_id: 1,
@@ -209,7 +213,7 @@ Shop.create!(
       "昨年オープンしたばかりのお店です。
       常時生菓子が30種類、焼き菓子が20種類ほどご用意しております。
       喫茶コーナーも併設されていますので、ケーキとコーヒーを召し上がりながら、ごゆっくりしていただけます。",
-      main_image_id: File.open('./app/assets/images/showcase2.jpg'),
+      main_image: File.open('./app/assets/images/showcase2.jpg'),
     },
     {
       genre_id: 1,
@@ -223,7 +227,7 @@ Shop.create!(
       "昨年オープンしたばかりのお店です。
       常時生菓子が30種類、焼き菓子が20種類ほどご用意しております。
       喫茶コーナーも併設されていますので、ケーキとコーヒーを召し上がりながら、ごゆっくりしていただけます。",
-      main_image_id: File.open('./app/assets/images/showcase3.jpg'),
+      main_image: File.open('./app/assets/images/showcase3.jpg'),
     },
     {
       genre_id: 2,
@@ -237,7 +241,7 @@ Shop.create!(
       "マカロンの専門店です。
       プレゼントとしても大人気です！
       是非お立ち寄りください。",
-      main_image_id: File.open('./app/assets/images/macaron-shop.jpg'),
+      main_image: File.open('./app/assets/images/macaron-shop.jpg'),
     },
     {
       genre_id: 2,
@@ -251,7 +255,7 @@ Shop.create!(
       "マカロンの専門店です。
       プレゼントとしても大人気です！
       是非お立ち寄りください。",
-      main_image_id: File.open('./app/assets/images/macaron-shop1.jpg'),
+      main_image: File.open('./app/assets/images/macaron-shop1.jpg'),
     },
     {
       genre_id: 2,
@@ -265,7 +269,7 @@ Shop.create!(
       "マカロンの専門店です。
       プレゼントとしても大人気です！
       是非お立ち寄りください。",
-      main_image_id: File.open('./app/assets/images/macaron-shop2.jpg'),
+      main_image: File.open('./app/assets/images/macaron-shop2.jpg'),
     },
     {
       genre_id: 3,
@@ -279,7 +283,7 @@ Shop.create!(
       "チョコレートの専門店です。
 　　　お酒を使用したボンボンショコラやお子様でも召し上がれるチョコレートもご用意しております。
 　　　是非一度お立ち寄りください。",
-      main_image_id: File.open('./app/assets/images/choco-shop.jpg'),
+      main_image: File.open('./app/assets/images/choco-shop.jpg'),
     },
     {
       genre_id: 3,
@@ -293,7 +297,7 @@ Shop.create!(
       "チョコレートの専門店です。
 　　　お酒を使用したボンボンショコラやお子様でも召し上がれるチョコレートもご用意しております。
 　　　是非一度お立ち寄りください。",
-      main_image_id: File.open('./app/assets/images/choco-shop1.jpg'),
+      main_image: File.open('./app/assets/images/choco-shop1.jpg'),
     },
     {
       genre_id: 3,
@@ -307,7 +311,7 @@ Shop.create!(
       "チョコレートの専門店です。
 　　　お酒を使用したボンボンショコラやお子様でも召し上がれるチョコレートもご用意しております。
 　　　是非一度お立ち寄りください。",
-      main_image_id: File.open('./app/assets/images/choco-shop2.jpg'),
+      main_image: File.open('./app/assets/images/choco-shop2.jpg'),
     },
     {
       genre_id: 4,
@@ -321,11 +325,11 @@ Shop.create!(
       "パフェの専門店です。
       旬の種ルーツを使用したパフェが大人気です！
       是非お立ち寄りください。",
-      main_image_id: File.open('./app/assets/images/parfait.jpg'),
+      main_image: File.open('./app/assets/images/parfait.jpg'),
     },
     {
       genre_id: 4,
-      name: "patisserie tu",
+      name: "パフェショップ",
       phone_number: "03-1234-5678",
       address: "東京都新宿区新宿1-1-1",
       nearest_station: "JR新宿駅 徒歩10分",
@@ -335,11 +339,11 @@ Shop.create!(
       "パフェの専門店です。
       旬の種ルーツを使用したパフェが大人気です！
       是非お立ち寄りください。",
-      main_image_id: File.open('./app/assets/images/cparfait1.jpg'),
+      main_image: File.open('./app/assets/images/parfait1.jpg'),
     },
     {
       genre_id: 4,
-      name: "にこにこケーキ",
+      name: "パフェ専門店",
       phone_number: "03-1234-5678",
       address: "東京都港区六本木1-1-1",
       nearest_station: "地下鉄日比谷線六本木駅 徒歩10分",
@@ -349,7 +353,7 @@ Shop.create!(
       "パフェの専門店です。
       旬の種ルーツを使用したパフェが大人気です！
       是非お立ち寄りください。",
-      main_image_id: File.open('./app/assets/images/parfait2.jpg'),
+      main_image: File.open('./app/assets/images/parfait2.jpg'),
     },
     {
       genre_id: 5,
@@ -362,7 +366,7 @@ Shop.create!(
       caption:
       "厳選したコーヒー豆を使用しております。
       香ばしいコーヒーの香りと共に休憩されていかれませんか。",
-      main_image_id: File.open('./app/assets/images/cafe.jpg'),
+      main_image: File.open('./app/assets/images/cafe.jpg'),
     },
     {
       genre_id: 5,
@@ -375,7 +379,7 @@ Shop.create!(
       caption:
       "厳選したコーヒー豆を使用しております。
       香ばしいコーヒーの香りと共に休憩されていかれませんか。",
-      main_image_id: File.open('./app/assets/images/cafe1.jpg'),
+      main_image: File.open('./app/assets/images/cafe1.jpg'),
     },
     {
       genre_id: 5,
@@ -388,7 +392,7 @@ Shop.create!(
       caption:
       "厳選したコーヒー豆を使用しております。
       香ばしいコーヒーの香りと共に休憩されていかれませんか。",
-      main_image_id: File.open('./app/assets/images/cafe2.jpg'),
+      main_image: File.open('./app/assets/images/cafe2.jpg'),
     },
     {
       genre_id: 6,
@@ -402,7 +406,7 @@ Shop.create!(
       "アルプスの水を使用した天然氷を使用しています！
       ふわふわで頭がキーンとなりにくいです。
       暑い夏にぴったりのかき氷、是非召し上がってください。",
-      main_image_id: File.open('./app/assets/images/ice.jpg'),
+      main_image: File.open('./app/assets/images/ice.jpg'),
     },
     {
       genre_id: 6,
@@ -416,7 +420,7 @@ Shop.create!(
       "アルプスの水を使用した天然氷を使用しています！
       ふわふわで頭がキーンとなりにくいです。
       暑い夏にぴったりのかき氷、是非召し上がってください。",
-      main_image_id: File.open('./app/assets/images/ice1.jpg'),
+      main_image: File.open('./app/assets/images/ice1.jpg'),
     },
     {
       genre_id: 6,
@@ -430,7 +434,7 @@ Shop.create!(
       "アルプスの水を使用した天然氷を使用しています！
       ふわふわで頭がキーンとなりにくいです。
       暑い夏にぴったりのかき氷、是非召し上がってください。",
-      main_image_id: File.open('./app/assets/images/ice2.jpg'),
+      main_image: File.open('./app/assets/images/ice2.jpg'),
     }
   ]
 )
