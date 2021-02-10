@@ -18,10 +18,10 @@ class Tweet < ApplicationRecord
   # いいねの通知の定義
   def create_notification_like!(current_member)
     # すでに「いいね」されているか検索
-    like_check = Notification.where(["visitor_id = ? and visited_id = ? and cook_id = ? and action = ? ", current_member.id, member_id, id, 'like'])
+    like_check = Notification.where(["visitor_id = ? and visited_id = ? and tweet_id = ? and action = ? ", current_member.id, member_id, id, 'like'])
     # いいねされていない場合のみ、通知レコードを作成
     if like_check.blank?
-      notification = current_user.active_notifications.new(
+      notification = current_member.active_notifications.new(
         tweet_id: id,
         visited_id: member_id,
         action: 'like'
@@ -33,7 +33,4 @@ class Tweet < ApplicationRecord
       notification.save if notification.valid?
     end
   end
-　
-　# コメントの通知への定義
-　def create_notification_like!(current_member)
 end

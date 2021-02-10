@@ -1,0 +1,20 @@
+<!--<div class="follow-page">-->
+<!--</div>-->
+
+<% notifications = @notifications.where.not(visitor_id: current_member.id) %>
+<% if notifications.exists? %>
+  <% notifications.each do |notification| %>
+    <%= notification.visitor.name %>
+    <span>さんが</span>
+    <% case notification.action %>
+      <% when 'follow' then %>
+        <%= "あなたをフォローしました" %>
+      <% when 'like' then %>
+        <%= link_to "あなたの投稿に", tweet_path(notification.tweet) %>
+        <span>いいねしました</span>
+    <% end %>
+  <% end %>
+<% else %>
+  <p class="no-content">まだ通知はありません</p>
+<% end %>
+<% paginate @notifications %>
