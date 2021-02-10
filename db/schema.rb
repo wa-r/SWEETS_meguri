@@ -105,7 +105,7 @@ ActiveRecord::Schema.define(version: 2021_02_09_151659) do
   create_table "shops", force: :cascade do |t|
     t.integer "genre_id", null: false
     t.string "name", null: false
-    t.string "phone_number", null: false
+    t.integer "phone_number", null: false
     t.string "address", null: false
     t.float "latitude"
     t.float "longitude"
