@@ -18,7 +18,10 @@ class Member < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
   has_many :shop_bookmarks, through: :bookmarks, source: :shop
-
+  # 自分からの通知
+  has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
+  # 相手からの通知
+  has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
 
   validates :name, presence: true, length: { in: 2..10 }
   validates :introduction, length: { maximum: 100 }
