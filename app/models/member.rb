@@ -43,10 +43,10 @@ class Member < ApplicationRecord
   def followed_by?(member)
     passive_relationships.find_by(following_id: member.id).present?
   end
-  
+
   # フォローの通知の定義
   def create_notification_follow!(current_member)
-    follow_check = Notification.where(["visitor_id = ? and visited_id = ? and action = ? ",current_member.id, id, 'follow'])
+    follow_check = Notification.where(["visitor_id = ? and visited_id = ? and action = ? ", current_member.id, id, 'follow'])
     if follow_check.blank?
       notification = current_member.active_notifications.new(
         visited_id: id,

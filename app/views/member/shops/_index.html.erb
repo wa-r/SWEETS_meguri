@@ -13,7 +13,7 @@
       </div>
       <div class="shop-main">
         <p>最寄り駅&emsp;<%= shop.nearest_station %></p>
-        <p><%= shop.caption %></p>
+        <p class="shop-text"><%= simple_format(shop.caption) %></p>
         <ul class="review-list">
           <!-- 繰り返し処理を実行してもidを一意に保てるようにreview.idを埋め込む -->
           <li><div id="star-rate-<%= shop.id %>"></div></li>
@@ -45,5 +45,5 @@
     </div>
   </div>
   <hr class="border">
-  <%= paginate shops %>
 <% end %>
+<%= paginate shops %>

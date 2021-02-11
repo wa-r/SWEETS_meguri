@@ -24,6 +24,9 @@
             <%= link_to "マイページ", member_path(current_member) %>
           </li>
           <li class="nav-item">
+            <%= link_to "通知", notifications_path(current_member) %>
+          </li>
+          <li class="nav-item">
             <%= link_to "つぶやき", tweets_path %>
           </li>
           <li class="nav-item">
@@ -74,6 +77,9 @@
           </li>
           <li class="nav-item">
             <%= link_to "マイページ", member_path(current_member), class: "btn btn-outline-light btn-sm ml-3"  %>
+          </li>
+          <li>
+            <%= link_to "通知", notifications_path(current_member), class: "btn btn-outline-light btn-sm ml-3" %>
           </li>
           <li class="nav-item">
             <%= link_to "つぶやき", tweets_path, class: "btn btn-outline-light btn-sm ml-3"  %>
