@@ -17,7 +17,7 @@
       </li>
     </ul>
   </div>
-  
+  <%= render partial: 'member/shops/link_box', locals: { shop: @shop } %>
   <div class="new-review-content">
 
     <%= form_with(model:[@shop, @review], url: shop_review_path(params[:shop_id], @review), method: :patch, local: true) do |f| %>
