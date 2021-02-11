@@ -75,7 +75,9 @@
 }
 
 .search {
-  margin: 30px;
+  width: 80%;
+  margin: 30px auto;
+  padding: 20px 6px 0 0;
 }
 
 .genre-search {
@@ -88,6 +90,8 @@
 .genre-box {
   position: relative;
   margin: 8px;
+  trancate: 3s;
+  
 }
 
 .genre-image {
@@ -105,6 +109,24 @@
   font-weight: bold;
   color: #fff;
   font-family: "Hannari";
+}
+
+.top-page-heading {
+  width: 80%;
+  margin: 0 auto 10px;
+  padding: 20px 6px 0 0;
+}
+
+.next-ranking {
+  width: 70%;
+  margin: 10px auto 20px;
+  padding-right: 20px;
+  text-align: right;
+  font-size: 15px;
+}
+
+.next-ranking-btn:hover {
+  color: #696969;
 }
 
 // モバイル版対応
@@ -162,8 +184,7 @@
   }
 
   .search {
-    margin: 60px 0 0 0;
-    font-size: 22px;
+    margin: 60px auto 25px;
   }
 
   .genre-search {

@@ -26,7 +26,7 @@
       <%= link_to shop_reviews_path(@shop), class: "link-item-btn" do %><p>口コミ</p><% end %>
     </div>
     <div class="link-item3">
-      <a href="#map"  class="link-item-btn">地図</a>
+      <%= link_to "#map", class: "link-item-btn" do %><p>地図</p><% end %>
     </div>
   </div>
   <hr class="border">
@@ -49,8 +49,9 @@
       <div class="new-review-body">
       <%= f.label :"口コミ内容" %><br>
       <%= f.text_area :content %>
+      <%= f.hidden_field :member_id, :value => current_member.id %>
       </div>
-      <%= f.submit '送信', class: "new-review-btn" %>
+      <%= f.submit '送信', class: "edit-profile-btn" %>
     <% end %>
   </div>
 </div>

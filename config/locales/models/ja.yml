@@ -49,7 +49,10 @@ ja:
         tweet: つぶやき
         title: タイトル
         content: つぶやき内容
-
+      tweet:
+        title: タイトル
+        image: 画像
+        content: つぶやき内容
 
     errors:
       format: "%{attribute}%{message}"

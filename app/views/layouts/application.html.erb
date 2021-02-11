@@ -12,50 +12,118 @@
   </head>
 
   <header>
+    <div class="logo-box">
+      <%= link_to image_tag("logo.png", class: "logo"), "/" %>
+    </div>
+    <!--<nav class="navbar navbar-expand p-3">-->
     <nav class="navbar navbar-expand p-3">
-      <ul class="navbar-nav ml-auto">
+      <!-- レスポンシブ対応時のハンバーガーメニュー用ー -->
+      <ul class="navbar-nav ml-auto" id="sp-menu">
         <% if member_signed_in? %>
-          <li>
-            <%= link_to "トップ", root_path, class: "btn btn-outline-light btn-sm ml-3" %>
+          <li class="nav-item">
+            <%= link_to "マイページ", member_path(current_member) %>
           </li>
-          <li>
+          <li class="nav-item">
+            <%= link_to "つぶやき", tweets_path %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "店舗一覧", shops_path %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "ランキング", shops_ranking_path %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "ログアウト", destroy_member_session_path, method: :delete %>
+          </li>
+        <% elsif admin_signed_in? %>
+        　<li class="nav-item">
+        　  <%= link_to "ジャンル", admin_genres_path %>
+        　</li>
+          <li class="nav-item">
+            <%= link_to "店舗登録", new_admin_shop_path %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "店舗一覧", admin_shops_path %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "新規登録", new_member_registration_path %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "ログイン", new_member_session_path %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "ゲストログイン", members_guest_sign_in_path, method: :post %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "店舗一覧", shops_path %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "ランキング", shops_ranking_path %>
+          </li>
+        <% end %>
+      </ul>
+      <!-- パソコン画面用のヘッダー -->
+      <ul class="navbar-nav ml-auto" id="desktop-menu">
+        <% if member_signed_in? %>
+          <li class="nav-item">
             <%= link_to "マイページ", member_path(current_member), class: "btn btn-outline-light btn-sm ml-3"  %>
           </li>
-          <li>
+          <li class="nav-item">
             <%= link_to "つぶやき", tweets_path, class: "btn btn-outline-light btn-sm ml-3"  %>
           </li>
-          <li>
+          <li class="nav-item">
             <%= link_to "店舗一覧", shops_path, class: "btn btn-outline-light btn-sm ml-3" %>
           </li>
-          <li>
+          <li class="nav-item">
+            <%= link_to "ランキング", shops_ranking_path, class: "btn btn-outline-light btn-sm ml-3" %>
+          </li>
+          <li class="nav-item">
             <%= link_to "ログアウト", destroy_member_session_path, method: :delete, class: "btn btn-outline-light btn-sm ml-3" %>
           </li>
         <% elsif admin_signed_in? %>
-        　<li>
+        　<li class="nav-item">
         　  <%= link_to "ジャンル", admin_genres_path, class: "btn btn-outline-light btn-sm ml-3" %>
         　</li>
-          <li>
+          <li class="nav-item">
             <%= link_to "店舗登録", new_admin_shop_path, class: "btn btn-outline-light btn-sm ml-0" %>
           </li>
-          <li>
+          <li class="nav-item">
             <%= link_to "店舗一覧", admin_shops_path, class: "btn btn-outline-light btn-sm ml-3" %>
           </li>
-          <li>
+          <li class="nav-item">
             <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-outline-light btn-sm ml-3" %>
           </li>
         <% else %>
-          <li>
-            <%= link_to "新規登録", new_member_registration_path, class: "btn btn-outline-light btn-sm ml-5" %>
+          <li class="nav-item">
+            <%= link_to "新規登録", new_member_registration_path, class: "btn btn-outline-light btn-sm ml-3" %>
           </li>
-          <li>
-            <%= link_to "ログイン", new_member_session_path, class: "btn btn-outline-light btn-sm ml-5" %>
+          <li class="nav-item">
+            <%= link_to "ログイン", new_member_session_path, class: "btn btn-outline-light btn-sm ml-3" %>
           </li>
-          <li>
-            <%= link_to "ゲストログイン", members_guest_sign_in_path, method: :post, class: "btn btn-outline-light btn-sm ml-5" %>
+          <li class="nav-item">
+            <%= link_to "ゲストログイン", members_guest_sign_in_path, method: :post, class: "btn btn-outline-light btn-sm ml-3" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "店舗一覧", shops_path, class: "btn btn-outline-light btn-sm ml-3" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "ランキング", shops_ranking_path, class: "btn btn-outline-light btn-sm ml-3" %>
           </li>
         <% end %>
       </ul>
     </nav>
+    <!-- ハンバーガーアイコン用の表記 -->
+    <div id="hm-icon">
+      <a class="menu-trigger" href="">
+        <span></span>
+        <span></span>
+        <span></span>
+      </a>
+    </div>
   </header>
 
   <body>

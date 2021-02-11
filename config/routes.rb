@@ -30,7 +30,8 @@ Rails.application.routes.draw do
       resources :tweet_comments, only: [:create, :destroy]
     end
 
-    get 'search/shops' => 'shops#search'
+    get 'shops/search' => 'shops#search'
+    get 'shops/ranking' => 'shops#ranking'
     resources :shops do
       resource :bookmarks, only: [:create, :destroy]
       resources :reviews

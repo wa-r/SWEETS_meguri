@@ -5,12 +5,13 @@ class Tweet < ApplicationRecord
   has_many :tweet_likes, dependent: :destroy
   has_many :tweet_comments, dependent: :destroy
 
-  validates :title, presence: true, length: { maximum: 20 }
+  validates :title, presence: true, length: { maximum: 15 }
   validates :content, presence: true, length: { maximum: 150 }
+  validates :image, presence: true
 
   # ユーザーがつぶやきをお気に入りしているかどうかの判定メソッド
   def tweet_liked_by?(member)
     tweet_likes.where(member_id: member.id).exists?
   end
-
+  
 end
