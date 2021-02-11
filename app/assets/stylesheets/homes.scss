@@ -87,28 +87,52 @@
   margin-bottom: 50px;
 }
 
+// .genre-img {
+//   width: 170px;
+//   height: 170px;
+// }
+
 .genre-box {
-  position: relative;
-  margin: 8px;
-  trancate: 3s;
-  
+  width: 160px;
+  height: 160px;
+  margin-right: 10px;
 }
 
-.genre-image {
-  width: 100%;
-  height: 100%;
+.genre-box:last-child {
+  margin-right: 0px;
 }
 
 .genre-name {
-  position: absolute;
-  width: 100%;
   text-align: center;
-  line-height: 50px;
-  top: 60px;
-  font-size: 25px;
+  line-height: 160px;
+  font-size: 26px;
   font-weight: bold;
   color: #fff;
-  font-family: "Hannari";
+  background-size: cover;
+}
+
+.cake {
+  background-image: image-url("genre-cake.jpg");
+}
+
+.macaron {
+  background-image: image-url("genre-macaron.jpg");
+}
+
+.chocolate {
+  background-image: image-url("genre-chocolate.jpg");
+}
+
+.parfait {
+  background-image: image-url("genre-parfait.jpg");
+}
+
+.cafe {
+  background-image: image-url("genre-cafe.jpg");
+}
+
+.ice {
+  background-image: image-url("genre-ice.jpg");
 }
 
 .top-page-heading {
@@ -177,21 +201,19 @@
     color: #9F836F;
   }
 
-  .fa-search {
-    // position: absolute;
-    // top: 8px;
-    // left: 8px;
-  }
-
   .search {
     margin: 60px auto 25px;
   }
 
   .genre-search {
-    // display: flex;
-    // flex-wrap: wrap;
-    // justify-content: center;
     margin-bottom: 40px;
   }
+
+  .genre-box:nth-child(3) {
+    margin-right: 0px;
+  }
+
+  .genre-box:nth-child(4), .genre-box:nth-child(5), .genre-box:nth-child(6) {
+    margin-top: 10px;
+  }
 }
-  // genre-box 続きから
