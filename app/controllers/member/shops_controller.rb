@@ -13,13 +13,17 @@ class Member::ShopsController < ApplicationController
     @q = Shop.ransack(params[:q])
     @shops = @q.result(distinct: true).page(params[:page]).per(10)
   end
-  
+
   def ranking
     # shopのランキング形式用
     @shops = Shop.all
     @shops_rank = @shops.sort_by { |shop|
       shop.reviews.average(:rate)
     }.reverse
+  end
+  
+  def map
+    @shop = Shop.find(params[:id])
   end
   
   private
