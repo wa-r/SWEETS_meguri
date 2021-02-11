@@ -268,4 +268,47 @@
   .tweet-form {
     padding: 2px;
   }
+  
+ .tweet-btn {
+    width: 15%;
+    height: 35px;
+    border-radius: 3px;
+    border-color: #f6e5cc;
+    background-color: #f6e5cc;
+  }
+
+  .tweet-btn:hover {
+    background-color: #ffe9a9;
+  }
+
+  .comments {
+    padding-top: 5px;
+  }
+
+  .tweet-text {
+    padding-left: 20px;
+    text-align: left;
+    font-size: 14px;
+    color: #736d71;
+  }
+
+  .tweet-border {
+    width: 100%;
+    border: solid 1px #dee2e6;
+  }
+
+  .tweet-destroy-btn {
+    display: inline-block;
+    padding: 3px 6px;
+    border-radius: 3px;
+    border: solid 1px #595960;
+    font-size: 12px;
+    background-color: #ef857d;
+    color: #000;
+  }
+
+  .tweet-destroy-btn:hover {
+    color: #fff;
+    background-color: #ea5550;
+  }
 }

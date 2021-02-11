@@ -17,19 +17,7 @@
       </li>
     </ul>
   </div>
-  <hr class="border">
-  <div class="link-box">
-    <div class="link-item1">
-      <%= link_to shop_path(@shop), class: "link-item-btn" do %><p>トップ</p><% end %>
-    </div>
-    <div class="link-item2">
-      <%= link_to shop_reviews_path(@shop), class: "link-item-btn" do %><p>口コミ</p><% end %>
-    </div>
-    <div class="link-item3">
-      <a href="#map"  class="link-item-btn">地図</a>
-    </div>
-  </div>
-  <hr class="border">
+  <%= render partial: 'member/shops/link_box', locals: { shop: @shop } %>
   <div class="review-btn-box">
     <%= link_to "口コミを投稿する", new_shop_review_path, class: "review-btn" %>
   </div>
@@ -42,7 +30,7 @@
           <span class="review-text">さんの口コミ</span>
           <div class="review-box-right">
             <% if review.member_id == current_member.id %>
-              <%= link_to "編集", edit_shop_review_path(review, shop_id: review.shop_id, member_id: current_member.id), class: "review-edit-btn" %>
+              <%= link_to "編集", edit_shop_review_path(review, shop_id: review.shop_id), class: "review-edit-btn" %>
               <%= link_to "削除", shop_review_path(review, shop_id: review.shop_id), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "review-destroy-btn" %>
             <% end %>
           </div>

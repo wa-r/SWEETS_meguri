@@ -1,5 +1,21 @@
-<% shops.first(3).each do |shop| %>
+<% shops.first(3).each.with_index(1) do |shop, i| %>
   <div class="shop-container">
+    <% if i == 1 %>
+      <div class="ranking" style="color:#DBB400;">
+        <span><i class="fas fa-crown"></i></span>
+        <span class="ranking-number">No.<%= i %></span>
+      </div>
+    <% elsif i == 2 %>
+      <div class="ranking" style="color:#AEB3B5;">
+        <span><i class="fas fa-crown"></i></span>
+        <span class="ranking-number">No.<%= i %></span>
+      </div>
+    <% elsif i == 3 %>
+      <div class="ranking" style="color:#BA6E40;">
+        <span><i class="fas fa-crown"></i></span>
+        <span class="ranking-number">No.<%= i %></span>
+      </div>
+    <% end %>
     <div class="shop-top">
       <span id="bookmarks_btn_<%= shop.id %>">
         <%= render partial: 'member/bookmarks/bookmark', locals: {shop: shop} %>
@@ -12,8 +28,10 @@
         <%= attachment_image_tag shop, :main_image, class: "shop-image" %>
       </div>
       <div class="shop-main">
-        <p>最寄り駅&emsp;<%= shop.nearest_station %></p>
-        <p><%= shop.caption %></p>
+        <div class="shop-caption">
+          <p>最寄り駅&emsp;<%= shop.nearest_station %></p>
+          <p><%= simple_format(shop.caption) %></p>
+        </div>
         <ul class="review-list">
           <!-- 繰り返し処理を実行してもidを一意に保てるようにreview.idを埋め込む -->
           <li><div id="star-rate-<%= shop.id %>"></div></li>
