@@ -17,19 +17,7 @@
       </li>
     </ul>
   </div>
-  <hr class="border">
-  <div class="link-box">
-    <div class="link-item1">
-      <%= link_to shop_path(@shop), class: "link-item-btn" do %><p>トップ</p><% end %>
-    </div>
-    <div class="link-item2">
-      <%= link_to shop_reviews_path(@shop), class: "link-item-btn" do %><p>口コミ</p><% end %>
-    </div>
-    <div class="link-item3">
-      <%= link_to "#map", class: "link-item-btn" do %><p>地図</p><% end %>
-    </div>
-  </div>
-  <hr class="border">
+  <%= render partial: 'member/shops/link_box', locals: { shop: @shop } %>
   <div class="new-review-content">
     <!-- urlを指定しないと、エラーになる -->
     <%= form_with(model:[@shop, @review], url: shop_reviews_path, local: true) do |f| %>

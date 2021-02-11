@@ -58,7 +58,6 @@ class Member::ReviewsController < ApplicationController
     @review = Review.find_by(id: params[:id], shop_id: params[:shop_id])
     @review.destroy
     redirect_to request.referer, notice: "レビューを削除しました"
-
   end
 
   private
