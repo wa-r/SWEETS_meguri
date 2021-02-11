@@ -12,14 +12,14 @@
   </head>
 
   <header>
+    <div class="logo-box">
+      <%= link_to image_tag("logo.png", class: "logo"), "/" %>
+    </div>
     <!--<nav class="navbar navbar-expand p-3">-->
     <nav class="navbar navbar-expand p-3">
       <!-- レスポンシブ対応時のハンバーガーメニュー用ー -->
       <ul class="navbar-nav ml-auto" id="sp-menu">
         <% if member_signed_in? %>
-          <li class="nav-item">
-            <%= link_to "トップ", root_path %>
-          </li>
           <li class="nav-item">
             <%= link_to "マイページ", member_path(current_member) %>
           </li>
@@ -72,9 +72,6 @@
       <!-- パソコン画面用のヘッダー -->
       <ul class="navbar-nav ml-auto" id="desktop-menu">
         <% if member_signed_in? %>
-          <li class="nav-item">
-            <%= link_to "トップ", root_path, class: "btn btn-outline-light btn-sm ml-3" %>
-          </li>
           <li class="nav-item">
             <%= link_to "マイページ", member_path(current_member), class: "btn btn-outline-light btn-sm ml-3"  %>
           </li>

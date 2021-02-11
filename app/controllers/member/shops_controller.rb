@@ -22,6 +22,11 @@ class Member::ShopsController < ApplicationController
     }.reverse
   end
 
+  
+  def map
+    @shop = Shop.find(params[:id])
+  end
+  
   private
 
   def shops_params

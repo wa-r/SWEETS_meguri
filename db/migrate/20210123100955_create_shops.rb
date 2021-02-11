@@ -3,7 +3,7 @@ class CreateShops < ActiveRecord::Migration[5.2]
     create_table :shops do |t|
       t.integer :genre_id, null: false
       t.string :name, null: false
-      t.integer :phone_number, null: false
+      t.string :phone_number, null: false
       t.string :address, null: false
       t.float :latitude
       t.float :longitude

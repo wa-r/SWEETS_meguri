@@ -231,7 +231,7 @@ Shop.create!(
     },
     {
       genre_id: 2,
-      name: "coroncoron",
+      name: "CoronCoron",
       phone_number: "03-1234-5678",
       address: "東京都渋谷区渋谷1-1-1",
       nearest_station: "JR渋谷駅 徒歩7分",
@@ -245,7 +245,7 @@ Shop.create!(
     },
     {
       genre_id: 2,
-      name: "patisserie tuki",
+      name: "マカロンショップ",
       phone_number: "03-1234-5678",
       address: "東京都新宿区新宿1-1-1",
       nearest_station: "JR新宿駅 徒歩10分",
@@ -259,7 +259,7 @@ Shop.create!(
     },
     {
       genre_id: 2,
-      name: "にこにこケーキ",
+      name: "colorfull",
       phone_number: "03-1234-5678",
       address: "東京都港区六本木1-1-1",
       nearest_station: "地下鉄日比谷線六本木駅 徒歩10分",
@@ -281,8 +281,8 @@ Shop.create!(
       regular_holiday: "毎週水曜日",
       caption:
       "チョコレートの専門店です。
-　　　お酒を使用したボンボンショコラやお子様でも召し上がれるチョコレートもご用意しております。
-　　　是非一度お立ち寄りください。",
+      お酒を使用したボンボンショコラやお子様でも召し上がれるチョコレートもご用意しております。
+      是非一度お立ち寄りください。",
       main_image: File.open('./app/assets/images/choco-shop.jpg'),
     },
     {
@@ -295,8 +295,8 @@ Shop.create!(
       regular_holiday: "毎週木曜日",
       caption:
       "チョコレートの専門店です。
-　　　お酒を使用したボンボンショコラやお子様でも召し上がれるチョコレートもご用意しております。
-　　　是非一度お立ち寄りください。",
+      お酒を使用したボンボンショコラやお子様でも召し上がれるチョコレートもご用意しております。
+      是非一度お立ち寄りください。",
       main_image: File.open('./app/assets/images/choco-shop1.jpg'),
     },
     {
@@ -309,8 +309,8 @@ Shop.create!(
       regular_holiday: "毎週金曜日",
       caption:
       "チョコレートの専門店です。
-　　　お酒を使用したボンボンショコラやお子様でも召し上がれるチョコレートもご用意しております。
-　　　是非一度お立ち寄りください。",
+      お酒を使用したボンボンショコラやお子様でも召し上がれるチョコレートもご用意しております。
+      是非一度お立ち寄りください。",
       main_image: File.open('./app/assets/images/choco-shop2.jpg'),
     },
     {
