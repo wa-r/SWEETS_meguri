@@ -1,0 +1,13 @@
+<hr class="border">
+<div class="link-box">
+  <div class="link-item1">
+    <%= link_to shop_path(shop), class: "link-item-btn" do %><p>トップ</p><% end %>
+  </div>
+  <div class="link-item2">
+    <%= link_to shop_reviews_path(shop), class: "link-item-btn" do %><p>口コミ</p><% end %>
+  </div>
+  <div class="link-item3">
+    <%= link_to shops_map_path(id: shop.id), class: "link-item-btn" do %><p>地図</p><% end %>
+  </div>
+</div>
+<hr class="border">

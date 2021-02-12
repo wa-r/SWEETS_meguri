@@ -30,54 +30,38 @@
 <h3 class="search">ジャンル検索</h3>
 <div class="genre-search">
   <div class="genre-box">
-    <div class="genre-image">
-      <%= link_to  genres_cake_path, class: "search-title" do %>
-        <%= image_tag "genre-cake.jpg", size: '160x160', class: "genre-img" %>
-      <% end %>
-    </div>
-    <div class="genre-name">ケーキ</div>
+    <%= link_to  genres_cake_path do %>
+      <p class="genre-name cake">ケーキ</p>
+    <% end %>
   </div>
   <div class="genre-box">
-    <div class="genre-image">
-      <%= link_to  genres_macaron_path, class: "search-title" do %>
-      　<%= image_tag "genre-macaron.jpg", size: '160x160' %>
-      <% end %>
-    </div>
-    <div class="genre-name">マカロン</div>
+    <%= link_to genres_macaron_path do %>
+      <p class="genre-name macaron">マカロン</p>
+    <% end %>
   </div>
   <div class="genre-box">
-    <div class="genre-image">
-      <%= link_to  genres_chocolate_path, class: "search-title" do %>
-      　<%= image_tag "genre-chocolate.jpg", size: '160x160' %>
-      <% end %>
-    </div>
-    <div class="genre-name">チョコレート</div>
+    <%= link_to  genres_chocolate_path do %>
+      <p class="genre-name chocolate">チョコレート</p>
+    <% end %>
   </div>
   <div class="genre-box">
-    <div class="genre-image">
-      <%= link_to  genres_parfait_path, class: "search-title" do %>
-      　<%= image_tag "genre-parfait.jpg", size: '160x160' %>
-      <% end %>
-    </div>
-    <div class="genre-name">パフェ</div>
+    <%= link_to genres_parfait_path do %>
+      <p class="genre-name parfait">パフェ</p>
+    <% end %>
   </div>
   <div class="genre-box">
-    <div class="genre-image">
-      <%= link_to  genres_cafe_path, class: "search-title" do %>
-      　<%= image_tag "genre-cafe.jpg", size: '160x160' %>
-      <% end %>
-    </div>
-    <div class="genre-name">カフェ</div>
+    <%= link_to  genres_cafe_path do %>
+      <p class="genre-name cafe">カフェ</p>
+    <% end %>
   </div>
   <div class="genre-box">
-    <div class="genre-image">
-      <%= link_to  genres_shaved_ice_path, class: "search-title" do %>
-      　<%= image_tag "genre-cake1.jpg", size: '160x160' %>
-      <% end %>
-    </div>
-    <div class="genre-name">かき氷</div>
+    <%= link_to genres_shaved_ice_path do %>
+      <p class="genre-name ice">かき氷</p>
+    <% end %>
   </div>
 </div>
+
+
 
 <!-- ショップのランキングトップ3位を表示 -->
 <h3 class="top-page-heading">Ranking</h3>

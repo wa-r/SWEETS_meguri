@@ -1,0 +1,27 @@
+<h3 class="page-heading">Notice</h3>
+<div class="notification-page ">
+  <% notifications = @notifications.where.not(visitor_id: current_member.id) %>
+  <% if notifications.exists? %>
+    <% notifications.each do |notification| %>
+      <div class="notification-list">
+        <div class="notification-left">
+          <%= attachment_image_tag notification.visitor, :profile_image, fallback: "no_image.jpeg", class: "notification_profile-image" %>
+        </div>
+        <div class="notification-right">
+          <%= link_to notification.visitor.name, member_path(notification.visitor), class: "profile-text-name" %>
+          <span class="notification-text">さんが</span>
+          <% case notification.action %>
+            <% when 'follow' then %>
+              <%= "あなたをフォローしました" %>
+            <% when 'like' then %>
+              <%= link_to "あなたの投稿に", tweet_path(notification.tweet), class: "profile-text-name" %>
+              <span class="notification-text">いいねしました</span>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <p class="no-content">まだ通知はありません</p>
+  <% end %>
+  <% paginate @notifications %>
+</div>

@@ -24,7 +24,7 @@ Rails.application.routes.draw do
     get 'members/:id/tweet_likes' => 'members#tweet_likes', as: 'tweet_likes'
     get '/members/:id/unsubscribe' => 'members#unsubscribe', as: 'unsubscribe'
     patch '/members/:id/withdrawal' => 'members#withdrawal', as: 'withdrawal'
-
+    
     resources :tweets do
       resource :tweet_likes, only: [:create, :destroy]
       resources :tweet_comments, only: [:create, :destroy]
@@ -32,10 +32,13 @@ Rails.application.routes.draw do
 
     get 'shops/search' => 'shops#search'
     get 'shops/ranking' => 'shops#ranking'
+    get 'shops/map' => 'shops#map'
     resources :shops do
       resource :bookmarks, only: [:create, :destroy]
       resources :reviews
     end
+    
+    resources :notifications, only: [:index]
 
     get 'genres/cake' => 'genres#cake'
     get 'genres/macaron' => 'genres#macaron'
