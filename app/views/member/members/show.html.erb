@@ -1,3 +1,4 @@
-<h2>会員ページ</h2>
-<%= @member.name %>
-<%= @member.introduction %>
+<%= render partial: 'member/members/profile', locals: { member: @member } %>
+<!-- マイページの会員のつぶやき一覧 -->
+<h3 class="page-heading">Tweet</h3>
+<%= render partial: 'member/tweets/index', locals: { tweets: @tweets} %>

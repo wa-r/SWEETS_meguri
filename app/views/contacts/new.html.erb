@@ -1,0 +1,34 @@
+<div class="contact-bg-image">
+  <div class="contact-image-cover">
+    <div class="contact-container">
+      <div class="contact-box">
+        <h1 class="contact-heading">お問い合わせフォーム</h1>
+        <%= form_with model: @contact, url: contacts_path, local: true do |f| %>
+        <%= render 'layouts/error_messages', model: @contact %>
+          <table class="table">
+            <tr>
+              <th><%= f.label :"お名前", class: "contact-label" %></th>
+              <td><%= f.text_field :name, class: "contact-form" %></td>
+            </tr>
+            <tr>
+              <th><%= f.label :"メールアドレス", class: "contact-label" %></th>
+              <td><%= f.email_field :email, class: "contact-form" %></td>
+            </tr>
+            <tr>
+              <th><%= f.label :"タイトル", class: "contact-label" %></th>
+              <td><%= f.text_field :title, class: "contact-form"  %></td>
+            </tr>
+            <tr>
+              <th><%= f.label :"お問い合わせ内容", class: "contact-label" %></th>
+              <td><%= f.text_area :message, class: "contact-form" %></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><%= f.submit '送信', class: "contact-btn" %></td>
+            </tr>
+          </table>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

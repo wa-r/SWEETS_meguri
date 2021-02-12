@@ -1,0 +1,14 @@
+<!--評価の星用JavaScript -->
+<script>
+  $('#star-rate-<%= review.id %>').raty({
+    size: 24,
+    starOff:  '<%= asset_path('star-off.png') %>',
+    starOn: '<%= asset_path('star-on.png') %>',
+    starHalf: '<%= asset_path('star-half.png') %>',
+    half: true,
+    // 読み取り専用（入力できない）
+    readOnly: true,
+    // 星の入力値を読み込む
+    score: <%= review.rate %>,
+  });
+</script>

@@ -1,0 +1,17 @@
+<% if member_signed_in? %>
+  <% if shop.bookmarked_by?(current_member) %>
+    <%= link_to shop_bookmarks_path(shop), method: :delete, remote: true do %>
+      <span class="shop-bookmark">
+        <i class="fas fa-bookmark" aria-hidden="true" style="color: #fdd35c;"></i>
+      </span>
+      <%= shop.bookmarks.count %>件
+    <% end %>
+  <% else %>
+    <%= link_to shop_bookmarks_path(shop), method: :post, remote: true do %>
+      <span class="shop-bookmark">
+        <i class="fas fa-bookmark" aria-hidden="true" style="color: #4e454a;"></i>
+      <span class="shop-bookmark">
+      <%= shop.bookmarks.count %>件
+    <% end %>
+  <% end %>
+<% end %>

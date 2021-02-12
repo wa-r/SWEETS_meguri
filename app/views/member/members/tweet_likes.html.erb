@@ -1,0 +1,40 @@
+<h3 class="page-heading">Like</h3>
+<% unless @tweet_likes.blank? %>
+<div class="tweet-container">
+  <div class="main-content">
+    <% @tweet_likes.each do |like| %>
+    <div class="tweet-box">
+      <div class="tweet-image">
+        <%= attachment_image_tag  like.tweet, :image, class: "tweet-image" %>
+      </div>
+      <div class="tweet-top">
+        <%= like.tweet.title %>
+      </div>
+      <div class="tweet-bottom">
+        <div class="member-info">
+          <%= attachment_image_tag like.tweet.member, :profile_image, fallback: "no_image.jpeg", class: "tweet-profile-image" %>
+          <%= link_to "#{like.tweet.member.name}", member_path(like.tweet.member) %>&nbsp;
+        </div>
+        <span id="likes_btn_<%= like.tweet.id %>">
+          <%= render partial: 'member/tweet_likes/tweet_like', locals: {tweet: like.tweet} %>
+        </span>
+        <%= link_to tweet_path(like.tweet) do %>
+          <i class="far fa-comment"></i>&nbsp;<%= like.tweet.tweet_comments.count %>
+        <% end %>
+      </div>
+      <div class="tweet-date">
+        <%= like.tweet.created_at.strftime('%F') %>&nbsp;
+        <%= like.tweet.created_at.strftime('%H:%M') %>
+      </div>
+    </div>
+    <% end %>
+  <% else %>
+    <div class="tweet-container">
+      <div class="main-content">
+        <p class="no-content">まだお気に入りはありません</p>
+      </div>
+    </div>
+  <% end %>
+  <%= paginate @tweet_likes %>
+  </div>
+</div>
