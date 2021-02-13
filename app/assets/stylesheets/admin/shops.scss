@@ -51,9 +51,13 @@
 
 // モバイル版対応
 @media screen and (max-width: 600px) {
+  .shop-container {
+    width: 95%;
+  }
+
   .shop-container > table th, table td {
-  padding: 10px 0;
-  border-bottom: 1px solid #eee;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
   }
 
   .shop-container > table th {
@@ -81,5 +85,21 @@
 
   .shop-container > table th:nth-child(5) {
     width: 21%;
+  }
+
+  .my-page-edit {
+    width: 92%;
+  }
+
+  .edit-profile {
+    width: 100%;
+  }
+  
+  .edit-profile-btn {
+    margin: 0 auto;
+  }
+  
+  .admin-shop-text {
+    font-size: 14px;
   }
 }

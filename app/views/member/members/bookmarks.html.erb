@@ -18,7 +18,7 @@
             <p><%= bookmark.shop.caption %></p>
           <ul class="review-list">
             <!-- 繰り返し処理を実行してもidを一意に保てるようにreview.idを埋め込む -->
-            <li><div id="star-rate-<%= bookmark.shop.id %>"></div></li>
+            <li><div id="star-average-<%= bookmark.shop.id %>"></div></li>
             <li class="review-list-item"><%= bookmark.shop.reviews.average(:rate).to_f.round(1) %>&emsp;</li>
             <%= render partial: 'member/reviews/star_average', locals: { shop: bookmark.shop } %>
             <li>
