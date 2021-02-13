@@ -84,7 +84,7 @@ Tweet.create!(
       title: "隣町のケーキ屋！",
       content:
       "おしゃれで可愛いケーキがいっぱい。
-      ついつい沢山買ってしまいました！",
+      ついつい沢山買����てしまいました！",
       image: File.open('./app/assets/images/genre-cafe.jpg'),
     },
     {
@@ -273,7 +273,7 @@ Genre.create!(
       name: "パフェ"
     },
     {
-      name: "カフェ"
+      name: "カフ��"
     },
     {
       name: "かき氷"
@@ -695,4 +695,3 @@ Review.create!(
     }
   ]
 )
-
