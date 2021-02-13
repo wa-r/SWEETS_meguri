@@ -352,3 +352,17 @@
     height: 280px;
   }
 }
+
+// モバイル版対応(スマホ)
+@media screen and (max-width: 470px) {
+  .shop-container {
+    width: 95%;
+    margin: 0 auto;
+    padding: 20px 10px;
+  }
+  
+  .shop-caption {
+    font-size: 12px;
+    color: #595960;
+  }
+}
