@@ -60,8 +60,8 @@
 
 .search-btn {
   position: relative;
-  width: 36px;
-  height: 36px;
+  width: 37px;
+  height: 37px;
   background-color: #fff;
   border-radius: 3px;
   border-color: #fff;
@@ -75,37 +75,77 @@
 }
 
 .search {
-  margin: 30px;
+  width: 80%;
+  margin: 30px auto;
+  padding: 20px 6px 0 0;
 }
 
 .genre-search {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-
   margin-bottom: 50px;
 }
 
 .genre-box {
-  position: relative;
-  margin: 8px;
+  width: 160px;
+  height: 160px;
+  margin-right: 10px;
 }
 
-.genre-image {
-  width: 100%;
-  height: 100%;
+.genre-box:last-child {
+  margin-right: 0px;
 }
 
 .genre-name {
-  position: absolute;
-  width: 100%;
   text-align: center;
-  line-height: 50px;
-  top: 60px;
-  font-size: 25px;
+  line-height: 160px;
+  font-size: 26px;
   font-weight: bold;
   color: #fff;
-  font-family: "Hannari";
+  background-size: cover;
+}
+
+.cake {
+  background-image: image-url("genre-cake.jpg");
+}
+
+.macaron {
+  background-image: image-url("genre-macaron.jpg");
+}
+
+.chocolate {
+  background-image: image-url("genre-chocolate.jpg");
+}
+
+.parfait {
+  background-image: image-url("genre-parfait.jpg");
+}
+
+.cafe {
+  background-image: image-url("genre-cafe.jpg");
+}
+
+.ice {
+  background-image: image-url("genre-ice.jpg");
+}
+
+.top-page-heading {
+  width: 80%;
+  margin: 0 auto 10px;
+  padding: 20px 6px 0 0;
+}
+
+.next-ranking {
+  width: 70%;
+  margin: 10px auto 20px;
+  padding-right: 20px;
+  text-align: right;
+  font-size: 15px;
+}
+
+.next-ranking-btn:hover {
+  color: #696969;
 }
 
 // モバイル版対応
@@ -118,7 +158,6 @@
   .top-image1 {
     height: 450px;
     margin: 10px 0;
-    border: 1px solid #664A30;
   }
 
   .top-image2, .top-image3  {
@@ -156,22 +195,64 @@
     color: #9F836F;
   }
 
-  .fa-search {
-    // position: absolute;
-    // top: 8px;
-    // left: 8px;
-  }
-
   .search {
-    margin: 60px 0 0 0;
-    font-size: 22px;
+    margin: 60px auto 25px;
   }
 
   .genre-search {
-    // display: flex;
-    // flex-wrap: wrap;
-    // justify-content: center;
+    width: 100%;
     margin-bottom: 40px;
   }
+
+  .genre-box:nth-child(3) {
+    margin-right: 0px;
+  }
+
+  .genre-box:nth-child(4), .genre-box:nth-child(5), .genre-box:nth-child(6) {
+    margin-top: 10px;
+  }
 }
-  // genre-box 続きから
+
+// モバイル版対応(スマホ)
+@media screen and (max-width: 470px) {
+  .top-image1 {
+    height: 400px;
+    margin: 0;
+  }
+
+  .site-name {
+    top: 50px;
+    left: 45px;
+    font-size: 50px;
+  }
+
+  .concept-text {
+    padding: 20px;
+    bottom: 100px;
+    right: 10px;
+    font-size: 13px;
+  }
+
+  .genre-box:nth-child(2n) {
+    margin-right: 0px;
+  }
+
+  .genre-box:nth-child(3) {
+    margin-right: 10px;
+  }
+
+  .genre-box:nth-child(3),
+  .genre-box:nth-child(4),
+  .genre-box:nth-child(5),
+  .genre-box:nth-child(6) {
+    margin-top: 10px;
+  }
+
+  .search {
+    font-size: 22px;
+  }
+
+  .search-form {
+    width: 80%;
+  }
+}

@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   root 'homes#top'
   resource :contacts, only: [:new, :create]
   get 'contacts/thanks' => 'contacts#thanks'
@@ -25,16 +24,20 @@ Rails.application.routes.draw do
     get '/members/:id/unsubscribe' => 'members#unsubscribe', as: 'unsubscribe'
     patch '/members/:id/withdrawal' => 'members#withdrawal', as: 'withdrawal'
 
-    resources :tweets do
+    resources :tweets, only: [:index, :show, :new, :create, :destroy] do
       resource :tweet_likes, only: [:create, :destroy]
       resources :tweet_comments, only: [:create, :destroy]
     end
 
-    get 'search/shops' => 'shops#search'
+    get 'shops/search' => 'shops#search'
+    get 'shops/ranking' => 'shops#ranking'
+    get 'shops/map' => 'shops#map'
     resources :shops do
       resource :bookmarks, only: [:create, :destroy]
       resources :reviews
     end
+
+    resources :notifications, only: [:index]
 
     get 'genres/cake' => 'genres#cake'
     get 'genres/macaron' => 'genres#macaron'

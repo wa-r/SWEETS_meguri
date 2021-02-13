@@ -2,218 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// // show画面
-// .my-page {
-//   width: 70%;
-//   display: flex;
-//   margin: 30px auto 30px;
-//   padding: 20px;
-//   border: solid 2px #d2b48c;
-//   border-radius: 3px;
-// }
-
-// .my-page-left {
-//   width: 30%;
-//   height: 180px;
-// }
-
-// .profile-heading {
-//   padding: 0 6px 10px 35px;
-// }
-
-// .profile-image {
-//   text-align: center;
-//   font-size: 14px;
-//   color: #736d71;
-// }
-
-// .fa-wrench, .fa-comment, .fa-bookmark, .fa-apple-alt {
-//   font-size: 14px;
-//   color: #736d71;
-// }
-
-// .fa-wrench:hover, .fa-comment:hover, .fa-bookmark:hover, .fa-apple-alt:hover {
-//   color: #de82a7;
-// }
-
-// .my-page-right {
-//   position: relative;
-//   width: 70%;
-//   height: 180px;
-//   padding: 0 10px;
-// }
-
-// .profile-title {
-//   font-size: 15px;
-// }
-
-// .profile-text {
-//   font-size: 14px;
-//   color: #736d71;
-// }
-
-// .icon {
-//   position: absolute;
-//   bottom: 0;
-//   margin: 0;
-//   padding: 0;
-// }
-
-// // edit画面
-// .my-page-edit {
-//   width: 70%;
-//   display: flex;
-//   margin: 30px auto 80px;
-//   padding: 20px;
-//   border: solid 2px #d2b48c;
-//   border-radius: 3px;
-// }
-
-// .edit-profile {
-//   margin: 0 auto;
-//   width: 70%;
-// }
-
-// .edit-profile-form {
-//   width: 100%;
-//   padding: 3px;
-//   border-radius: 3px;
-// }
-
-// .edit-profile-btn {
-//   display: block;
-//   width: 150px;
-//   height: 30px;
-//   margin: 30px auto;
-//   border-radius: 3px;
-//   border-color: #f6e5cc;
-//   background-color: #f6e5cc;
-// }
-
-// .edit-profile-btn:hover {
-//   background-color: #ffe9a9;
-// }
-
-// .next-withdrawal-btn {
-//   margin: 0;
-//   padding: 2px 5px;
-//   background-color: #fff;
-// }
-
-// .next-withdrawal-btn:hover {
-//   color: #000;
-//   background-color: #ef857d;
-// }
-
-// // unsubscribe画面
-// .withdrawal-page {
-//   width: 70%;
-//   margin: 30px auto 10px;
-//   padding: 20px;
-//   border: solid 2px #d2b48c;
-//   border-radius: 3px;
-// }
-
-// .withdrawal-btn-area {
-//   margin-top: 20px;
-// }
-
-// .review-edit-btn, .review-destroy-btn {
-//   margin: 0 20px;
-//   padding: 4px 8px;
-//   border-radius: 3px;
-//   border: solid 1px #595960;
-//   font-size: 12px;
-// }
-
-// .no-withdrawal-btn {
-//   padding: 4px 8px;
-//   font-size: 14px;
-//   border-color: #000;
-//   border-radius: 3px;
-//   background-color: #a3d6cc;
-// }
-
-// .withdrawal-btn {
-//   padding: 4px 8px;
-//   font-size: 14px;
-//   border-color: #000;
-//   border-radius: 3px;
-//   background-color: #ef857d;
-// }
-
-// .no-withdrawal-btn, .withdrawal-btn:hover {
-//   color: #000;
-// }
-
-// .no-withdrawal-btn:hover {
-//   color: #fff;
-//   background-color: #2cb4ad;
-// }
-
-// .withdrawal-btn:hover {
-//   color: #fff;
-//   background-color: #ea5550;
-// }
-
-// // follow画面
-// .follow-page {
-//   width: 70%;
-//   margin: 30px auto 10px;
-// }
-
-// .follow-list {
-//   width: 100%;
-//   display: flex;
-//   margin-bottom: 10px;
-//   border-bottom: solid 2px #d2b48c;
-// }
-
-// .follow-left {
-//   width: 10%;
-// }
-
-// .follow-center {
-//   width: 70%;
-// }
-
-// .profile-text-name {
-//   font-size: 16px;
-//   color: #736d71;
-// }
-
-// .profile-text-name:hover {
-//   color: #000;
-// }
-
-// .follow-right {
-//   width: 20%;
-//   display: flex;
-//   align-items: center;
-// }
-
-// .follows-btn {
-//   padding: 2px 6px;
-//   margin: 0 auto;
-//   border-radius: 3px;
-//   border: solid 1px #e8d3ca;
-//   box-shadow: 3px 2px 0 0 #d2b48c;
-//   color: #736d71;
-// }
-
-// .follows-btn:hover {
-//   color: #000;
-//   box-shadow: 4px 3px 0 0 #d2b48c;
-// }
-
-// @media screen and (max-width: 600px) {
-//   // members/show画面
-
-
-// }
-
-
-// members.scssファイルが開かないので、一時こちらに記述
 // show画面
 .my-page {
   width: 70%;
@@ -492,10 +280,15 @@
 
   .icon {
     display: flex;
+    margin-left: 115px;
+  }
+
+  .icon-text {
+    display: none;
   }
 
   .fa-wrench, .fa-comment, .fa-bookmark, .fa-apple-alt {
-    font-size: 10px;
+    font-size: 13px;
     color: #736d71;
   }
 
@@ -509,7 +302,7 @@
   }
 
   .edit-profile {
-    width: 80%;
+    width: 100%;
   }
 
   // unsubscribe画面
@@ -546,5 +339,30 @@
   // members/show以外のFontAweSomeのbookmarkアイコンサイズ
   .shop-bookmark > .fa-bookmark {
     font-size: 15px;
+  }
+}
+
+  // モバイル版対応
+  @media screen and (max-width: 470px) {
+    // show画面
+  .icon {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    margin: 0;
+    padding: 0;
+  }
+
+  .fa-wrench, .fa-comment, .fa-bookmark, .fa-apple-alt {
+    font-size: 12px;
+    color: #736d71;
+  }
+
+  .icon-text {
+    display: none;
+  }
+
+  .follow-link-btn {
+    font-size: 10px;
   }
 }

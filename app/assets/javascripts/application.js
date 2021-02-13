@@ -12,23 +12,9 @@
 //
 //= require jquery
 //= require rails-ujs
-
 //= require activestorage
+//= require turbolinks
 //= require_tree .
-
-
-//会員の退会時のモーダルウィンドウ
-/*global*/
-// $('.open').click(function(){
-//     $('.modal').fadeIn();
-//     $('.overlay').fadeIn();
-// });
-// /*global $*/
-// $('.close, .overlay').click(function(){
-//     $('.modal').fadeOut();
-//     $('.overlay').fadeOut();
-// });
-
 
 /*global $*/
 $('.open').click(function(){
@@ -37,3 +23,14 @@ $('.open').click(function(){
 $('.close').click(function(){
     $('.modal').fadeOut();
 });
+
+// ハンバーガーメニュー用
+$(document).on('turbolinks:load', function() {
+  $('.menu-trigger').on('click', function(event) {
+    $(this).toggleClass('active');
+    $('#sp-menu').fadeToggle();
+    event.preventDefault();
+  });
+   $('#sp-menu').toggleClass;
+});
+
