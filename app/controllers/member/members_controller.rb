@@ -1,7 +1,6 @@
 class Member::MembersController < ApplicationController
-
   # ログイン中のユーザーidと編集したいユーザーidが等しいか判定する。
-  before_action :ensure_current_member, {only: [:edit, :update, :withdrawal]}
+  before_action :ensure_current_member, { only: [:edit, :update, :withdrawal] }
   def ensure_current_member
     unless current_member.id == params[:id].to_i
       redirect_to member_path(current_member), alert: "権限がありません"
@@ -11,7 +10,6 @@ class Member::MembersController < ApplicationController
   def show
     @member = Member.find(params[:id])
     @tweets = @member.tweets.page(params[:page]).per(9)
-
   end
 
   def edit

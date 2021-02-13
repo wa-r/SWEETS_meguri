@@ -1,5 +1,4 @@
 class Member::TweetsController < ApplicationController
-
   def index
     @tweets = Tweet.all.page(params[:page]).per(12).order(created_at: "DESC")
   end
@@ -36,5 +35,4 @@ class Member::TweetsController < ApplicationController
   def tweet_params
     params.require(:tweet).permit(:title, :content, :image)
   end
-
 end

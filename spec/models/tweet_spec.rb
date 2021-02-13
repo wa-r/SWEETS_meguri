@@ -6,8 +6,8 @@ RSpec.describe 'Tweetモデルのテスト', type: :model do
   describe 'バリデーションのテスト' do
     subject { tweet.valid? }
 
-    let(:member){ create(:member) }
-    let!(:tweet){ build(:tweet, member_id: member.id) }
+    let(:member) { create(:member) }
+    let!(:tweet) { build(:tweet, member_id: member.id) }
 
     context 'titleカラム' do
       it '空欄でないこと' do
@@ -50,8 +50,9 @@ RSpec.describe 'Tweetモデルのテスト', type: :model do
   describe '実際に保存をしてみる' do
     it '有効な投稿内容の場合は保存されるか' do
       expect(FactoryBot.build(:tweet)).to be_valid
-    end 
+    end
   end
+
   context '空白のバリデーションチェック' do
     it 'titleカラムが空欄の場合にバリデーションにより、エラーメッセージが返ってきているか' do
       tweet = FactoryBot.build(:tweet, title: "")
@@ -60,7 +61,7 @@ RSpec.describe 'Tweetモデルのテスト', type: :model do
     end
     it 'imageカラムが空欄の場合にバリデーションにより、エラーメッセージが返ってきているか' do
       tweet = FactoryBot.build(:tweet, image: "")
-      expect(tweet).to_not be_valid
+      expect(tweet).not_to be_valid
       expect(tweet.errors[:image]).to include("を入力してください")
     end
   end

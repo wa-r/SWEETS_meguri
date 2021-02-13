@@ -69,8 +69,9 @@ describe 'ログイン前のテスト' do
         fill_in 'member[password]', with: 'password'
         fill_in 'member[password_confirmation]', with: 'password'
       end
+
       it '新規登録が成功する' do
-        expect{ click_button '新規登録する' }.to change(Member.all, :count).by(1)
+        expect { click_button '新規登録する' }.to change(Member.all, :count).by(1)
       end
       it '新規登録後のリダイレクト先が、新規登録できた会員の会員詳細画面になっている' do
         click_button '新規登録する'
@@ -90,7 +91,7 @@ describe 'ログイン前のテスト' do
 end
 
 describe 'ログインのテスト' do
-  let(:member){ create(:member) }
+  let(:member) { create(:member) }
 
   before do
     visit new_member_session_path
@@ -116,7 +117,7 @@ describe 'ログインのテスト' do
       expect(page).to have_button 'ログイン'
     end
   end
-  
+
   describe 'ログイン後のテスト' do
     context 'ログイン成功後のテスト' do
       before do
@@ -124,6 +125,7 @@ describe 'ログインのテスト' do
         fill_in 'member[email]', with: member.email
         fill_in 'member[password]', with: member.password
       end
+
       it 'ログイン後のリダイレクト先が、ログインできた会員の会員詳細画面になっている' do
         click_button 'ログイン'
         expect(current_path).to eq member_path(member)
@@ -136,6 +138,7 @@ describe 'ログインのテスト' do
         fill_in 'member[email]', with: ""
         fill_in 'member[password]', with: ""
       end
+
       it 'ログイン失敗後のリダイレクト先が、ログイン画面である' do
         click_button 'ログイン'
         expect(current_path).to eq new_member_session_path

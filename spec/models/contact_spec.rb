@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Contactモデルのテスト',type: :model do
+RSpec.describe 'Contactモデルのテスト', type: :model do
   describe '実際にお問い合わせを入力してみる' do
     it '有効なお問い合わせ内容の場合は保存されるか' do
       expect(FactoryBot.build(:contact)).to be_valid
