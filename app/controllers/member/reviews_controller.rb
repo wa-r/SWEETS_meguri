@@ -1,11 +1,4 @@
 class Member::ReviewsController < ApplicationController
-  # ログイン中のユーザーidと編集したいユーザーidが等しいか判定する。
-  before_action :ensure_current_member, { only: [:edit] }
-  def ensure_current_member
-    unless current_member.id == params[:member_id].to_i
-      redirect_to member_path(current_member), alert: "権限がありません"
-    end
-  end
 
   def index
     @shop = Shop.find(params[:shop_id])
