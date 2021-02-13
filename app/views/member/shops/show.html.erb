@@ -18,7 +18,7 @@
   </div>
   <%= render partial: 'member/shops/link_box', locals: { shop: @shop } %>
   <div class="show-main-image">
-    <%= attachment_image_tag @shop, :main_image,  class: "main-image" %>
+    <%= attachment_image_tag @shop, :main_image, class: "main-image" %>
   </div>
   <div class="show-sub-image">
     <% @shop.shop_images.each do |shop_image| %>
