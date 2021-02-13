@@ -22,9 +22,16 @@
 ・スイーツ好きな人と繋がりたい時。
 
 ## 設計書
-<...>
+### ER図
+https://user-images.githubusercontent.com/73394977/107846712-12058c00-6e29-11eb-88ed-8e6e86a66d4c.png
 
-## チャレンジ要素一覧
+### テーブル定義書
+https://docs.google.com/spreadsheets/d/1c0MijBbKQWyso4rrk8Z8q2mq3VtGlU1TGuQI-YZEdnQ/edit?usp=sharing
+
+### アプリケーション詳細設計
+https://docs.google.com/spreadsheets/d/1z5VTusgWP5M6tDQ46VESpq_Oi8nQHripqNDJIYEsbS8/edit?usp=sharing
+
+### チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1vrpnBzaa2K6ZPJ4a8Oto416HXCfxP90IEdePit1ROMQ/edit?usp=sharing
 
 ## 開発環境
@@ -35,5 +42,5 @@ https://docs.google.com/spreadsheets/d/1vrpnBzaa2K6ZPJ4a8Oto416HXCfxP90IEdePit1R
 - IDE：Cloud9
 
 ## 使用素材
-- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。  
-- 使用しない場合は、使用素材の項目をREADMEから削除してください。
+下記のフリー素材サイトを使用しております。
+- https://unsplash.com/photos/oGDSGls6dD8
