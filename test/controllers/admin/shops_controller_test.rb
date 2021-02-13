@@ -20,5 +20,4 @@ class Admin::ShopsControllerTest < ActionDispatch::IntegrationTest
     get admin_shops_edit_url
     assert_response :success
   end
-
 end

@@ -23,5 +23,4 @@ class Shop < ApplicationRecord
   def bookmarked_by?(member)
     bookmarks.where(member_id: member.id).exists?
   end
-
 end

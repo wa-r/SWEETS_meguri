@@ -50,21 +50,25 @@ RSpec.describe 'Memberモデルのテスト', type: :model do
         expect(Member.reflect_on_association(:tweets).macro).to eq :has_many
       end
     end
+
     context 'tweet_commentモデルとの関係' do
       it '1:Nとなっている' do
         expect(Member.reflect_on_association(:tweet_comments).macro).to eq :has_many
       end
     end
+
     context 'tweet_likesモデルとの関係' do
       it '1:Nとなっている' do
         expect(Member.reflect_on_association(:tweet_likes).macro).to eq :has_many
       end
     end
+
     context 'reviewsモデルとの関係' do
       it '1:Nとなっている' do
         expect(Member.reflect_on_association(:tweet_likes).macro).to eq :has_many
       end
     end
+
     context 'bookmarksモデルとの関係' do
       it '1:Nとなっている' do
         expect(Member.reflect_on_association(:bookmarks).macro).to eq :has_many

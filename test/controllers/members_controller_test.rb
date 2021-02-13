@@ -15,5 +15,4 @@ class MembersControllerTest < ActionDispatch::IntegrationTest
     get members_unsubscribe_url
     assert_response :success
   end
-
 end
