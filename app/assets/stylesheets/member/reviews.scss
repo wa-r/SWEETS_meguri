@@ -132,7 +132,18 @@
 
   // review/new画面
   .new-review-content {
-  width: 95%;
-  margin: 20px auto 0;
+    width: 95%;
+    margin: 20px auto 0;
+  }
+}
+
+// モバイル版対応(スマホ)
+@media screen and (max-width: 470px) {
+  .review-edit-btn, .review-destroy-btn {
+    margin: 0;
+  }
+
+  .review-box-right {
+    margin: 8px 0;
   }
 }
