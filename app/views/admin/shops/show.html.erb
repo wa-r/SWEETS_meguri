@@ -3,18 +3,18 @@
   <div class="show-shop-top">
     <span class="show-shop-name"><%= @shop.name %><p class="shop-text">&emsp;/&emsp;<%= @shop.genre.name %></p></span>
     <ul class="review-list">
-      <span id="star-rate-<%= @shop.id %>"></span>
+      <span id="star-average-<%= @shop.id %>"></span>
       <span class="review-list-item"><%= @shop.reviews.average(:rate).to_f.round(1) %>&emsp;</span>
       <%= render partial: 'member/reviews/star_average', locals: { shop: @shop } %>
     </ul>
   </div>
   <hr class="border">
   <div class="show-main-image">
-    <%= attachment_image_tag @shop, :main_image, size: '670x400' %>
+    <%= attachment_image_tag @shop, :main_image, class: "main-image" %>
   </div>
   <div class="show-sub-image">
     <% @shop.shop_images.each do |shop_image| %>
-  　　  <%= attachment_image_tag shop_image, :image, size: "130x130", class: "sub-image" %>
+  　　  <%= attachment_image_tag shop_image, :image, class: "sub-image" %>
   　<% end %>
   </div>
   <hr class="border-sm">
