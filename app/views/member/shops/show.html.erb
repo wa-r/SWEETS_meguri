@@ -2,7 +2,7 @@
   <div class="show-shop-top">
     <span class="show-shop-name"><%= @shop.name %><p class="shop-text">&emsp;/&emsp;<%= @shop.genre.name %></p></span>
     <ul class="review-list">
-      <li><div id="star-rate-<%= @shop.id %>"></div></li>
+      <li><div id="star-average-<%= @shop.id %>"></div></li>
       <li class="review-list-item"><%= @shop.reviews.average(:rate).to_f.round(1) %>&emsp;</li>
       <li>
         <%= link_to shop_reviews_path(@shop) do %>
