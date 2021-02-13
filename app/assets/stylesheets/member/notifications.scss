@@ -1,0 +1,44 @@
+// Place all the styles related to the member::notifications controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// index画面
+.notification-page {
+  width: 70%;
+  margin: 30px auto 10px;
+}
+
+.notification-list {
+  width: 100%;
+  display: flex;
+  margin-bottom: 10px;
+  border-bottom: solid 2px #d2b48c;
+}
+
+.notification-left {
+  width: 20%;
+}
+
+.notification_profile-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.notification-right {
+  width: 80%;
+  height: 100%;
+  padding-top: 10px;
+}
+
+.notification-text {
+  font-size: 16px;
+  color: #736d71;
+}
+
+// モバイル版対応
+@media screen and (max-width: 600px) {
+  .notification-text {
+    font-size: 14px;
+  }
+}

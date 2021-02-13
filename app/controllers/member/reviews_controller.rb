@@ -10,7 +10,7 @@ class Member::ReviewsController < ApplicationController
 
   def index
     @shop = Shop.find(params[:shop_id])
-    @reviews = @shop.reviews.page(params[:page]).per(10).order(id: "DESC")
+    @reviews = @shop.reviews.page(params[:page]).per(10).order(created_at: "DESC")
   end
 
   def new
