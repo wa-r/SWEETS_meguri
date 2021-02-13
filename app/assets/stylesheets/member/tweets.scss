@@ -22,7 +22,7 @@
   width: 300px;
   height: 300px;
   padding: 8px;
-  margin: 30px 25px 0;
+  margin: 30px 25px 0 0;
   border: solid 2px #d2b48c;
   border-radius: 3px;
   box-shadow: 3px 3px 3px 3px #faebd7;
@@ -77,7 +77,7 @@
 
 .paginate-box {
   margin: 20px auto 0;
-  justif-content: center;
+  justify-content: center;
   font-size: 20px;
 }
 
@@ -179,30 +179,18 @@
     width: 250px;
     height: 260px;
     padding: 8px;
-    margin: 10px 10px;
+    margin: 10px 10px 0 0;
     border: solid 2px #d2b48c;
     border-radius: 3px;
     box-shadow: 3px 3px 3px 3px #faebd7;
   }
 
-  .tweet-box:nth-child(2) {
+  .tweet-box:nth-child(3n) {
     margin-right: 10px;
   }
 
-  .tweet-box:nth-child(4) {
-    margin-left: 20px;
-  }
-
-  .tweet-box:nth-child(8) {
-    margin-left: 10px;
-  }
-
-  .tweet-box:nth-child(9) {
-    margin-left: 20px;
-  }
-
-  .tweet-box:nth-child(10) {
-    margin-left: 20px;
+  .tweet-box:nth-child(2n) {
+    margin-right: 0px;
   }
 
   .tweet-top {
@@ -268,8 +256,8 @@
   .tweet-form {
     padding: 2px;
   }
-  
- .tweet-btn {
+
+  .tweet-btn {
     width: 15%;
     height: 35px;
     border-radius: 3px;
@@ -310,5 +298,48 @@
   .tweet-destroy-btn:hover {
     color: #fff;
     background-color: #ea5550;
+  }
+}
+  // モバイル版対応(スマホ)
+  @media screen and (max-width: 470px) {
+  // index画面
+  .tweet-box {
+    width: 340px;
+    height: 340px;
+    margin: 10px auto 0;
+  }
+
+  .tweet-image {
+    width: 100%;
+    height: 240px;
+  }
+
+  .tweet-box:nth-child(3n) {
+    margin: 10px auto 0;
+  }
+
+  .tweet-box:nth-child(2n) {
+    margin: 10px auto 0;
+  }
+
+  .tweet-top {
+    font-size: 17px;
+  }
+
+  .tweet-bottom {
+    height: 40px;
+  }
+
+  .tweet-profile-image {
+    width: 40px;
+    height: 40px;
+  }
+
+  .member-name {
+    font-size: 15px;
+  }
+
+  .fa-apple-alt:before, .fa-comment:before {
+    font-size: 15px;
   }
 }
