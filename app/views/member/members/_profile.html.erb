@@ -28,20 +28,20 @@
       <% if @member == current_member %>
       　<!-- 編集リンク・アイコン付き -->
       　<%= link_to edit_member_path(member) do %>
-      　   <i class="fas fa-wrench" >編集</i>
+      　   <i class="fas fa-wrench" ><span class="icon-text">編集</span></i>
         <% end %>
       　<!-- つぶやきリンク・アイコン付き -->
         <%= link_to new_tweet_path do %>
-          <i class="fas fa-comment">つぶやく</i>
+          <i class="fas fa-comment"><span class="icon-text">つぶやく</span></i>
       　<% end %>
       <% end %>
       <!-- ブックマーク一覧・アイコン付き -->
       <%= link_to bookmarks_path(member) do %>
-        <i class="fas fa-bookmark">ブックマーク</i>&emsp;
+        <i class="fas fa-bookmark"><span class="icon-text">ブックマーク</span></i>&emsp;
       <% end %>
       <!-- お気に入り一覧・アイコン付き -->
       <%= link_to tweet_likes_path(member) do %>
-        <i class="fas fa-apple-alt">お気に入り</i>
+        <i class="fas fa-apple-alt"><span class="icon-text">お気に入り</span></i>
       <% end %>
     </div>
   </div>
