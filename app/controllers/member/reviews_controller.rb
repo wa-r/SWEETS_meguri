@@ -10,7 +10,7 @@ class Member::ReviewsController < ApplicationController
 
   def index
     @shop = Shop.find(params[:shop_id])
-    @reviews = @shop.reviews.page(params[:page]).per(10).order(id: "DESC")
+    @reviews = @shop.reviews.page(params[:page]).per(10).order(created_at: "DESC")
   end
 
   def new
@@ -58,7 +58,6 @@ class Member::ReviewsController < ApplicationController
     @review = Review.find_by(id: params[:id], shop_id: params[:shop_id])
     @review.destroy
     redirect_to request.referer, notice: "レビューを削除しました"
-
   end
 
   private

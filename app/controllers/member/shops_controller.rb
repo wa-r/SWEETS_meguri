@@ -1,7 +1,7 @@
 class Member::ShopsController < ApplicationController
 
   def index
-    @shops = Shop.all.page(params[:page]).per(5).order(id: "DESC")
+    @shops = Shop.all.page(params[:page]).per(5).order(created_at: "DESC")
   end
 
   def show
@@ -11,15 +11,19 @@ class Member::ShopsController < ApplicationController
 
   def search
     @q = Shop.ransack(params[:q])
-    @shops = @q.result(distinct: true).page(params[:page]).per(10)
+    @shops = @q.result(distinct: true).page(params[:page]).per(5)
   end
-  
+
   def ranking
     # shopのランキング形式用
     @shops = Shop.all
     @shops_rank = @shops.sort_by { |shop|
-      shop.reviews.average(:rate)
+      shop.reviews.average(:rate) == nil ? 0 : shop.reviews.average(:rate)
     }.reverse
+  end
+  
+  def map
+    @shop = Shop.find(params[:id])
   end
   
   private
