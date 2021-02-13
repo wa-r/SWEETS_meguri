@@ -1,0 +1,14 @@
+<!--評価の星用JavaScript -->
+<script>
+$('#star').raty({
+  size: 36,
+  starOff: '<%= asset_path('star-off.png') %>',
+  starOn: '<%= asset_path('star-on.png') %>',
+  starHalf: '<%= asset_path('star-half.png') %>',
+  // 星の入力値を読み込む
+  score: <%= review.rate %>,
+  // Reviewモデルのrateカラムに保存する
+  scoreName: 'review[rate]',
+  half: true,
+});
+</script>

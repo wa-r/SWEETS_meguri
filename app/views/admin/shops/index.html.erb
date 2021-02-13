@@ -1,0 +1,33 @@
+<h3 class="page-heading">Shop</h3>
+<!-- members/shopのクラス引用 -->
+<div class="shop-container">
+  <table>
+    <thead>
+      <tr>
+        <th>店舗名</th>
+        <th>ジャンル</th>
+        <th>住所</th>
+        <th>電話番号</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @shops.each do |shop| %>
+      <tr>
+        <div class="admin-shops-text">
+          <td><%= link_to shop.name, admin_shop_path(shop) %></td>
+          <td><%= shop.genre.name %></td>
+          <td><%= shop.address %></td>
+          <td><%= shop.phone_number %></td>
+          <td>
+            <!-- member/withdrawalのボタンを引用 -->
+            <%= link_to "編集", edit_admin_shop_path(shop), class: "no-withdrawal-btn" %>
+            <%= link_to "削除", admin_shop_path(shop), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "withdrawal-btn" %>
+          </td>
+        </div>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <%= paginate @shops %>
+</div>

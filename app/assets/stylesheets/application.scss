@@ -1,0 +1,368 @@
+/*
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+* vendor/assets/stylesheets directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+* files in this directory. Styles in this file should be added after the last require_* statement.
+* It is generally better to create a new file per style scope.
+*
+*= require_tree .
+*= require_self
+*/
+@import "bootstrap";
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+@charset "UTF-8";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  width: 100%;
+  height: 60px;
+  margin-top: 0;
+  position: relative;
+  background-color: #d2b48c;
+  postion: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.logo-box {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 20px;
+  left: 10px;
+  z-index: 2;
+}
+
+.logo-box  > .logo {
+  width: 100%;
+  height: 100%;
+}
+
+// ハンバーガーアイコン通常時は隠す
+#sp-menu {
+  display: none;
+}
+
+#desktop-menu {
+  display: flex;
+}
+
+body {
+  min-height: 100vh;
+	height: 100%;
+	line-height: 0;
+	font-family: 'Nanum Myeongjo', serif;
+}
+
+.main {
+  min-height: 85vh;
+	height: 100%;
+	line-height: 1.5;
+}
+
+// フラッシュメッセージ
+.alert {
+	text-align: center;
+}
+.success-info {
+    margin: 0px;
+    background-color: #bde9ff;
+    border-color: #bde9ff;
+    color: #4c6977;
+}
+
+.failure-info {
+    margin-top: 30px;
+    background-color: #f3c0c0;
+    border-color: #f3c0c0;
+    color: #3e3a3a;
+}
+
+footer {
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+  height: 60px;
+  padding-top: 20px;
+  background-color: #d2b48c;
+}
+
+.footer-text, .footer-form > a {
+  text-decoration: none;
+  font-size: 14px;
+  color: #fff;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+// ログイン・新規登録画面（会員・管理者共通）
+.bg-image {
+  width: 100%;
+  height: 630px;
+  background-image: image-url("genre-macaron1.jpg");
+  background-size: cover;
+}
+
+.bg-image-cover {
+  height: 630px;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.sign-in-container {
+  width: 370px;
+  height: 470px;
+  margin: 0 auto;
+  border-radius: 3px;
+  border: solid 1px #d2b48c;
+  background-color: #fff;
+}
+
+.bg-image-cover, .sign-in-container  {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+  padding: 20px 26px;
+}
+
+.login-heading {
+  font-size: 26px;
+}
+
+.name-field, .email_field, .password_field {
+  width: 100%;
+}
+
+.login-form {
+  width: 300px;
+  margin-bottom: 10px;
+}
+
+.login-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-btn {
+  width: 200px;
+  margin: 8px 0 20px;
+  border-color: #fce4d6;
+  background-color: #fce4d6;
+}
+
+.remember-btn, .new-password-btn, .sign-up-btn, .sign-in-btn {
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+
+// ページネーション
+.pagination {
+  margin-top: 20px;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.pagination > li > a {
+  border: none;
+  color: #696969;
+}
+
+// 表示しているページ番号のデザイン
+.page-item.active .page-link {
+  border-radius: 50%;
+  background-color: #e9dacb;
+  color: #696969;
+}
+
+.pagination > li > a:hover {
+  border-radius: 50%;
+  background-color: #fbdac8;
+  color: #696969;
+}
+
+img {
+  object-fit: cover;
+}
+
+.top-page-heading {
+  width: 80%;
+  margin: 0 auto 10px;
+  padding: 20px 6px 0 0;
+}
+
+.page-heading {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px 6px 0 80px;
+}
+
+textarea {
+  padding: 3px;
+  resize: none;
+  width: 100%;
+  height: 160px;
+}
+
+.no-content {
+  width: 100%;
+  height: 100px;
+  margin: 50px auto 0;
+  font-size: 20px;
+  color: #736d71;
+}
+
+// モバイル版対応
+@media screen and (max-width: 600px) {
+  // ロゴ表示
+  .logo-box {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 3px;
+    left: 10px;
+    z-index: 2;
+  }
+
+  .logo {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    z-index: 2;
+  }
+  // 各画面の見出し
+  .page-heading {
+    width: 100%;
+    margin: 0 auto;
+    padding: 25px 0 0 25px;
+  }
+
+  #hm-icon {
+    position: fixed;
+    right: 20px;
+    top: 15px;
+    z-index: 10;
+    display: flex;
+  }
+
+  .menu-trigger,
+  .menu-trigger span {
+    display: inline-block;
+    transition: all .4s;
+    box-sizing: border-box;
+  }
+
+  .menu-trigger {
+    position: relative;
+    width: 40px;
+    height: 35px;
+  }
+
+  .menu-trigger span {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 4px;
+  }
+
+  .menu-trigger span:nth-child(1) {
+    top: 0;
+  }
+
+  .menu-trigger span:nth-child(2) {
+    top: 15px;
+  }
+
+  .menu-trigger span:nth-child(3) {
+    bottom: 0;
+  }
+
+  .menu-trigger.active span:nth-child(1) {
+    -webkit-transform: translateY(13px) rotate(-45deg);
+    transform: translateY(13px) rotate(-45deg);
+    background-color: #fff;
+  }
+
+  .menu-trigger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-trigger.active span:nth-child(3) {
+    -webkit-transform: translateY(-20px) rotate(45deg);
+    transform: translateY(-20px) rotate(45deg);
+    background-color: #fff;
+  }
+
+  // spメニュー
+  #sp-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(210, 180, 140, 0.8);
+    color: #fff;
+    width: 100%;
+    min-height: 100%;
+    display: none;
+    z-index: 9;
+  }
+
+  #sp-menu li {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  #sp-menu li:nth-child(1) {
+    margin-top: 50px;
+  }
+
+  #sp-menu a {
+    padding: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  #sp-menu a:hover {
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: all .3s;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #d2b48c;
+  }
+
+  #desktop-menu {
+    display: none;
+  }
+
+  .nav-item {
+    font-size: 16px;
+    padding: 20px;
+  }
+}

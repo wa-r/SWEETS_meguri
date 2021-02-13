@@ -1,3 +1,214 @@
-// Place all the styles related to the homes controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.top-container {
+  position: relative;
+}
+
+.top-image1, .top-image2, .top-image3 {
+  height: 550px;
+  margin: 50px 0;
+  background-size: cover;
+}
+
+.top-image1 {
+  background-image: image-url("pudding.jpg");
+}
+
+.top-image2 {
+  background-image: image-url("milk.jpg");
+}
+
+.top-image3 {
+  background-image: image-url("macarons.jpg");
+}
+
+.site-name {
+  position: absolute;
+  top: 100px;
+  left: 115px;
+  font-size: 75px;
+  color: #fff;
+}
+
+.site-name-brown {
+  color: #d2b48c;
+}
+
+.concept-text {
+  position: absolute;
+  padding: 30px;
+  bottom: 150px;
+  text-align: center;
+  right: 30px;
+  color: #fff;
+  font-family: "Hannari";
+  background-color: rgba(115, 78, 48, 0.3);
+}
+
+.search-content {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  bottom: 80px;
+}
+
+.search-form {
+  width: 560px;
+  height: 42px;
+  padding: 0 10px 0 10px;
+  border-radius: 3px;
+  border-color: #fff;
+}
+
+.search-btn {
+  position: relative;
+  width: 37px;
+  height: 37px;
+  background-color: #fff;
+  border-radius: 3px;
+  border-color: #fff;
+  color: #996633;
+}
+
+.fa-search {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+}
+
+.search {
+  width: 80%;
+  margin: 30px auto;
+  padding: 20px 6px 0 0;
+}
+
+.genre-search {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.genre-box {
+  width: 160px;
+  height: 160px;
+  margin-right: 10px;
+}
+
+.genre-box:last-child {
+  margin-right: 0px;
+}
+
+.genre-name {
+  text-align: center;
+  line-height: 160px;
+  font-size: 26px;
+  font-weight: bold;
+  color: #fff;
+  background-size: cover;
+}
+
+.cake {
+  background-image: image-url("genre-cake.jpg");
+}
+
+.macaron {
+  background-image: image-url("genre-macaron.jpg");
+}
+
+.chocolate {
+  background-image: image-url("genre-chocolate.jpg");
+}
+
+.parfait {
+  background-image: image-url("genre-parfait.jpg");
+}
+
+.cafe {
+  background-image: image-url("genre-cafe.jpg");
+}
+
+.ice {
+  background-image: image-url("genre-ice.jpg");
+}
+
+.top-page-heading {
+  width: 80%;
+  margin: 0 auto 10px;
+  padding: 20px 6px 0 0;
+}
+
+.next-ranking {
+  width: 70%;
+  margin: 10px auto 20px;
+  padding-right: 20px;
+  text-align: right;
+  font-size: 15px;
+}
+
+.next-ranking-btn:hover {
+  color: #696969;
+}
+
+// モバイル版対応
+@media screen and (max-width: 600px) {
+  // top画面
+  .top-container {
+    position: relative;
+  }
+
+  .top-image1 {
+    height: 450px;
+    margin: 10px 0;
+    border: 1px solid #664A30;
+  }
+
+  .top-image2, .top-image3  {
+    display: none;
+  }
+
+  .site-name {
+    top: 55px;
+    left: 50px;
+    font-size: 60px;
+  }
+
+  .concept-text {
+    padding: 20px;
+    bottom: 100px;
+    right: 20px;
+    font-size: 14px;
+  }
+
+  .search-content {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    top: 25px;
+  }
+
+  .search-form {
+    width: 85%;
+    height: 40px;
+    border-color: #9F836F;
+  }
+
+  .search-btn {
+    border-color: #9F836F;
+    color: #9F836F;
+  }
+
+  .search {
+    margin: 60px auto 25px;
+  }
+
+  .genre-search {
+    margin-bottom: 40px;
+  }
+
+  .genre-box:nth-child(3) {
+    margin-right: 0px;
+  }
+
+  .genre-box:nth-child(4), .genre-box:nth-child(5), .genre-box:nth-child(6) {
+    margin-top: 10px;
+  }
+}

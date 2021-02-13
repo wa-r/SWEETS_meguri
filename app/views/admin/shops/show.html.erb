@@ -1,0 +1,60 @@
+<!-- member/shops/showから引用 -->
+<div class="show-shop-container">
+  <div class="show-shop-top">
+    <span class="show-shop-name"><%= @shop.name %><p class="shop-text">&emsp;/&emsp;<%= @shop.genre.name %></p></span>
+    <ul class="review-list">
+      <span id="star-rate-<%= @shop.id %>"></span>
+      <span class="review-list-item"><%= @shop.reviews.average(:rate).to_f.round(1) %>&emsp;</span>
+      <%= render partial: 'member/reviews/star_average', locals: { shop: @shop } %>
+    </ul>
+  </div>
+  <hr class="border">
+  <div class="show-main-image">
+    <%= attachment_image_tag @shop, :main_image, size: '670x400' %>
+  </div>
+  <div class="show-sub-image">
+    <% @shop.shop_images.each do |shop_image| %>
+  　　  <%= attachment_image_tag shop_image, :image, size: "130x130", class: "sub-image" %>
+  　<% end %>
+  </div>
+  <hr class="border-sm">
+  <div class="shop-caption">
+    <h5>店鋪紹介</h5>
+    <%= simple_format(@shop.caption) %>
+  </div>
+  <hr class="border-sm">
+  <div class="shop-info">
+    <h5>店鋪情報</h5>
+    <table class="table shop-table">
+      <tbody>
+        <tr>
+          <th width="100" style="background: #fefae6;">住所</th>
+          <td><%= @shop.address %></td>
+        </tr>
+        <tr>
+          <th width="100" style="background: #fefae6;">電話番号</th>
+          <td><%= @shop.phone_number %></td>
+        </tr>
+        <tr>
+          <th width="100" style="background: #fefae6;">営業時間</th>
+          <td><%= @shop.business_hours %></td>
+        </tr>
+        <tr>
+          <th width="100" style="background: #fefae6;">定休日</th>
+          <td><%= @shop.regular_holiday %></td>
+        </tr>
+        <tr>
+          <th width="100" style="background: #fefae6;">アクセス</th>
+          <td><%= @shop.nearest_station %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <hr class="border-sm">
+  <div class="map-area">
+    <h5>アクセス</h5>
+    <%= render 'layouts/map' %>
+    <!--mapの表示-->
+    <div id="map"></div>
+  </div>
+</div>

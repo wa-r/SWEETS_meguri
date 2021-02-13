@@ -1,0 +1,46 @@
+<!-- shops.scssに共通記述複数有り -->
+<div class="show-shop-container">
+  <div class="show-shop-top">
+    <span class="show-shop-name"><%= @shop.name %><p class="shop-text">&emsp;/&emsp;<%= @shop.genre.name %></p></span>
+    <ul class="review-list">
+      <li><div id="star-rate-<%= @shop.id %>"></div></li>
+      <li class="review-list-item"><%= @shop.reviews.average(:rate).to_f.round(1) %>&emsp;</li>
+      <li>
+        <%= link_to shop_reviews_path(@shop) do %>
+          <i class="far fa-comment-dots"></i>&nbsp;<%= @shop.reviews.count %>件
+      　<% end %>
+      </li>
+      <%= render partial: 'member/reviews/star_average', locals: { shop: @shop } %>
+      <li>
+        <div id="bookmarks_btn_<%= @shop.id %>">
+        <%= render partial: 'member/bookmarks/bookmark', locals: {shop: @shop} %>
+      </li>
+    </ul>
+  </div>
+  <%= render partial: 'member/shops/link_box', locals: { shop: @shop } %>
+  <div class="new-review-content">
+    <!-- urlを指定しないと、エラーになる -->
+    <%= form_with(model:[@shop, @review], url: shop_reviews_path, local: true) do |f| %>
+    <%= render 'layouts/error_messages', model: @review %>
+      <div class="new-review-title">
+        <%= f.label :"タイトル" %><br>
+        <%= f.text_field :title, class: "new-review-title-form" %>
+      </div>
+      <div class="new-review-rate">
+        <div class="form-group" id="star">
+          <%= f.label :"評価" %><br>
+          <!-- JavaScriptでidの値"star"の記述を使用するため-->
+          <%= f.hidden_field :rate, id: :review_star %>
+          <%= render partial: 'member/reviews/star', locals: { review: @review } %>
+        </div>
+      </div>
+      <div class="new-review-body">
+        <%= f.label :"口コミ内容" %><br>
+        <%= f.text_area :content, placeholder: "星のみの評価でもレビューを投稿できます！" %>
+      </div>
+        <%= f.submit '投稿', class: "edit-profile-btn" %>
+    <% end %>
+  </div>
+</div>
+
+

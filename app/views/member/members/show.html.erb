@@ -1,16 +1,4 @@
-<h2>会員ページ</h2>
-<table>
-  <tr>
-    <td><%= attachment_image_tag @member, :image, fallback: "no_image.jpeg", size: '20x20', format: 'jpeg' %></td>
-  <tr>
-    <td>名前</td>
-    <td><%= @member.name %></td>
-  </tr>
-　<tr>
-　  <td>紹介文</td>
-　  <td><%= @member.introduction %></td>
-　</tr>
-　<tr>
-　  <td><%= link_to "編集", edit_member_path %></td>
-　</tr>
-</table>
+<%= render partial: 'member/members/profile', locals: { member: @member } %>
+<!-- マイページの会員のつぶやき一覧 -->
+<h3 class="page-heading">Tweet</h3>
+<%= render partial: 'member/tweets/index', locals: { tweets: @tweets} %>

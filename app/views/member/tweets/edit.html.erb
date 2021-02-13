@@ -1,0 +1,10 @@
+<%= form_with model: @tweet, url: tweet_path, method: :patch, local: true do |f| %>
+  <p><%= f.label :"画像" %></p>
+  <p><%= f.attachment_field :image %></p>
+  <p><%= f.label :"タイトル" %></p>
+  <p><%= f.text_field :title %></p>
+  <p><%= f.label :"つぶやき" %></p>
+  <p><%= f.text_field :content %></p>
+  <p><%= f.submit '保存' %></p>
+<% end %>
+<%= link_to "タイムラインへ戻る", tweets_path %>

@@ -4,37 +4,147 @@
     <title>SWEETSMeguri</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <!--スマホでPCサイトが表示されないよう、初期倍率を指定する-->
+　　<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/ff199016f3.js" crossorigin="anonymous"></script>
   </head>
 
   <header>
-    <ul>
-      <% if member_signed_in? %>
-        <li>
-          <%= link_to "マイページ", member_path(current_member) %>
-        </li>
-        <li>
-          <%= link_to "つぶやき",  member_path(current_member) %>
-        </li>
-        <li>
-          <%= link_to "ログアウト", destroy_member_session_path, method: :delete %>
-        </li>
-      <% else %>
-        <li>
-          <%= link_to "新規登録", new_member_registration_path %>
-        </li>
-        <li>
-          <%= link_to "ログイン", new_member_session_path %>
-        </li>
-      <% end %>
-    </ul>
+    <div class="logo-box">
+      <%= link_to image_tag("logo.png", class: "logo"), "/" %>
+    </div>
+    <!--<nav class="navbar navbar-expand p-3">-->
+    <nav class="navbar navbar-expand p-3">
+      <!-- レスポンシブ対応時のハンバーガーメニュー用ー -->
+      <ul class="navbar-nav ml-auto" id="sp-menu">
+        <% if member_signed_in? %>
+          <li class="nav-item">
+            <%= link_to "マイページ", member_path(current_member) %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "通知", notifications_path(current_member) %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "つぶやき", tweets_path %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "店舗一覧", shops_path %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "ランキング", shops_ranking_path %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "ログアウト", destroy_member_session_path, method: :delete %>
+          </li>
+        <% elsif admin_signed_in? %>
+        　<li class="nav-item">
+        　  <%= link_to "ジャンル", admin_genres_path %>
+        　</li>
+          <li class="nav-item">
+            <%= link_to "店舗登録", new_admin_shop_path %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "店舗一覧", admin_shops_path %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "新規登録", new_member_registration_path %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "ログイン", new_member_session_path %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "ゲストログイン", members_guest_sign_in_path, method: :post %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "店舗一覧", shops_path %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "ランキング", shops_ranking_path %>
+          </li>
+        <% end %>
+      </ul>
+      <!-- パソコン画面用のヘッダー -->
+      <ul class="navbar-nav ml-auto" id="desktop-menu">
+        <% if member_signed_in? %>
+          <li class="nav-item">
+            <%= link_to "マイページ", member_path(current_member), class: "btn btn-outline-light btn-sm ml-3"  %>
+          </li>
+          <li>
+            <%= link_to "通知", notifications_path(current_member), class: "btn btn-outline-light btn-sm ml-3" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "つぶやき", tweets_path, class: "btn btn-outline-light btn-sm ml-3"  %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "店舗一覧", shops_path, class: "btn btn-outline-light btn-sm ml-3" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "ランキング", shops_ranking_path, class: "btn btn-outline-light btn-sm ml-3" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "ログアウト", destroy_member_session_path, method: :delete, class: "btn btn-outline-light btn-sm ml-3" %>
+          </li>
+        <% elsif admin_signed_in? %>
+        　<li class="nav-item">
+        　  <%= link_to "ジャンル", admin_genres_path, class: "btn btn-outline-light btn-sm ml-3" %>
+        　</li>
+          <li class="nav-item">
+            <%= link_to "店舗登録", new_admin_shop_path, class: "btn btn-outline-light btn-sm ml-0" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "店舗一覧", admin_shops_path, class: "btn btn-outline-light btn-sm ml-3" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-outline-light btn-sm ml-3" %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "新規登録", new_member_registration_path, class: "btn btn-outline-light btn-sm ml-3" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "ログイン", new_member_session_path, class: "btn btn-outline-light btn-sm ml-3" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "ゲストログイン", members_guest_sign_in_path, method: :post, class: "btn btn-outline-light btn-sm ml-3" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "店舗一覧", shops_path, class: "btn btn-outline-light btn-sm ml-3" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "ランキング", shops_ranking_path, class: "btn btn-outline-light btn-sm ml-3" %>
+          </li>
+        <% end %>
+      </ul>
+    </nav>
+    <!-- ハンバーガーアイコン用の表記 -->
+    <div id="hm-icon">
+      <a class="menu-trigger" href="">
+        <span></span>
+        <span></span>
+        <span></span>
+      </a>
+    </div>
   </header>
 
   <body>
-    <%= yield %>
+    <div class="main">
+      <%= render 'layouts/flash' %>
+      <%= yield %>
+    </div>
   </body>
 
-  <footer></footer>
+  <footer>
+    <span class="footer-text">© SWEETS -meguri-</span>&nbsp;
+    <span class="footer-form">
+      <%= link_to new_contacts_path do %>
+        <i class="fas fa-envelope">お問い合わせ</i>
+      <% end %>
+    </span>
+  </footer>
 </html>

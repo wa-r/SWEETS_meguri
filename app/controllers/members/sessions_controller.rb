@@ -18,8 +18,13 @@ class Members::SessionsController < Devise::SessionsController
   #   super
   # end
 
-  protected
-  
+  def new_guest
+    member = Member.guest
+    sign_in member
+    redirect_to root_path, notice: "ゲストユーザーとして、ログインに成功しました"
+  end
+
+  # 会員の論理削除のための記述。退会後は、同じアカウントでは利用できない。
   def reject_user
     @member = Member.find_by(name: params[:memuber][:name])
     if @member
@@ -31,6 +36,8 @@ class Members::SessionsController < Devise::SessionsController
       end
     end
   end
+
+  protected
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params
