@@ -34,7 +34,7 @@
         </div>
         <ul class="review-list">
           <!-- 繰り返し処理を実行してもidを一意に保てるようにreview.idを埋め込む -->
-          <li><div id="star-rate-<%= shop.id %>"></div></li>
+          <li><div id="star-average-<%= shop.id %>"></div></li>
           <li class="review-list-item"><%= shop.reviews.average(:rate).to_f.round(1) %>&emsp;</li>
           <%= render partial: 'member/reviews/star_average', locals: { shop: shop } %>
           <li>

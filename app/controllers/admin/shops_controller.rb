@@ -1,5 +1,4 @@
 class Admin::ShopsController < ApplicationController
-
   def index
     @shops = Shop.all.page(params[:page]).per(10)
   end
@@ -46,8 +45,21 @@ class Admin::ShopsController < ApplicationController
   end
 
   private
-  def shop_params
-    params.require(:shop).permit(:genre_id, :name, :phone_number, :address, :latitude, :longitude, :nearest_station, :business_hours, :regular_holiday, :main_image, :caption, shop_images_images: [])
-  end
 
+  def shop_params
+    params.require(:shop).permit(
+      :genre_id,
+      :name,
+      :phone_number,
+      :address,
+      :latitude,
+      :longitude,
+      :nearest_station,
+      :business_hours,
+      :regular_holiday,
+      :main_image,
+      :caption,
+      shop_images_images: []
+    )
+  end
 end
