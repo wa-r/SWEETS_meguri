@@ -2,12 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// indexページ
 .tweet-container {
   width: 80%;
   display: flex;
   margin: 0 auto;
-}
+ }
 
 .main-content {
   width: 100%;
@@ -22,7 +21,7 @@
   width: 300px;
   height: 300px;
   padding: 8px;
-  margin: 30px 25px 0 0;
+  margin: 30px 25px 0;
   border: solid 2px #d2b48c;
   border-radius: 3px;
   box-shadow: 3px 3px 3px 3px #faebd7;
@@ -81,7 +80,6 @@
   font-size: 20px;
 }
 
-// show画面
 .show-tweet-content {
   width: 70%;
   display: flex;
@@ -139,7 +137,7 @@
 
 .tweet-border {
   width: 100%;
-	border: solid 1px #dee2e6 ;
+  border: solid 1px #dee2e6;
 }
 
 .tweet-destroy-btn {
@@ -157,9 +155,7 @@
   background-color: #ea5550;
 }
 
-// モバイル版対応
 @media screen and (max-width: 600px) {
-  // indexページ
   .tweet-container {
     width: 100%;
     display: flex;
@@ -242,7 +238,6 @@
     font-size: 16px;
   }
 
-  // show画面
   .show-tweet-content {
     width: 92%;
     display: block;
@@ -300,9 +295,8 @@
     background-color: #ea5550;
   }
 }
-  // モバイル版対応(スマホ)
+
   @media screen and (max-width: 470px) {
-  // index画面
   .tweet-box {
     width: 340px;
     height: 340px;
@@ -343,3 +337,5 @@
     font-size: 15px;
   }
 }
+
+/*# sourceMappingURL=tweets.css.map */
