@@ -28,7 +28,11 @@
       <div class="review-box">
         <div class="review-box-top">
           <%= attachment_image_tag review.member, :profile_image, fallback: "no_image.jpeg", size: '30x30', class: "profile-image" %>
-          <%= link_to review.member.name, member_path(review.member) %>&nbsp;
+          <% if member_signed_in? %>
+        　   <%= link_to review.member.name, member_path(review.member) %>&nbsp;
+        　<% else %>
+        　  <span class="review-name"><%= review.member.name %></span>
+        　<% end %>
           <span class="review-text">さんの口コミ</span>
           <div class="review-box-right">
             <% if member_signed_in? %>
