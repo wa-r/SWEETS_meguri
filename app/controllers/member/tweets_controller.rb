@@ -26,8 +26,9 @@ class Member::TweetsController < ApplicationController
 
   def destroy
     @tweet = Tweet.find(params[:id])
-    @tweet.destroy
-    redirect_to tweet_path(@tweet)
+    @tweet.member_id = current_member.id
+    @tweet.destroy!
+    redirect_to member_path(current_member)
   end
 
   private
