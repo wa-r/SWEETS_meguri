@@ -32,7 +32,7 @@ Rails.application.routes.draw do
     get 'shops/search' => 'shops#search'
     get 'shops/ranking' => 'shops#ranking'
     get 'shops/map' => 'shops#map'
-    resources :shops do
+    resources :shops, only: [:index, :show] do
       resource :bookmarks, only: [:create, :destroy]
       resources :reviews
     end
