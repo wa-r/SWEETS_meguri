@@ -33,7 +33,11 @@
             <% review = Review.where(shop_id: shop.id).order(created_at: :desc).last %>
             <div class="new-review-left">
               <%= attachment_image_tag review.member, :profile_image, fallback: "no_image.jpeg", size: "30x30", class: "profile-image" %><br>
-            　<%= link_to review.member.name, member_path(review.member), class: "review-name" %>
+              <% if member_signed_in? %>
+            　   <%= link_to review.member.name, member_path(review.member), class: "review-name" %>
+            　<% else %>
+            　  <span class="review-name"> <%= review.member.name %></span>
+            　<% end %>
             </div>
             <div class="new-review-right">
               <span class="review-title"><%= review.title %><br></span>
