@@ -17,7 +17,7 @@
       <p><%= shop.caption %></p>
       <ul class="review-list">
         <!-- 繰り返し処理を実行してもidを一意に保てるようにreview.idを埋め込む -->
-        <li><div id="star-rate-<%= shop.id %>"></div></li>
+        <li><div id="star-average-<%= shop.id %>"></div></li>
         <li><%= shop.reviews.average(:rate).to_i.round(1) %>&emsp;</li>
         <li>
           <%= link_to shop_reviews_path(shop) do %>
