@@ -9,7 +9,7 @@ class Member::MembersController < ApplicationController
 
   def show
     @member = Member.find(params[:id])
-    @tweets = @member.tweets.page(params[:page]).per(9)
+    @tweets = @member.tweets.page(params[:page]).per(12).order(created_at: "DESC")
   end
 
   def edit

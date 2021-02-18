@@ -17,6 +17,10 @@ class Member::TweetsController < ApplicationController
     @tweet = Tweet.new(tweet_params)
     @tweet.member_id = current_member.id
     if @tweet.save
+      tags = Vision.get_image_data(@tweet.image)
+      tags.each do |tag|
+        @tweet.tags.create(name: tag)
+      end
       redirect_to member_path(current_member), notice: "つぶやきを投稿しました"
     else
       flash.now[:alert] = "つぶやき投稿失敗しました"
