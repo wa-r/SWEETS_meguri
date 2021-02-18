@@ -5,7 +5,7 @@ class Tweet < ApplicationRecord
   has_many :tweet_likes, dependent: :destroy
   has_many :tweet_comments, dependent: :destroy
   has_many :notifications, dependent: :destroy
-  has_many :tags
+  has_many :tags, dependent: :destroy
 
   validates :title, presence: true, length: { maximum: 15 }
   validates :content, presence: true, length: { maximum: 150 }
