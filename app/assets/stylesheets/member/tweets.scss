@@ -62,10 +62,23 @@
   color: #6c3524;
 }
 
-.tweet-image {
+.tweet-image-box {
+  border-radius: 5px;
   width: 280px;
   height: 210px;
-  border-radius: 5px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.tweet-image-box .tweet-image {
+  width: 100%;
+  height: 100%;
+  transition-duration: 0.5s;
+}
+
+.tweet-image-box:hover .tweet-image {
+  transform: scale(1.2);
+  transition-duration: 0.4s;
 }
 
 .tweet-date {
