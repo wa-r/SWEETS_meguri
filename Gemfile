@@ -77,6 +77,7 @@ gem 'ransack'
 gem 'dotenv-rails'
 gem 'rails-i18n'
 gem 'rubocop-airbnb'
+gem 'mini_magick'
 group :production do
   gem 'mysql2'
 end
