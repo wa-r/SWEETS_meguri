@@ -8,6 +8,11 @@
         <% end %>
       </div>
       <div class="tweet-top">
+        <!-- Vision APIのタグ表示 -->
+        <i class="fas fa-tag" style="color: #594e52;"></i>
+        <% tweet.tags.each do |tag| %>
+          <span class="label"><%= tag.name %></span>
+        <% end %><br>
         <%= tweet.title %>
       </div>
       <div class="tweet-bottom">
@@ -15,6 +20,7 @@
           <%= attachment_image_tag tweet.member, :profile_image, fallback: "no_image.jpeg", class: "tweet-profile-image" %>
           <%= link_to "#{tweet.member.name}", member_path(tweet.member), class: "member-name" %>&nbsp;
         </div>
+        <!-- いいね・コメントマーク -->
         <span id="likes_btn_<%= tweet.id %>">
           <%= render partial: 'member/tweet_likes/tweet_like', locals: {tweet: tweet} %>
         </span>
@@ -28,8 +34,10 @@
       </div>
     </div>
     <% end %>
-    <div class="paginate-box">
-      <%= paginate tweets %>
-    </div>
+  </div>
+</div>
+<div class="tweet-container">
+  <div class="paginate-box">
+    <%= paginate tweets %>
   </div>
 </div>

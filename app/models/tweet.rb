@@ -5,10 +5,14 @@ class Tweet < ApplicationRecord
   has_many :tweet_likes, dependent: :destroy
   has_many :tweet_comments, dependent: :destroy
   has_many :notifications, dependent: :destroy
+  has_many :tags, dependent: :destroy
 
   validates :title, presence: true, length: { maximum: 15 }
   validates :content, presence: true, length: { maximum: 150 }
   validates :image, presence: true
+  
+  
+  after_create :create_tags
 
   # ユーザーがつぶやきをお気に入りしているかどうかの判定メソッド
   def tweet_liked_by?(member)
@@ -36,6 +40,16 @@ class Tweet < ApplicationRecord
         notification.is_checked = true
       end
       notification.save if notification.valid?
+    end
+  end
+  
+  private
+  
+  def create_tags
+    # Vision APIのLABEL保存の記述
+    vision_tags = Vision.get_image_data(self.image)
+    vision_tags.each do |tag|
+      tags.create(name: tag)
     end
   end
 end
