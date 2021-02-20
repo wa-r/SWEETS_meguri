@@ -273,7 +273,7 @@ Genre.create!(
       name: "パフェ"
     },
     {
-      name: "カフ��"
+      name: "カフェ "
     },
     {
       name: "かき氷"
