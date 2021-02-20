@@ -21,8 +21,10 @@
           <td><%= shop.phone_number %></td>
           <td>
             <!-- member/withdrawalのボタンを引用 -->
-            <%= link_to "編集", edit_admin_shop_path(shop), class: "no-withdrawal-btn" %>
-            <%= link_to "削除", admin_shop_path(shop), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "withdrawal-btn" %>
+            <% if admin_signed_in? %>
+              <%= link_to "編集", edit_admin_shop_path(shop), class: "no-withdrawal-btn" %>
+              <%= link_to "削除", admin_shop_path(shop), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "withdrawal-btn" %>
+            <% end %>
           </td>
         </div>
       </tr>

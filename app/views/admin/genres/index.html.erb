@@ -21,12 +21,12 @@
       <td><%= genre.name %></td>
       <!-- member/withdrawalのボタンを引用 -->
       <td>
-        <%= link_to "編集", edit_admin_genre_path(genre), class: "no-withdrawal-btn" %>
-        <%= link_to "削除", admin_genre_path(genre), method: :delete, data: { confilm: "本当に削除しますか" }, class: "withdrawal-btn" %>
+        <% if admin_signed_in? %>
+          <%= link_to "編集", edit_admin_genre_path(genre), class: "no-withdrawal-btn" %>
+          <%= link_to "削除", admin_genre_path(genre), method: :delete, data: { confilm: "本当に削除しますか" }, class: "withdrawal-btn" %>
+        <% end %>
       </td>
     </tr>
     <% end %>
   </table>
-  
-  
 </div>
