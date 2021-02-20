@@ -19,7 +19,7 @@
 
 .tweet-box {
   width: 300px;
-  height: 300px;
+  height: 340px;
   padding: 8px;
   margin: 30px 25px 0;
   border: solid 2px #d2b48c;
@@ -62,10 +62,23 @@
   color: #6c3524;
 }
 
-.tweet-image {
+.tweet-image-box {
+  border-radius: 5px;
   width: 280px;
   height: 210px;
-  border-radius: 5px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.tweet-image-box .tweet-image {
+  width: 100%;
+  height: 100%;
+  transition-duration: 0.5s;
+}
+
+.tweet-image-box:hover .tweet-image {
+  transform: scale(1.2);
+  transition-duration: 0.4s;
 }
 
 .tweet-date {
@@ -96,7 +109,12 @@
 .show-tweet-image {
   width: 100%;
   height: 300px;
+  margin-bottom: 10px;
   border-radius: 5px;
+}
+
+.show-tweet {
+  margin-top: 10px;
 }
 
 .show-tweet-title {
@@ -155,6 +173,25 @@
   background-color: #ea5550;
 }
 
+.label {
+  background-color: #8f6552;
+  font-weight: 500;
+  display: inline;
+  padding: .2em .6em .3em;
+  font-size: 85%;
+  font-weight: bold;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25em;
+}
+
+.tweet-top .label {
+  font-size: 75%;
+}
+
 @media screen and (max-width: 600px) {
   .tweet-container {
     width: 100%;
@@ -173,7 +210,7 @@
 
   .tweet-box {
     width: 250px;
-    height: 260px;
+    height: 300px;
     padding: 8px;
     margin: 10px 10px 0 0;
     border: solid 2px #d2b48c;
@@ -299,7 +336,7 @@
   @media screen and (max-width: 470px) {
   .tweet-box {
     width: 340px;
-    height: 340px;
+    height: 360px;
     margin: 10px auto 0;
   }
 
@@ -338,4 +375,3 @@
   }
 }
 
-/*# sourceMappingURL=tweets.css.map */
