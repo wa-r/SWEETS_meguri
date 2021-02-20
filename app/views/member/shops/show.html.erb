@@ -2,7 +2,7 @@
   <div class="show-shop-top">
     <span class="show-shop-name"><%= @shop.name %><p class="shop-text">&emsp;/&emsp;<%= @shop.genre.name %></p></span>
     <ul class="review-list">
-      <li><div id="star-rate-<%= @shop.id %>"></div></li>
+      <li><div id="star-average-<%= @shop.id %>"></div></li>
       <li class="review-list-item"><%= @shop.reviews.average(:rate).to_f.round(1) %>&emsp;</li>
       <li>
         <%= link_to shop_reviews_path(@shop) do %>
@@ -18,18 +18,13 @@
   </div>
   <%= render partial: 'member/shops/link_box', locals: { shop: @shop } %>
   <div class="show-main-image">
-    <%= attachment_image_tag @shop, :main_image,  class: "main-image" %>
+    <%= attachment_image_tag @shop, :main_image, class: "main-image" %>
   </div>
   <div class="show-sub-image">
     <% @shop.shop_images.each do |shop_image| %>
   　　  <%= attachment_image_tag shop_image, :image, class: "sub-image" %>
   　<% end %>
   </div>
-  <!--<div>-->
-  <!--  <img src="/attachments/d7ab6dc5b394aa9728bfe066c767e40f538dcb4b/store/787c7052ea7026c7a99baa5f546575043eb9d2854d0b7f8e0bb611c5ddbe/image" width="130" height="130">-->
-  <!--  <img src="/attachments/d7ab6dc5b394aa9728bfe066c767e40f538dcb4b/store/787c7052ea7026c7a99baa5f546575043eb9d2854d0b7f8e0bb611c5ddbe/image" width="130" height="130">-->
-  <!--  <img src="/attachments/d7ab6dc5b394aa9728bfe066c767e40f538dcb4b/store/787c7052ea7026c7a99baa5f546575043eb9d2854d0b7f8e0bb611c5ddbe/image" width="130" height="130">-->
-  <!--</div>-->
   <hr class="border-sm">
   <div class="shop-caption">
     <h5>店鋪紹介</h5>

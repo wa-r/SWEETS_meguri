@@ -3,7 +3,7 @@
   <div class="show-shop-top">
     <span class="show-shop-name"><%= @shop.name %><p class="shop-text">&emsp;/&emsp;<%= @shop.genre.name %></p></span>
     <ul class="review-list">
-      <li><div id="star-rate-<%= @shop.id %>"></div></li>
+      <li><div id="star-average-<%= @shop.id %>"></div></li>
       <li class="review-list-item"><%= @shop.reviews.average(:rate).to_f.round(1) %>&emsp;</li>
       <li>
         <%= link_to shop_reviews_path(@shop) do %>
@@ -19,19 +19,27 @@
   </div>
   <%= render partial: 'member/shops/link_box', locals: { shop: @shop } %>
   <div class="review-btn-box">
-    <%= link_to "口コミを投稿する", new_shop_review_path, class: "review-btn" %>
+    <% if member_signed_in? %>
+      <%= link_to "口コミを投稿する", new_shop_review_path, class: "review-btn" %>
+    <% end %>
   </div>
   <% unless @reviews.blank? %>
     <% @reviews.each do |review| %>
       <div class="review-box">
         <div class="review-box-top">
           <%= attachment_image_tag review.member, :profile_image, fallback: "no_image.jpeg", size: '30x30', class: "profile-image" %>
-          <%= link_to review.member.name, member_path(review.member) %>&nbsp;
+          <% if member_signed_in? %>
+        　   <%= link_to review.member.name, member_path(review.member) %>&nbsp;
+        　<% else %>
+        　  <span class="review-name"><%= review.member.name %></span>
+        　<% end %>
           <span class="review-text">さんの口コミ</span>
           <div class="review-box-right">
-            <% if review.member_id == current_member.id %>
-              <%= link_to "編集", edit_shop_review_path(review, shop_id: review.shop_id), class: "review-edit-btn" %>
-              <%= link_to "削除", shop_review_path(review, shop_id: review.shop_id), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "review-destroy-btn" %>
+            <% if member_signed_in? %>
+              <% if review.member_id == current_member.id %>
+                <%= link_to "編集", edit_shop_review_path(review, shop_id: review.shop_id), class: "review-edit-btn" %>
+                <%= link_to "削除", shop_review_path(review, shop_id: review.shop_id), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "review-destroy-btn" %>
+              <% end %>
             <% end %>
           </div>
         </div>

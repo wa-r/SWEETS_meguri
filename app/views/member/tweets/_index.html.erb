@@ -8,6 +8,9 @@
         <% end %>
       </div>
       <div class="tweet-top">
+        <% tweet.tags.each do |tag| %>
+          <span class="label"><%= tag.name %></span>
+        <% end %><br>
         <%= tweet.title %>
       </div>
       <div class="tweet-bottom">
@@ -29,7 +32,7 @@
     </div>
     <% end %>
     <div class="paginate-box">
-      <%= paginate tweets %>
+    <%= paginate tweets %>
     </div>
   </div>
 </div>

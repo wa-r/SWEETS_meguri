@@ -16,20 +16,6 @@
 //= require turbolinks
 //= require_tree .
 
-
-//会員の退会時のモーダルウィンドウ
-/*global*/
-// $('.open').click(function(){
-//     $('.modal').fadeIn();
-//     $('.overlay').fadeIn();
-// });
-// /*global $*/
-// $('.close, .overlay').click(function(){
-//     $('.modal').fadeOut();
-//     $('.overlay').fadeOut();
-// });
-
-
 /*global $*/
 $('.open').click(function(){
     $('.modal').fadeIn();
@@ -47,3 +33,4 @@ $(document).on('turbolinks:load', function() {
   });
    $('#sp-menu').toggleClass;
 });
+

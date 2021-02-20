@@ -20,7 +20,6 @@
 }
 
 .contact-box {
-  height: 100%;
   width: 600px;
   padding-top: 80px;
 }
@@ -75,57 +74,120 @@
   color: #fff;
 }
 
-// モバイル版対応
-@media screen and (max-width: 600px) {
-  //new、thanks画面
-  .contact-bg-image {
-    width: 600px;
-    background-size: cover;
-    background-position: top 0 left 0;
-    // background-size: cover;
-    // background-position: bottom 30px right 50px;
+  // モバイル版対応
+  @media screen and (max-width: 600px) {
+    //new、thanks画面
+    .contact-bg-image {
+      width: 600px;
+      background-size: cover;
+      background-position: top 0 left 0;
+    }
+
+    .contact-image-cover {
+      width: 600px;
+    }
+
+    .contact-container {
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .contact-box {
+      height: 100%;
+      width: 600px;
+      padding-top: 80px;
+    }
+
+    .contact-heading {
+      font-size: 23px;
+      font-weight: bold;
+    }
+
+    .contact-label{
+      font-size: 15px;
+    }
+
+    .contact-form {
+      padding: 3px;
+      width: 100%;
+      border-radius: 3px;
+      border-color: #fff;
+    }
+
+    .contact-btn {
+      width: 150px;
+      height: 30px;
+      margin: 20px 0 0 125px;
+      border-radius: 3px;
+      border-color: #fff;
+      background-color: #fff;
+    }
+
+    //thanks画面
+    .thanks-box {
+      right: 60px;
+      background-color: rgba(148, 108, 69, 0.5);
+    }
+
+    .thanks-text {
+      font-size: 14px;
+    }
   }
 
-  .contact-image-cover {
-    width: 600px;
-  }
+  // モバイル版対応(スマホ)
+  @media screen and (max-width: 470px) {
+    //new、thanks画面
+    .contact-bg-image {
+      width: 100%;
+    }
 
-  .contact-container {
-    width: 100%;
-    margin: 0 auto;
-  }
+    .contact-image-cover {
+      width: 100%;
+    }
 
-  .contact-box {
-    height: 100%;
-    width: 600px;
-    padding-top: 80px;
-  }
+    .contact-container {
+      margin: 0 auto;
+    }
 
-  .contact-heading {
-    font-size: 25px;
-    color: #fff;
-  }
+    .contact-box {
+      width: 100%;
+      padding-top: 34px;
+    }
 
-  .contact-label{
-    font-size: 15px;
-  }
+    .contact-heading {
+      font-size: 23px;
+    }
 
-  .contact-btn {
-    width: 150px;
-    height: 30px;
-    margin: 20px 0 0 125px;
-    border-radius: 3px;
-    border-color: #fff;
-    background-color: #fff;
-  }
+    .contact-label{
+      font-size: 13px;
+    }
 
-  //thanks画面
-  .thanks-box {
-    right: 60px;
-    background-color: rgba(148, 108, 69, 0.5);
+    .contact-form {
+      width: 100%;
+    }
+
+    .contact-btn {
+      width: 100px;
+      height: 25px;
+      margin: 0 auto;
+    }
+
+    //thanks画面
+    .contact-image-cover {
+      position: relative;
+    }
+
+    .thanks-box {
+      position: absolute;
+      top: 80px;
+      right: 0;
+      padding: 20px 40px;
+      background-color: rgba(148, 108, 69, 0.5);
+    }
+
+    .thanks-text {
+      font-size: 13px;
+      line-height: 2;
+      color: #fff;
+    }
   }
-  
-  .thanks-text {
-    font-size: 14px;
-  }
-}

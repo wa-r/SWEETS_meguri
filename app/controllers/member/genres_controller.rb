@@ -1,5 +1,4 @@
 class Member::GenresController < ApplicationController
-
   def cake
     @cakes_shops = Shop.where(genre_id: 1).page(params[:page]).per(10)
   end
@@ -23,5 +22,4 @@ class Member::GenresController < ApplicationController
   def shaved_ice
     @shaved_ice_shops = Shop.where(genre_id: 6).page(params[:page]).per(10)
   end
-
 end

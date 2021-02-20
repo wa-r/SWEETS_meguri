@@ -2,11 +2,10 @@
 
 require 'rails_helper'
 
-
 describe 'ログイン後のテスト' do
-  let(:member){ create(:member) }
-    # 省略する前のコード@tweet = FactoryBot.create(:tweet)
-  let!(:tweet){ FactoryBot.create(:tweet, member_id: member.id) }
+  let(:member) { create(:member) }
+  # 省略する前のコード@tweet = FactoryBot.create(:tweet)
+  let!(:tweet) { FactoryBot.create(:tweet, member_id: member.id) }
 
   before do
     visit new_member_session_path
@@ -43,6 +42,7 @@ describe 'ログイン後のテスト' do
     before do
       visit new_tweet_path
     end
+
     context '表示の確認' do
       it 'URLが正しい' do
         expect(current_path).to eq new_tweet_path
@@ -76,6 +76,7 @@ describe 'ログイン後のテスト' do
     before do
       visit tweets_path
     end
+
     context '表示の確認' do
       it '投稿されたものが表示されているか' do
         expect(page).to have_content tweet.title
@@ -87,6 +88,7 @@ describe 'ログイン後のテスト' do
     before do
       visit tweet_path(tweet)
     end
+
     context '表示の確認' do
       it 'URLが正しい' do
         expect(current_path).to eq tweet_path(tweet)
@@ -107,7 +109,7 @@ describe 'ログイン後のテスト' do
 
     context '削除のテスト' do
       it 'tweetの削除' do
-        expect{ tweet.destroy }.to change{ Tweet.count }.by(-1)
+        expect { tweet.destroy }.to change(Tweet, :count).by(-1)
       end
     end
   end
@@ -116,6 +118,7 @@ describe 'ログイン後のテスト' do
     before do
       visit member_path(member)
     end
+
     context '表示内容の確認' do
       it 'URLが正しい' do
         expect(current_path).to eq member_path(member)
@@ -172,7 +175,7 @@ describe 'ログイン後のテスト' do
         expect(page).to have_button '変更'
       end
     end
-    
+
     context '編集成功のテスト' do
       before do
         @member_old_name = member.name
@@ -183,7 +186,7 @@ describe 'ログイン後のテスト' do
         fill_in 'member[introduction]', with: Faker::Lorem.characters(number: 20)
         click_button '変更'
       end
-      
+
       it 'nameが正しく更新される' do
         expect(member.reload.name).not_to eq @member_old_name
       end
@@ -199,7 +202,7 @@ describe 'ログイン後のテスト' do
       end
     end
   end
-  
+
   # ボタン（要素が２つあるとのエラー）
   # context 'ログアウト機能のテスト' do
   #   it 'ログアウトボタンが存在する' do

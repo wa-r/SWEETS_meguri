@@ -241,19 +241,27 @@
 
 .fa-crown {
   font-size: 18px;
-} 
+}
 
 .ranking-number {
   font-size: 18px;
 }
 
 // モバイル版対応
+@media screen and (max-width: 1000px) {
+  .sub-image {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+// モバイル版対応
 @media screen and (max-width: 600px) {
   // index画面
   .shop-container {
-  width: 95%;
-  margin: 0 auto;
-  padding: 30px 20px;
+    width: 95%;
+    margin: 0 auto;
+    padding: 30px 20px;
   }
 
   .shop-box {
@@ -328,11 +336,11 @@
     width: 100%;
   }
 
- .show-shop-container  > .shop-caption, .shop-info, .map-area, .border-sm, .show-sub-image {
+  .show-shop-container > .shop-caption, .shop-info, .map-area, .border-sm, .show-sub-image {
     width: 100%;
   }
 
- .main-image {
+  .main-image {
     width: 100%;
     height: 100%;
   }
@@ -348,7 +356,32 @@
   }
 
   #map {
-    width: 486px;
+    width: 100%;
+    height: 300px;
+  }
+}
+
+// モバイル版対応(スマホ)
+@media screen and (max-width: 470px) {
+  // index, ranking画面
+  .shop-container {
+    width: 95%;
+    margin: 0 auto;
+    padding: 20px 10px;
+  }
+
+  .shop-caption {
+    font-size: 12px;
+    color: #595960;
+  }
+
+  // show画面
+  .sub-image:last-child {
+    display: none;
+  }
+
+  #map {
+    width: 100%;
     height: 280px;
   }
 }

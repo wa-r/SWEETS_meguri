@@ -8,6 +8,7 @@ RSpec.describe 'Genreモデルのテスト', type: :model do
       expect(FactoryBot.build(:genre)).to be_valid
     end
   end
+
   context 'バリデーションチェック' do
     it 'nameカラムが空欄の場合にバリデーションチェックにより、エラーメッセージが返ってきているか' do
       genre = FactoryBot.build(:genre, name: "")

@@ -2,20 +2,19 @@
   <div class="bg-image-cover">
     <div class="sign-in-container">
       <div class="box">
+        <%= render "members/shared/error_messages", resource: resource %>
         <h1 class="login-heading">新規登録</h1>
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= render "members/shared/error_messages", resource: resource %>
-        
         　<div class="name-field">
             <%= f.label :name, "お名前" %><br />
             <%= f.text_field :name, autofocus: true, class: "login-form" %>
           </div>
-          
+
           <div class="email-field">
             <%= f.label :email, "メールアドレス" %><br />
             <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "login-form" %>
           </div>
-          
+
           <div class="password-field">
             <%= f.label :password, "パスワード" %>
             <% if @minimum_password_length %>
@@ -23,19 +22,19 @@
             <% end %><br />
             <%= f.password_field :password, autocomplete: "new-password", class: "login-form" %>
           </div>
-        
+
           <div class="password-field">
             <%= f.label :password_confirmation, "パスワード確認用" %><br />
             <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "login-form" %>
           </div>
-        
+
           <div class="login-box">
             <%= f.submit "新規登録する", class: "login-btn" %>
           </div>
         <% end %>
-        
+
         <%= render "members/shared/links" %>
-      </div> 
+      </div>
     </div>
   </div>
 </div>

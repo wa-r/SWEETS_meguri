@@ -1,12 +1,10 @@
 class Member::RelationshipsController < ApplicationController
-
   def create
     follow = current_member.active_relationships.new(follower_id: params[:member_id])
     follow.save
     @member = Member.find(params[:member_id])
     @member.create_notification_follow!(current_member)
     redirect_to request.referer
-
   end
 
   def destroy
@@ -14,5 +12,4 @@ class Member::RelationshipsController < ApplicationController
     follow.destroy
     redirect_to request.referer
   end
-
 end

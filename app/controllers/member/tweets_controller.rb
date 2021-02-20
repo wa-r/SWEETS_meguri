@@ -1,5 +1,4 @@
 class Member::TweetsController < ApplicationController
-
   def index
     @tweets = Tweet.all.page(params[:page]).per(12).order(created_at: "DESC")
   end
@@ -18,6 +17,10 @@ class Member::TweetsController < ApplicationController
     @tweet = Tweet.new(tweet_params)
     @tweet.member_id = current_member.id
     if @tweet.save
+      tags = Vision.get_image_data(@tweet.image)
+      tags.each do |tag|
+        @tweet.tags.create(name: tag)
+      end
       redirect_to member_path(current_member), notice: "つぶやきを投稿しました"
     else
       flash.now[:alert] = "つぶやき投稿失敗しました"
@@ -25,20 +28,11 @@ class Member::TweetsController < ApplicationController
     end
   end
 
-  # def edit
-  #   @tweet = Tweet.find(params[:id])
-  # end
-
-  # def update
-  #   @tweet = Tweet.find(params[:id])
-  #   @tweet.update(tweet_params)
-  #   redirect_to tweets_path
-  # end
-
   def destroy
     @tweet = Tweet.find(params[:id])
-    @tweet.destroy
-    redirect_to tweet_path(@tweet)
+    @tweet.member_id = current_member.id
+    @tweet.destroy!
+    redirect_to member_path(current_member)
   end
 
   private
@@ -46,5 +40,4 @@ class Member::TweetsController < ApplicationController
   def tweet_params
     params.require(:tweet).permit(:title, :content, :image)
   end
-
 end

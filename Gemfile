@@ -68,7 +68,6 @@ gem 'devise'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 gem 'kaminari'
-gem 'byebug'
 gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'
 gem 'font-awesome-sass', '~> 5.13'
@@ -77,6 +76,8 @@ gem 'geocoder'
 gem 'ransack'
 gem 'dotenv-rails'
 gem 'rails-i18n'
+gem 'rubocop-airbnb'
+gem 'mini_racer'
 group :production do
   gem 'mysql2'
 end

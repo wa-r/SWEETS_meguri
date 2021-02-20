@@ -20,8 +20,10 @@
         </div>
       </div>
     <% end %>
+    <%= paginate members %>
   <% else %>
-    <p class="no-content">まだお気に入りはありません</p>
+    
+    <p class="no-content">まだ登録はありません</p>
+    
   <% end %>
-  <%= paginate members %>
 </div>
