@@ -21,7 +21,7 @@ class Members::SessionsController < Devise::SessionsController
   def new_guest
     member = Member.guest
     sign_in member
-    redirect_to root_path, notice: "ゲストユーザーとして、ログインに成功しました"
+    redirect_to root_path, notice: "ログインに成功しました"
   end
 
   # 会員の論理削除のための記述。退会後は、同じアカウントでは利用できない。
