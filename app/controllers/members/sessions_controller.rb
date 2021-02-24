@@ -2,7 +2,7 @@
 
 class Members::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
-  before_action :reject_user, only: [:create]
+  before_action :reject_member, only: [:create]
   # GET /resource/sign_in
   # def new
   #   super
@@ -24,20 +24,17 @@ class Members::SessionsController < Devise::SessionsController
     redirect_to root_path, notice: "ログインに成功しました"
   end
 
+  protected
+
   # 会員の論理削除のための記述。退会後は、同じアカウントでは利用できない。
-  def reject_user
+  def reject_member
     @member = Member.find_by(name: params[:memuber][:name])
     if @member
-      if @member.deleted_password?(params[:member][:password]) && (@member.is_deleted == true)
-        flash[:notice] = "退会済みです。再度ご登録をしてご利用ください。"
-        redirect_to new_member_registration
-      else
-        flash[:notice] = "項目を入力してください"
+      if @member.deleted_password?(params[:member][:password]) && (@member.is_deleted == false)
+        redirect_to new_member_session_path
       end
     end
   end
-
-  # protected
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params
