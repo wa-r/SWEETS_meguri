@@ -18,7 +18,11 @@ class Member::MembersController < ApplicationController
 
   def update
     @member = Member.find(params[:id])
-    if @member.update(member_params)
+    # ゲストユーザーの変更を制限するため
+    if @member.email == 'guest@example.com'
+      redirect_to member_path(@member), alert: 'ゲストユーザーは編集できません'
+    # 通常ユーザーの編集内容を保存
+    elsif @member.update(member_params)
       redirect_to member_path(@member), notice: "更新に成功しました"
     else
       flash.now[:alert] = "更新に失敗しました"
@@ -28,9 +32,9 @@ class Member::MembersController < ApplicationController
 
   def withdrawal
     @member = Member.find(params[:id])
-    # ゲストユーザは削除できないように設定
-    if @member.email == 'guestt@example.com'
-      redirect_to root_path, alert: "ゲストユーザーは削除出来ません"
+    # ゲストユーザの削除を制限するため
+    if @member.email == 'guest@example.com'
+      redirect_to member_path(@member), alert: "ゲストユーザーは削除出来ません"
     else
       # is_deletedカラムをtrueに変更することにより削除フラグを立てる
       @member.update(is_deleted: true)
