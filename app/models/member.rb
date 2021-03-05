@@ -30,7 +30,9 @@ class Member < ApplicationRecord
 
   # ゲストユーザー情報を予め作る手間と、アカウントが削除されて動作しなくなるリスクを防いでいる
   def self.guest
-    find_or_create_by!(name: "ゲスト", email: "guestt@example.com") do |member|
+    find_or_create_by!(
+      name: "ゲスト", email: "guest@example.com", introduction: "よろしくお願いします！"
+      ) do |member|
       member.password = SecureRandom.urlsafe_base64
     end
   end

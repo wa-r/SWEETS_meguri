@@ -10,6 +10,7 @@
       <p><%= f.text_field :name, class: "edit-profile-form" %></p>
       <%= f.label :"紹介文", class: "contacts-form" %><br>
       <%= f.text_area :introduction %><br>
+      <%= f.hidden_field :email, value: @member.email %>
       <%= f.submit '変更', class: "edit-profile-btn" %>
     <% end %>
     <span class="next-withdrawal">
